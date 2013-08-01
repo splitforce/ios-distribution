@@ -190,6 +190,8 @@ In general - as long as the user has a functioning internet connection the first
  This method is functionally identical to experimentNamed:applyVariationBlock:applyDefaultBlock - however
  the semantics of the latter are clearer, so this method has been deprecated in favour of the latter method.
 
+ @deprecated use method experimentNamed:applyVariationBlock:applyDefaultBlock instead
+
  @param experimentName The name of an experiment defined on the Splitforce Web Server.
  @param applyVariationBlock An SFExperimentVariationBlock which will be called when there is valid data for this experiement
  @param errorBlock An SFErrorBlock which will be called if there is no valid data for this experiement
