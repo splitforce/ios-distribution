@@ -200,7 +200,7 @@ The SFVariation object provided to the applyVariationBlock will contain the raw 
 in the variationData property.  The SFVariation object shall be used when goal conditions
 are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
 is provided as a convenience an can be used in conjunction with - [SFManager variationForObject:] to
-retrieve the correct SFVariation object at a later point.</Abstract>
+retrieve the correct SFVariation object at a later point. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; use method experimentNamed:applyVariationBlock:applyDefaultBlock instead&lt;/span&gt;)</Abstract>
 			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
 			<Declaration>- (void)experimentNamed:(NSString *)experimentName applyVariationBlock:(SFExperimentVariationBlock)applyVariationBlock errorBlock:(SFErrorBlock)errorBlock</Declaration>
