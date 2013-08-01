@@ -79,6 +79,8 @@ Get the name of the experiment that created this variation.
  To track a counted goal use the countedResultNamed:count: method.  This is useful
  for counting the number of actions that happen as a result of a particular variation.
  
+ @deprecated use method quantifiedResultNamed:quantity instead
+ 
  @param name The name of the goal to track in the Splitforce results browser.
  @param count The number to set for this goal in the Splitforce results browser.
  */

@@ -184,7 +184,7 @@ Your code is repsonsible for making sure the time interval is meaningful for tra
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/countedResultNamed:count:</TokenIdentifier>
 			<Abstract type="html">To track a counted goal use the countedResultNamed:count: method.  This is useful
-for counting the number of actions that happen as a result of a particular variation.</Abstract>
+for counting the number of actions that happen as a result of a particular variation. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; use method quantifiedResultNamed:quantity instead&lt;/span&gt;)</Abstract>
 			<DeclaredIn>SFVariation.h</DeclaredIn>			
 			
 			<Declaration>- (void)countedResultNamed:(NSString *)name count:(NSUInteger)count</Declaration>
