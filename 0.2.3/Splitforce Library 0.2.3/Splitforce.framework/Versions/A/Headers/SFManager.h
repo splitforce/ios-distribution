@@ -40,37 +40,6 @@ typedef void(^SFErrorBlock)(NSError *error);
  */
 @property (nonatomic) NSTimeInterval updateFrequency;
 
-/*!
- Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
- */
-@property (nonatomic) BOOL debugMode;
-__attribute__((deprecated("set Class Parameters before instantiating the SFManager instead")));
-
-
-/*!
- By default, users are grouped into a cohort which will always see the same variation for an experiment.
- Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
- debugging your variations and ensuring all of your codepaths are tested.
- */
-@property (nonatomic) BOOL transientVariations;
-__attribute__((deprecated("set Class Parameters before instantiating the SFManager instead")));
-
-
-/*!
- By default, if an experiment is applied when there is no splitforce data available, then the error block
- is called, and users will see an 'unvaried' experiment - a.k.a the default implementation.  In future runs
- this will be replaced with the varied data once it is available.  Alternatively to ensure users always get
- the same implementation, se persistFailedExperiments to YES and users will continue to see the default
- implementation.  This only applies to the offline failures, experiments that fail due to the experiment being 
- undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.
- 
- Note that this parameter is subordinate to transientVariations.  If transientVariations is set then the user will
- always see either new data if available, or default data if the connection is offline.
- */
-@property (nonatomic) BOOL persistFailedExperiments;
-__attribute__((deprecated("set Class Parameters before instantiating the SFManager instead")));
-
-
 /**---------------------------------------------------------------------------------------
  * @name Access to the SFManager object
  *  ---------------------------------------------------------------------------------------
@@ -228,8 +197,7 @@ In general - as long as the user has a functioning internet connection the first
  */
 - (void)experimentNamed:(NSString *)experimentName
     applyVariationBlock:(SFExperimentVariationBlock)applyVariationBlock
-             errorBlock:(SFErrorBlock)errorBlock
-__attribute__((deprecated("use method experimentNamed:applyVariationBlock:applyDefaultBlock instead")));
+             errorBlock:(SFErrorBlock)errorBlock __attribute__((deprecated("use method experimentNamed:applyVariationBlock:applyDefaultBlock instead")));
 
 /*!
  Get the data for an experiement and execute the variationBlock on the selected variation.
@@ -265,5 +233,45 @@ __attribute__((deprecated("use method experimentNamed:applyVariationBlock:applyD
 
  */
 - (SFVariation *)variationForObject:(id)object;
+
+/**---------------------------------------------------------------------------------------
+ * @name Deprecated Properties in 0.2.3
+ *  ---------------------------------------------------------------------------------------
+ */
+
+/*!
+ Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
+
+ @deprecated set Class Parameters before instantiating the SFManager instead of these properties
+ */
+
+@property (nonatomic) BOOL debugMode  __attribute__((deprecated("use class properties prior to instantiation instead")));
+
+
+/*!
+ By default, users are grouped into a cohort which will always see the same variation for an experiment.
+ Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
+ debugging your variations and ensuring all of your codepaths are tested.
+
+ @deprecated set Class Parameters before instantiating the SFManager instead of these properties
+ */
+@property (nonatomic) BOOL transientVariations __attribute__((deprecated("use class properties prior to instantiation instead")));
+
+
+/*!
+ By default, if an experiment is applied when there is no splitforce data available, then the error block
+ is called, and users will see an 'unvaried' experiment - a.k.a the default implementation.  In future runs
+ this will be replaced with the varied data once it is available.  Alternatively to ensure users always get
+ the same implementation, se persistFailedExperiments to YES and users will continue to see the default
+ implementation.  This only applies to the offline failures, experiments that fail due to the experiment being
+ undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.
+
+ Note that this parameter is subordinate to transientVariations.  If transientVariations is set then the user will
+ always see either new data if available, or default data if the connection is offline.
+ 
+ @deprecated set Class Parameters before instantiating the SFManager instead of these properties
+ */
+@property (nonatomic) BOOL persistFailedExperiments __attribute__((deprecated("use class properties prior to instantiation instead")));
+
 
 @end
