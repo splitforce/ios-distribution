@@ -1,0 +1,902 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>SFVariation Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 858)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Splitforce </a></h1>
+				<a id="developerHome" href="../index.html">Splitforce</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">SFVariation Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/experimentName">&nbsp;&nbsp;&nbsp;&nbsp;experimentName</option>
+	
+	<option value="//api/name/name">&nbsp;&nbsp;&nbsp;&nbsp;name</option>
+	
+	<option value="//api/name/variationData">&nbsp;&nbsp;&nbsp;&nbsp;variationData</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/bindVariationToObject:">&nbsp;&nbsp;&nbsp;&nbsp;- bindVariationToObject:</option>
+	
+	<option value="//api/name/countedResultNamed:count:">&nbsp;&nbsp;&nbsp;&nbsp;- countedResultNamed:count:</option>
+	
+	<option value="//api/name/goalResultNamed:">&nbsp;&nbsp;&nbsp;&nbsp;- goalResultNamed:</option>
+	
+	<option value="//api/name/quantifiedResultNamed:quantity:">&nbsp;&nbsp;&nbsp;&nbsp;- quantifiedResultNamed:quantity:</option>
+	
+	<option value="//api/name/timedResultNamed:">&nbsp;&nbsp;&nbsp;&nbsp;- timedResultNamed:</option>
+	
+	<option value="//api/name/timedResultNamed:withTime:">&nbsp;&nbsp;&nbsp;&nbsp;- timedResultNamed:withTime:</option>
+	
+	<option value="//api/name/variationEnded">&nbsp;&nbsp;&nbsp;&nbsp;- variationEnded</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Getting the Variation Data">Getting the Variation Data</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Experiment Name">Experiment Name</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Variation Name">Variation Name</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Recording Goals">Recording Goals</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Retrieving the SFVariation for goal tracking later in the workflow">Retrieving the SFVariation for goal tracking later in the workflow</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/experimentName">experimentName</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/name">name</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/variationData">variationData</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bindVariationToObject:">bindVariationToObject:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/countedResultNamed:count:">countedResultNamed:count:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/goalResultNamed:">goalResultNamed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/quantifiedResultNamed:quantity:">quantifiedResultNamed:quantity:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/timedResultNamed:">timedResultNamed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/timedResultNamed:withTime:">timedResultNamed:withTime:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/variationEnded">variationEnded</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="SFVariation Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">SFVariation Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">SFVariation.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Splitforce iOS Variation class. Provides variation data and interface<br/>
+to report on goals caused by this variation.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="Getting the Variation Data" name="task_Getting the Variation Data"></a>
+						<h3 class="subsubtitle task-title">Getting the Variation Data</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/variationData">&nbsp;&nbsp;variationData</a></code>
+		<span class="tooltip"><p>The variationData property contains a dictionary of configuration information<br/>
+which are to be used to configure the application.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Experiment Name" name="task_Experiment Name"></a>
+						<h3 class="subsubtitle task-title">Experiment Name</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/experimentName">&nbsp;&nbsp;experimentName</a></code>
+		<span class="tooltip"><p>Get the <a href="#//api/name/name">name</a> of the experiment that created this variation.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Variation Name" name="task_Variation Name"></a>
+						<h3 class="subsubtitle task-title">Variation Name</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
+		<span class="tooltip"><p>Get the name of the variation that was set on Splitforce.com.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Recording Goals" name="task_Recording Goals"></a>
+						<h3 class="subsubtitle task-title">Recording Goals</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/goalResultNamed:">&ndash;&nbsp;goalResultNamed:</a></code>
+		<span class="tooltip"><p>When a discrete named goal has been met, call this method on the SFVariation object<br/>
+to record that goal in the backend.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/timedResultNamed:">&ndash;&nbsp;timedResultNamed:</a></code>
+		<span class="tooltip"><p>To track the length of time since the variation was applied, use the timedResultNamed:<br/>
+method.  This automatically tracks the length of time (in seconds) since the variation<br/>
+was applied.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/timedResultNamed:withTime:">&ndash;&nbsp;timedResultNamed:withTime:</a></code>
+		<span class="tooltip"><p>To track arbitrary lengths of time, use the timedResultNamed:withTime: method.<br/>
+Your code is repsonsible for making sure the time interval is meaningful for tracking.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/countedResultNamed:count:">&ndash;&nbsp;countedResultNamed:count:</a></code>
+		<span class="tooltip"><p>To track a counted goal use the countedResultNamed:count: method.  This is useful<br/>
+for counting the number of actions that happen as a result of a particular variation.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/quantifiedResultNamed:quantity:">&ndash;&nbsp;quantifiedResultNamed:quantity:</a></code>
+		<span class="tooltip"><p>To track a quantified goal use the <a href="#//api/name/countedResultNamed:count:">countedResultNamed:count:</a> method.  This is useful<br/>
+for floating point quantities that happen as a result of a particular variation.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/variationEnded">&ndash;&nbsp;variationEnded</a></code>
+		<span class="tooltip"><p>When no more variation goals are required, call variationEnded.  This will cause the variation<br/>
+to dissociate itself from its bound object and in most cases will cause the Variation to be<br/>
+dealloced.  If you retain the variation and continue to send goals, the behaviour is undefined.<br/>
+In later releases this will likely lead to an Exception being raised.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Retrieving the SFVariation for goal tracking later in the workflow" name="task_Retrieving the SFVariation for goal tracking later in the workflow"></a>
+						<h3 class="subsubtitle task-title">Retrieving the SFVariation for goal tracking later in the workflow</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/bindVariationToObject:">&ndash;&nbsp;bindVariationToObject:</a></code>
+		<span class="tooltip"><p>In order to easily retrieve the SFVariation that led to a particular goal, you can bind the object<br/>
+to an arbitrary object.  The arbitrary object will retain the SFVariation object and thus the SFVariation<br/>
+may be dealloced when the arbitrary object is dealloced.  The arbitrary object&rsquo;s retain count is unaffected<br/>
+by this call.<br/>
+Typically this would be used to bind the SFVariation to the object which has been varied by the data.<br/>
+So for example, the variation could be bound to a UIButton.  When the UIButton is the pressed by the user<br/>
+the button&rsquo;s target can easily submit the goal with:<br/>
+        [[SFManager.currentManager variationForObject:sender] goalResultNamed:@&ldquo;buttonPressed&rdquo;]</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/experimentName" title="experimentName"></a>
+	<h3 class="subsubtitle method-title">experimentName</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Get the <a href="#//api/name/name">name</a> of the experiment that created this variation.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSString *experimentName</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFVariation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/name" title="name"></a>
+	<h3 class="subsubtitle method-title">name</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Get the name of the variation that was set on Splitforce.com.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSString *name</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFVariation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/variationData" title="variationData"></a>
+	<h3 class="subsubtitle method-title">variationData</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The variationData property contains a dictionary of configuration information<br/>
+which are to be used to configure the application.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSDictionary *variationData</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFVariation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/bindVariationToObject:" title="bindVariationToObject:"></a>
+	<h3 class="subsubtitle method-title">bindVariationToObject:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>In order to easily retrieve the SFVariation that led to a particular goal, you can bind the object<br/>
+to an arbitrary object.  The arbitrary object will retain the SFVariation object and thus the SFVariation<br/>
+may be dealloced when the arbitrary object is dealloced.  The arbitrary object&rsquo;s retain count is unaffected<br/>
+by this call.<br/>
+Typically this would be used to bind the SFVariation to the object which has been varied by the data.<br/>
+So for example, the variation could be bound to a UIButton.  When the UIButton is the pressed by the user<br/>
+the button&rsquo;s target can easily submit the goal with:<br/>
+        [[SFManager.currentManager variationForObject:sender] goalResultNamed:@&ldquo;buttonPressed&rdquo;]</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)bindVariationToObject:(id)<em>object</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>object</em></dt>
+			<dd><p>The object to bind this variation to.  Typically this should be the object which was configured<br/>
+by this Variation, or an object which will be called at the goal completion.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>You can only bind an SFVariation to a single object.  Multiple calls will replace the previous binding.<br/>
+You can only bind a single SFVariation to a particular object.  Muliple calls will replace the previous binding and you may<br/>
+lose the ability to track goal completions for that variation if you bind another variation to the same object.  Therefore<br/>
+binding to the UIApplicationDelegate is likely to be a bad idea.  Binding to the closest container or controller object that<br/>
+received the benefit of the variation is likely to be the best way to go.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFVariation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/countedResultNamed:count:" title="countedResultNamed:count:"></a>
+	<h3 class="subsubtitle method-title">countedResultNamed:count:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>To track a counted goal use the countedResultNamed:count: method.  This is useful<br/>
+for counting the number of actions that happen as a result of a particular variation.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)countedResultNamed:(NSString *)<em>name</em> count:(NSUInteger)<em>count</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>name</em></dt>
+			<dd><p>The <a href="#//api/name/name">name</a> of the goal to track in the Splitforce results browser.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>count</em></dt>
+			<dd><p>The number to set for this goal in the Splitforce results browser.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFVariation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/goalResultNamed:" title="goalResultNamed:"></a>
+	<h3 class="subsubtitle method-title">goalResultNamed:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>When a discrete named goal has been met, call this method on the SFVariation object<br/>
+to record that goal in the backend.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)goalResultNamed:(NSString *)<em>name</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>name</em></dt>
+			<dd><p>The <a href="#//api/name/name">name</a> of the goal to track in the Splitforce results browser.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFVariation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/quantifiedResultNamed:quantity:" title="quantifiedResultNamed:quantity:"></a>
+	<h3 class="subsubtitle method-title">quantifiedResultNamed:quantity:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>To track a quantified goal use the <a href="#//api/name/countedResultNamed:count:">countedResultNamed:count:</a> method.  This is useful<br/>
+for floating point quantities that happen as a result of a particular variation.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)quantifiedResultNamed:(NSString *)<em>name</em> quantity:(double)<em>quantity</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>name</em></dt>
+			<dd><p>The <a href="#//api/name/name">name</a> of the goal to track in the Splitforce results browser.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>quantity</em></dt>
+			<dd><p>The number to set for this goal in the Splitforce results browser.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFVariation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/timedResultNamed:" title="timedResultNamed:"></a>
+	<h3 class="subsubtitle method-title">timedResultNamed:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>To track the length of time since the variation was applied, use the timedResultNamed:<br/>
+method.  This automatically tracks the length of time (in seconds) since the variation<br/>
+was applied.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)timedResultNamed:(NSString *)<em>name</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>name</em></dt>
+			<dd><p>The <a href="#//api/name/name">name</a> of the goal to track in the Splitforce results browser.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFVariation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/timedResultNamed:withTime:" title="timedResultNamed:withTime:"></a>
+	<h3 class="subsubtitle method-title">timedResultNamed:withTime:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>To track arbitrary lengths of time, use the timedResultNamed:withTime: method.<br/>
+Your code is repsonsible for making sure the time interval is meaningful for tracking.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)timedResultNamed:(NSString *)<em>name</em> withTime:(NSTimeInterval)<em>time</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>name</em></dt>
+			<dd><p>The <a href="#//api/name/name">name</a> of the goal to track in the Splitforce results browser.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>time</em></dt>
+			<dd><p>The time value to set for this goal in the Splitforce results browser.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFVariation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/variationEnded" title="variationEnded"></a>
+	<h3 class="subsubtitle method-title">variationEnded</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>When no more variation goals are required, call variationEnded.  This will cause the variation<br/>
+to dissociate itself from its bound object and in most cases will cause the Variation to be<br/>
+dealloced.  If you retain the variation and continue to send goals, the behaviour is undefined.<br/>
+In later releases this will likely lead to an Exception being raised.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)variationEnded</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFVariation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Splitforce. All rights reserved. (Last updated: 2013-08-01)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

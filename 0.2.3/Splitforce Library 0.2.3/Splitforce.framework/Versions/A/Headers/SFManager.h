@@ -1,0 +1,269 @@
+/*!
+ @header    SFManager.h
+ @abstract  Splitforce Manager iOS SDK Header
+ @version   1.0
+ @copyright Copyright 2013 Ikura Group Limited. All rights reserved.
+ */
+
+#import <Foundation/Foundation.h>
+#import <Splitforce/SFVariation.h>
+
+/*!
+ An Objective-C Block taking an SFVariation object as a singular parameter to apply a variation.
+ */
+typedef void(^SFExperimentVariationBlock)(SFVariation *variation);
+
+/*!
+ An Objective-C Block taking a BOOL as a singular parameter to indicate success or failure
+ */
+typedef void(^SFBooleanBlock)(BOOL success);
+
+/*!
+ An Objective-C Block taking an NSError object as a singular parameter which may provide further details on why an error has occured.
+ */
+typedef void(^SFErrorBlock)(NSError *error);
+
+/*!
+ Splitforce iOS top-level class. Provides synchronisation with Splitforce backend
+ and configuration of settings.
+ */
+@interface SFManager : NSObject
+
+/**---------------------------------------------------------------------------------------
+ * @name Settings and Configuration
+ *  ---------------------------------------------------------------------------------------
+ */
+
+
+/*!
+ The frequency of sending data to the Splitforce backend.
+ */
+@property (nonatomic) NSTimeInterval updateFrequency;
+
+/*!
+ Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
+ */
+@property (nonatomic) BOOL debugMode;
+__attribute__((deprecated("set Class Parameters before instantiating the SFManager instead")));
+
+
+/*!
+ By default, users are grouped into a cohort which will always see the same variation for an experiment.
+ Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
+ debugging your variations and ensuring all of your codepaths are tested.
+ */
+@property (nonatomic) BOOL transientVariations;
+__attribute__((deprecated("set Class Parameters before instantiating the SFManager instead")));
+
+
+/*!
+ By default, if an experiment is applied when there is no splitforce data available, then the error block
+ is called, and users will see an 'unvaried' experiment - a.k.a the default implementation.  In future runs
+ this will be replaced with the varied data once it is available.  Alternatively to ensure users always get
+ the same implementation, se persistFailedExperiments to YES and users will continue to see the default
+ implementation.  This only applies to the offline failures, experiments that fail due to the experiment being 
+ undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.
+ 
+ Note that this parameter is subordinate to transientVariations.  If transientVariations is set then the user will
+ always see either new data if available, or default data if the connection is offline.
+ */
+@property (nonatomic) BOOL persistFailedExperiments;
+__attribute__((deprecated("set Class Parameters before instantiating the SFManager instead")));
+
+
+/**---------------------------------------------------------------------------------------
+ * @name Access to the SFManager object
+ *  ---------------------------------------------------------------------------------------
+ */
+
+/*!
+ For convenience, this class exposes a current manager instance.
+ This will be set to the first manager that is instantiated in managerWithApplicationId:applicationKey:
+ or managerWithApplicationId:applicationKey:completionBlock
+ It is a programming error to retrieve this manager before the first manager has been instantiated.
+ Doing so will raise an Exception.
+ 
+ @return The current SFManager
+ */
++ (SFManager *)currentManager;
+
+/*!
+ Connect to the Splitforce backend.
+ This method will start a connection to the Splitforce backend.  The method returns immediately
+ while the connection happens in the background.  To get a callback when the manager is completely
+ ready, use the managerWithApplicationId:applicationKey:completionBlock method instead.
+ 
+ There are a number of different issues to be aware of when setting up the Splitfore connection.
+ Firstly, if you apply an experiment before the connection is established, then the experimentNamed:applyVariationBlock:errorBlock
+ method will block until the manager is ready (or has failed) - to prevent blocking the main thread, initialize the manager with the
+ managedWithApplicationId:applicationKey:completionBlock method instead.
+ 
+ Secondly, if an experiment is applied when the manager has failed to connect, this user will join the "default" cohort and see the
+ error block variation.  See the property persistFailedExperiments for details on the behaviour in this case.
+ 
+ Finally, if there is cached data, then that is used even if the connection fails to get new data.
+ 
+In general - as long as the user has a functioning internet connection the first time they run the application, then
+ there will be no issues.  You may decide that running your application without an active splitforce connection is
+ undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure
+ that the initial connection has been made before proceeding further into your aplication.
+ 
+ @param applicationId The Application Id provided by the Splitforce Web server.
+ @param applicationKey The Application Key provided by the Splitforce Web server.
+ @return An SFManager object connected to the specified applicationId.
+ */
++ (SFManager *)managerWithApplicationId:(NSString *)applicationId applicationKey:(NSString *)applicationKey;
+
+/*!
+ Asynchronously connect to the Splitforce backend.
+ This method will call the completionBlock when either the locally cached variation data
+ is ready, or an updated version has been retrieved from the backend.  In case of error (e.g. first time
+ usage with no network coverage it will call the completionBlock with NO.  Otherwise the completionBlock
+ will be called with YES.
+ 
+ There are a number of different issues to be aware of when setting up the Splitfore connection.
+ Firstly, if you apply an experiment before the connection is established, then the experimentNamed:applyVariationBlock:errorBlock
+ method will queue variation blocks until the manager is ready (or has failed) - this can lead to the user interface being updated
+ in front of the user if the data completes loading after the experiment has been applied.  Waiting for the completionBlock to be called
+ before applying experiments will resolve this issue.
+ 
+ Secondly, if an experiment is applied when the manager has failed to connect, this user will join the "default" cohort and see the
+ error block variation.  See the property persistFailedExperiments for details on the behaviour in this case.
+ 
+ Finally, if there is cached data, then that is used even if the connection fails to get new data.
+ 
+ In general - as long as the user has a functioning internet connection the first time they run the application, then
+ there will be no issues.  You may decide that running your application without an active splitforce connection is
+ undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure
+ that the initial connection has been made before proceeding further into your aplication.
+
+ @param applicationId The Application Id provided by the Splitforce Web server.
+ @param applicationKey The Application Key provided by the Splitforce Web server.
+ @param completionBlock An SFBooleanBlock which will be called when the SFManager has been connected, or failed to connect.
+
+ */
++ (void)managerWithApplicationId:(NSString *)applicationId
+                  applicationKey:(NSString *)applicationKey
+                 completionBlock:(SFBooleanBlock)completionBlock;
+
+/**---------------------------------------------------------------------------------------
+ * @name Class Parameters
+ *  ---------------------------------------------------------------------------------------
+ */
+
+/*!
+ Set the timeout for connecting to the Splitforce backend.  Note that an initial connect requires two round trips, so
+ the max time any method would block or the max time for a callback to be called may be twice this value.  Note also
+ that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
+ the value after the manager has been established will have no effect.
+ 
+ @param timeoutInterval The length of time in seconds for network timeouts
+ */
++ (void)setTimeoutInterval:(NSTimeInterval)timeoutInterval;
+
+/*!
+ Sample rate applies experiments to a small proportion of your user base.  This is useful for managing your
+ costs and keeping within your user allowance for your selected splitforce package. N.B.  This setting has
+ no effect when transientVariations is set to YES so that you can test all code paths more easily.  Note also
+ that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
+ the value after the manager has been established will have no effect.
+
+ The default value is 0.1 meaning 10% of your users will be tested.  Minimum value is 0.0, maximum
+ value is 1.0.  Setting other values will raise an exception.
+ */
++ (void)setSampleRate:(double)sampleRate;
+
+/*!
+ Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
+ */
++ (void)setDebugMode:(BOOL)debugMode;
+
+
+/*!
+ By default, users are grouped into a cohort which will always see the same variation for an experiment.
+ Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
+ debugging your variations and ensuring all of your codepaths are tested.
+ */
+
++ (void)setTransientVariations:(BOOL)transientVariations;
+
+/*!
+ By default, if an experiment is applied when there is no splitforce data available, then the default block
+ is called, and users will see the default implementation.  To ensure users always get the same implementation,
+ we persist the state that these users are in the default cohort, and therefore will not have experiments applied.
+ Set this to NO to have the variation data applied on future runs after the data is available.
+ Note that this only applies to the offline failures, experiments that fail due to the experiment being
+ undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.
+
+ Note that this parameter is subordinate to transientVariations.  If transientVariations is set then the user will
+ always see either new data if available, or default data if the connection is offline.
+ */
+
++ (void)setPersistDefaultCohort:(BOOL)persistDefaultCohort;
+
+
+/**---------------------------------------------------------------------------------------
+ * @name Running Experiments
+ *  ---------------------------------------------------------------------------------------
+ */
+
+/*!
+ Get the data for an experiement and execute the variationBlock on the selected variation.
+ The SFVariation object provided to the applyVariationBlock will contain the raw data
+ in the variationData property.  The SFVariation object shall be used when goal conditions
+ are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
+ is provided as a convenience an can be used in conjunction with - [SFManager variationForObject:] to 
+ retrieve the correct SFVariation object at a later point.
+ 
+ The error block should be used to configure default settings for your user.  The error block can be called
+ if there is no connection to the splitforce servers, and no cached content available for your users.
+ 
+ This method is functionally identical to experimentNamed:applyVariationBlock:applyDefaultBlock - however
+ the semantics of the latter are clearer, so this method has been deprecated in favour of the latter method.
+
+ @param experimentName The name of an experiment defined on the Splitforce Web Server.
+ @param applyVariationBlock An SFExperimentVariationBlock which will be called when there is valid data for this experiement
+ @param errorBlock An SFErrorBlock which will be called if there is no valid data for this experiement
+
+ */
+- (void)experimentNamed:(NSString *)experimentName
+    applyVariationBlock:(SFExperimentVariationBlock)applyVariationBlock
+             errorBlock:(SFErrorBlock)errorBlock
+__attribute__((deprecated("use method experimentNamed:applyVariationBlock:applyDefaultBlock instead")));
+
+/*!
+ Get the data for an experiement and execute the variationBlock on the selected variation.
+ The SFVariation object provided to the applyVariationBlock will contain the raw data
+ in the variationData property.  The SFVariation object shall be used when goal conditions
+ are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
+ is provided as a convenience an can be used in conjunction with - [SFManager variationForObject:] to
+ retrieve the correct SFVariation object at a later point.
+
+ The default block should be used to configure default settings for your user.  The default block can be called
+ if there is no connection to the splitforce servers, and no cached content available for your users.
+
+ @param experimentName The name of an experiment defined on the Splitforce Web Server.
+ @param variationBlock An SFExperimentVariationBlock which will be called when there is valid data for this experiement
+ @param defaultBlock An SFErrorBlock which will be called if there is no valid data for this experiement.  The NSError parameter will indicate the reason for no data.  You should configure a default version of your variation in this block.
+
+ */
+- (void)experimentNamed:(NSString *)experimentName
+    applyVariationBlock:(SFExperimentVariationBlock)variationBlock
+      applyDefaultBlock:(SFErrorBlock)defaultBlock;
+
+/**---------------------------------------------------------------------------------------
+ * @name Retrieving a variation later (for goal submission)
+ *  ---------------------------------------------------------------------------------------
+ */
+
+/*!
+ Convenience method to retrieve the correct SFVariation object at a later point, when - [SFVariation bindToObject:]
+ has been used.
+
+ @param object An object which has previously had an SFVariation bound to it using [SFVariation bindVariationToObject:] 
+ @return The SFVariation object which was bound to the object (typically it should be the SFVariation which was used to configure this object)
+
+ */
+- (SFVariation *)variationForObject:(id)object;
+
+@end

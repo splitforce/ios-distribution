@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/SFUtils.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/SFUtils</TokenIdentifier>
+			<Abstract type="html">Splitforce Utilities class. Provides convenient utilities for working with splitforce data.
+Typically these are implemented as Class methods.</Abstract>
+			<DeclaredIn>SFUtils.h</DeclaredIn>
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFUtils/colorFromHexString:</TokenIdentifier>
+			<Abstract type="html">Convert an RGB Hex String into a UIColor object</Abstract>
+			<DeclaredIn>SFUtils.h</DeclaredIn>			
+			
+			<Declaration>+ (UIColor *)colorFromHexString:(NSString *)hexString</Declaration>
+			
+			
+			<Anchor>//api/name/colorFromHexString:</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+	</File>
+</Tokens>

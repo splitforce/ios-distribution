@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/SFVariation.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/SFVariation</TokenIdentifier>
+			<Abstract type="html">Splitforce iOS Variation class. Provides variation data and interface
+to report on goals caused by this variation.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/setVariationData:</TokenIdentifier>
+			<Abstract type="html">The variationData property contains a dictionary of configuration information
+which are to be used to configure the application.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDictionary *variationData</Declaration>
+			
+			
+			<Anchor>//api/name/variationData</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/variationData</TokenIdentifier>
+			<Abstract type="html">The variationData property contains a dictionary of configuration information
+which are to be used to configure the application.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDictionary *variationData</Declaration>
+			
+			
+			<Anchor>//api/name/variationData</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SFVariation/variationData</TokenIdentifier>
+			<Abstract type="html">The variationData property contains a dictionary of configuration information
+which are to be used to configure the application.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDictionary *variationData</Declaration>
+			
+			
+			<Anchor>//api/name/variationData</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/setExperimentName:</TokenIdentifier>
+			<Abstract type="html">Get the name of the experiment that created this variation.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *experimentName</Declaration>
+			
+			
+			<Anchor>//api/name/experimentName</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/experimentName</TokenIdentifier>
+			<Abstract type="html">Get the name of the experiment that created this variation.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *experimentName</Declaration>
+			
+			
+			<Anchor>//api/name/experimentName</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SFVariation/experimentName</TokenIdentifier>
+			<Abstract type="html">Get the name of the experiment that created this variation.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *experimentName</Declaration>
+			
+			
+			<Anchor>//api/name/experimentName</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/setName:</TokenIdentifier>
+			<Abstract type="html">Get the name of the variation that was set on Splitforce.com.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/name</TokenIdentifier>
+			<Abstract type="html">Get the name of the variation that was set on Splitforce.com.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SFVariation/name</TokenIdentifier>
+			<Abstract type="html">Get the name of the variation that was set on Splitforce.com.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/goalResultNamed:</TokenIdentifier>
+			<Abstract type="html">When a discrete named goal has been met, call this method on the SFVariation object
+to record that goal in the backend.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>- (void)goalResultNamed:(NSString *)name</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>name</Name>
+					<Abstract type="html">The name of the goal to track in the Splitforce results browser.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/goalResultNamed:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/timedResultNamed:</TokenIdentifier>
+			<Abstract type="html">To track the length of time since the variation was applied, use the timedResultNamed:
+method.  This automatically tracks the length of time (in seconds) since the variation
+was applied.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>- (void)timedResultNamed:(NSString *)name</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>name</Name>
+					<Abstract type="html">The name of the goal to track in the Splitforce results browser.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/timedResultNamed:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/timedResultNamed:withTime:</TokenIdentifier>
+			<Abstract type="html">To track arbitrary lengths of time, use the timedResultNamed:withTime: method.
+Your code is repsonsible for making sure the time interval is meaningful for tracking.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>- (void)timedResultNamed:(NSString *)name withTime:(NSTimeInterval)time</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>name</Name>
+					<Abstract type="html">The name of the goal to track in the Splitforce results browser.</Abstract>
+				</Parameter><Parameter>
+					<Name>time</Name>
+					<Abstract type="html">The time value to set for this goal in the Splitforce results browser.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/timedResultNamed:withTime:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/countedResultNamed:count:</TokenIdentifier>
+			<Abstract type="html">To track a counted goal use the countedResultNamed:count: method.  This is useful
+for counting the number of actions that happen as a result of a particular variation.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>- (void)countedResultNamed:(NSString *)name count:(NSUInteger)count</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>name</Name>
+					<Abstract type="html">The name of the goal to track in the Splitforce results browser.</Abstract>
+				</Parameter><Parameter>
+					<Name>count</Name>
+					<Abstract type="html">The number to set for this goal in the Splitforce results browser.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/countedResultNamed:count:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/quantifiedResultNamed:quantity:</TokenIdentifier>
+			<Abstract type="html">To track a quantified goal use the countedResultNamed:count: method.  This is useful
+for floating point quantities that happen as a result of a particular variation.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>- (void)quantifiedResultNamed:(NSString *)name quantity:(double)quantity</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>name</Name>
+					<Abstract type="html">The name of the goal to track in the Splitforce results browser.</Abstract>
+				</Parameter><Parameter>
+					<Name>quantity</Name>
+					<Abstract type="html">The number to set for this goal in the Splitforce results browser.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/quantifiedResultNamed:quantity:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/variationEnded</TokenIdentifier>
+			<Abstract type="html">When no more variation goals are required, call variationEnded.  This will cause the variation
+to dissociate itself from its bound object and in most cases will cause the Variation to be
+dealloced.  If you retain the variation and continue to send goals, the behaviour is undefined.
+In later releases this will likely lead to an Exception being raised.</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>- (void)variationEnded</Declaration>
+			
+			
+			<Anchor>//api/name/variationEnded</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/bindVariationToObject:</TokenIdentifier>
+			<Abstract type="html">In order to easily retrieve the SFVariation that led to a particular goal, you can bind the object
+to an arbitrary object.  The arbitrary object will retain the SFVariation object and thus the SFVariation
+may be dealloced when the arbitrary object is dealloced.  The arbitrary object&apos;s retain count is unaffected
+by this call.
+Typically this would be used to bind the SFVariation to the object which has been varied by the data.
+So for example, the variation could be bound to a UIButton.  When the UIButton is the pressed by the user
+the button&apos;s target can easily submit the goal with:
+        [[SFManager.currentManager variationForObject:sender] goalResultNamed:@&quot;buttonPressed&quot;]</Abstract>
+			<DeclaredIn>SFVariation.h</DeclaredIn>			
+			
+			<Declaration>- (void)bindVariationToObject:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">The object to bind this variation to.  Typically this should be the object which was configured
+by this Variation, or an object which will be called at the goal completion.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/bindVariationToObject:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+	</File>
+</Tokens>

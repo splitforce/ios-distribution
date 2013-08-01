@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/SFManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/SFManager</TokenIdentifier>
+			<Abstract type="html">Splitforce iOS top-level class. Provides synchronisation with Splitforce backend
+and configuration of settings.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/setUpdateFrequency:</TokenIdentifier>
+			<Abstract type="html">The frequency of sending data to the Splitforce backend.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) NSTimeInterval updateFrequency</Declaration>
+			
+			
+			<Anchor>//api/name/updateFrequency</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/updateFrequency</TokenIdentifier>
+			<Abstract type="html">The frequency of sending data to the Splitforce backend.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) NSTimeInterval updateFrequency</Declaration>
+			
+			
+			<Anchor>//api/name/updateFrequency</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SFManager/updateFrequency</TokenIdentifier>
+			<Abstract type="html">The frequency of sending data to the Splitforce backend.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) NSTimeInterval updateFrequency</Declaration>
+			
+			
+			<Anchor>//api/name/updateFrequency</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/currentManager</TokenIdentifier>
+			<Abstract type="html">For convenience, this class exposes a current manager instance.
+This will be set to the first manager that is instantiated in managerWithApplicationId:applicationKey:
+or managerWithApplicationId:applicationKey:completionBlock
+It is a programming error to retrieve this manager before the first manager has been instantiated.
+Doing so will raise an Exception.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (SFManager *)currentManager</Declaration>
+			
+			<ReturnValue><Abstract type="html">The current SFManager</Abstract></ReturnValue>
+			<Anchor>//api/name/currentManager</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/managerWithApplicationId:applicationKey:</TokenIdentifier>
+			<Abstract type="html">Connect to the Splitforce backend.
+This method will start a connection to the Splitforce backend.  The method returns immediately
+while the connection happens in the background.  To get a callback when the manager is completely
+ready, use the managerWithApplicationId:applicationKey:completionBlock method instead.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (SFManager *)managerWithApplicationId:(NSString *)applicationId applicationKey:(NSString *)applicationKey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>applicationId</Name>
+					<Abstract type="html">The Application Id provided by the Splitforce Web server.</Abstract>
+				</Parameter><Parameter>
+					<Name>applicationKey</Name>
+					<Abstract type="html">The Application Key provided by the Splitforce Web server.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An SFManager object connected to the specified applicationId.</Abstract></ReturnValue>
+			<Anchor>//api/name/managerWithApplicationId:applicationKey:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/managerWithApplicationId:applicationKey:completionBlock:</TokenIdentifier>
+			<Abstract type="html">Asynchronously connect to the Splitforce backend.
+This method will call the completionBlock when either the locally cached variation data
+is ready, or an updated version has been retrieved from the backend.  In case of error (e.g. first time
+usage with no network coverage it will call the completionBlock with NO.  Otherwise the completionBlock
+will be called with YES.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)managerWithApplicationId:(NSString *)applicationId applicationKey:(NSString *)applicationKey completionBlock:(SFBooleanBlock)completionBlock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>applicationId</Name>
+					<Abstract type="html">The Application Id provided by the Splitforce Web server.</Abstract>
+				</Parameter><Parameter>
+					<Name>applicationKey</Name>
+					<Abstract type="html">The Application Key provided by the Splitforce Web server.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionBlock</Name>
+					<Abstract type="html">An SFBooleanBlock which will be called when the SFManager has been connected, or failed to connect.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/managerWithApplicationId:applicationKey:completionBlock:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setTimeoutInterval:</TokenIdentifier>
+			<Abstract type="html">Set the timeout for connecting to the Splitforce backend.  Note that an initial connect requires two round trips, so
+the max time any method would block or the max time for a callback to be called may be twice this value.  Note also
+that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
+the value after the manager has been established will have no effect.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setTimeoutInterval:(NSTimeInterval)timeoutInterval</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>timeoutInterval</Name>
+					<Abstract type="html">The length of time in seconds for network timeouts</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setTimeoutInterval:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setSampleRate:</TokenIdentifier>
+			<Abstract type="html">Sample rate applies experiments to a small proportion of your user base.  This is useful for managing your
+costs and keeping within your user allowance for your selected splitforce package. N.B.  This setting has
+no effect when transientVariations is set to YES so that you can test all code paths more easily.  Note also
+that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
+the value after the manager has been established will have no effect.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setSampleRate:(double)sampleRate</Declaration>
+			
+			
+			<Anchor>//api/name/setSampleRate:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setDebugMode:</TokenIdentifier>
+			<Abstract type="html">Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setDebugMode:(BOOL)debugMode</Declaration>
+			
+			
+			<Anchor>//api/name/setDebugMode:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setTransientVariations:</TokenIdentifier>
+			<Abstract type="html">By default, users are grouped into a cohort which will always see the same variation for an experiment.
+Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
+debugging your variations and ensuring all of your codepaths are tested.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setTransientVariations:(BOOL)transientVariations</Declaration>
+			
+			
+			<Anchor>//api/name/setTransientVariations:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setPersistDefaultCohort:</TokenIdentifier>
+			<Abstract type="html">By default, if an experiment is applied when there is no splitforce data available, then the default block
+is called, and users will see the default implementation.  To ensure users always get the same implementation,
+we persist the state that these users are in the default cohort, and therefore will not have experiments applied.
+Set this to NO to have the variation data applied on future runs after the data is available.
+Note that this only applies to the offline failures, experiments that fail due to the experiment being
+undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setPersistDefaultCohort:(BOOL)persistDefaultCohort</Declaration>
+			
+			
+			<Anchor>//api/name/setPersistDefaultCohort:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/experimentNamed:applyVariationBlock:errorBlock:</TokenIdentifier>
+			<Abstract type="html">Get the data for an experiement and execute the variationBlock on the selected variation.
+The SFVariation object provided to the applyVariationBlock will contain the raw data
+in the variationData property.  The SFVariation object shall be used when goal conditions
+are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
+is provided as a convenience an can be used in conjunction with - [SFManager variationForObject:] to
+retrieve the correct SFVariation object at a later point.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)experimentNamed:(NSString *)experimentName applyVariationBlock:(SFExperimentVariationBlock)applyVariationBlock errorBlock:(SFErrorBlock)errorBlock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>experimentName</Name>
+					<Abstract type="html">The name of an experiment defined on the Splitforce Web Server.</Abstract>
+				</Parameter><Parameter>
+					<Name>applyVariationBlock</Name>
+					<Abstract type="html">An SFExperimentVariationBlock which will be called when there is valid data for this experiement</Abstract>
+				</Parameter><Parameter>
+					<Name>errorBlock</Name>
+					<Abstract type="html">An SFErrorBlock which will be called if there is no valid data for this experiement</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/experimentNamed:applyVariationBlock:errorBlock:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/experimentNamed:applyVariationBlock:applyDefaultBlock:</TokenIdentifier>
+			<Abstract type="html">Get the data for an experiement and execute the variationBlock on the selected variation.
+The SFVariation object provided to the applyVariationBlock will contain the raw data
+in the variationData property.  The SFVariation object shall be used when goal conditions
+are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
+is provided as a convenience an can be used in conjunction with - [SFManager variationForObject:] to
+retrieve the correct SFVariation object at a later point.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)experimentNamed:(NSString *)experimentName applyVariationBlock:(SFExperimentVariationBlock)variationBlock applyDefaultBlock:(SFErrorBlock)defaultBlock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>experimentName</Name>
+					<Abstract type="html">The name of an experiment defined on the Splitforce Web Server.</Abstract>
+				</Parameter><Parameter>
+					<Name>variationBlock</Name>
+					<Abstract type="html">An SFExperimentVariationBlock which will be called when there is valid data for this experiement</Abstract>
+				</Parameter><Parameter>
+					<Name>defaultBlock</Name>
+					<Abstract type="html">An SFErrorBlock which will be called if there is no valid data for this experiement.  The NSError parameter will indicate the reason for no data.  You should configure a default version of your variation in this block.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/experimentNamed:applyVariationBlock:applyDefaultBlock:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/variationForObject:</TokenIdentifier>
+			<Abstract type="html">Convenience method to retrieve the correct SFVariation object at a later point, when - [SFVariation bindToObject:]
+has been used.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>- (SFVariation *)variationForObject:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An object which has previously had an SFVariation bound to it using [SFVariation bindVariationToObject:]</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The SFVariation object which was bound to the object (typically it should be the SFVariation which was used to configure this object)</Abstract></ReturnValue>
+			<Anchor>//api/name/variationForObject:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/setDebugMode:</TokenIdentifier>
+			<Abstract type="html">Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; set Class Parameters before instantiating the SFManager instead of these properties&lt;/span&gt;)</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL debugMode</Declaration>
+			
+			
+			<Anchor>//api/name/debugMode</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/debugMode</TokenIdentifier>
+			<Abstract type="html">Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; set Class Parameters before instantiating the SFManager instead of these properties&lt;/span&gt;)</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL debugMode</Declaration>
+			
+			
+			<Anchor>//api/name/debugMode</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SFManager/debugMode</TokenIdentifier>
+			<Abstract type="html">Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; set Class Parameters before instantiating the SFManager instead of these properties&lt;/span&gt;)</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL debugMode</Declaration>
+			
+			
+			<Anchor>//api/name/debugMode</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/setTransientVariations:</TokenIdentifier>
+			<Abstract type="html">By default, users are grouped into a cohort which will always see the same variation for an experiment.
+Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
+debugging your variations and ensuring all of your codepaths are tested. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; set Class Parameters before instantiating the SFManager instead of these properties&lt;/span&gt;)</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL transientVariations</Declaration>
+			
+			
+			<Anchor>//api/name/transientVariations</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/transientVariations</TokenIdentifier>
+			<Abstract type="html">By default, users are grouped into a cohort which will always see the same variation for an experiment.
+Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
+debugging your variations and ensuring all of your codepaths are tested. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; set Class Parameters before instantiating the SFManager instead of these properties&lt;/span&gt;)</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL transientVariations</Declaration>
+			
+			
+			<Anchor>//api/name/transientVariations</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SFManager/transientVariations</TokenIdentifier>
+			<Abstract type="html">By default, users are grouped into a cohort which will always see the same variation for an experiment.
+Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
+debugging your variations and ensuring all of your codepaths are tested. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; set Class Parameters before instantiating the SFManager instead of these properties&lt;/span&gt;)</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL transientVariations</Declaration>
+			
+			
+			<Anchor>//api/name/transientVariations</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/setPersistFailedExperiments:</TokenIdentifier>
+			<Abstract type="html">By default, if an experiment is applied when there is no splitforce data available, then the error block
+is called, and users will see an &apos;unvaried&apos; experiment - a.k.a the default implementation.  In future runs
+this will be replaced with the varied data once it is available.  Alternatively to ensure users always get
+the same implementation, se persistFailedExperiments to YES and users will continue to see the default
+implementation.  This only applies to the offline failures, experiments that fail due to the experiment being
+undefined at the time of application will not be persisted as failures once the experiment is added to the dataset. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; set Class Parameters before instantiating the SFManager instead of these properties&lt;/span&gt;)</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL persistFailedExperiments</Declaration>
+			
+			
+			<Anchor>//api/name/persistFailedExperiments</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/persistFailedExperiments</TokenIdentifier>
+			<Abstract type="html">By default, if an experiment is applied when there is no splitforce data available, then the error block
+is called, and users will see an &apos;unvaried&apos; experiment - a.k.a the default implementation.  In future runs
+this will be replaced with the varied data once it is available.  Alternatively to ensure users always get
+the same implementation, se persistFailedExperiments to YES and users will continue to see the default
+implementation.  This only applies to the offline failures, experiments that fail due to the experiment being
+undefined at the time of application will not be persisted as failures once the experiment is added to the dataset. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; set Class Parameters before instantiating the SFManager instead of these properties&lt;/span&gt;)</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL persistFailedExperiments</Declaration>
+			
+			
+			<Anchor>//api/name/persistFailedExperiments</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SFManager/persistFailedExperiments</TokenIdentifier>
+			<Abstract type="html">By default, if an experiment is applied when there is no splitforce data available, then the error block
+is called, and users will see an &apos;unvaried&apos; experiment - a.k.a the default implementation.  In future runs
+this will be replaced with the varied data once it is available.  Alternatively to ensure users always get
+the same implementation, se persistFailedExperiments to YES and users will continue to see the default
+implementation.  This only applies to the offline failures, experiments that fail due to the experiment being
+undefined at the time of application will not be persisted as failures once the experiment is added to the dataset. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; set Class Parameters before instantiating the SFManager instead of these properties&lt;/span&gt;)</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL persistFailedExperiments</Declaration>
+			
+			
+			<Anchor>//api/name/persistFailedExperiments</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+	</File>
+</Tokens>
