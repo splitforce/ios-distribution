@@ -94,7 +94,7 @@ Get the name of the experiment that created this variation.
  @param name The name of the goal to track in the Splitforce results browser.
  @param quantity The number to set for this goal in the Splitforce results browser.
  */
-- (void)quantifiedResultNamed:(NSString *)name quantity:(double)quantity;
+- (void)quantifiedResultNamed:(NSString *)name quantity:(NSInteger)quantity;
 
 
 /*!

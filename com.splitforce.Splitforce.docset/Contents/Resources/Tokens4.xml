@@ -208,7 +208,7 @@ for counting the number of actions that happen as a result of a particular varia
 for floating point quantities that happen as a result of a particular variation.</Abstract>
 			<DeclaredIn>SFVariation.h</DeclaredIn>			
 			
-			<Declaration>- (void)quantifiedResultNamed:(NSString *)name quantity:(double)quantity</Declaration>
+			<Declaration>- (void)quantifiedResultNamed:(NSString *)name quantity:(NSInteger)quantity</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>name</Name>
