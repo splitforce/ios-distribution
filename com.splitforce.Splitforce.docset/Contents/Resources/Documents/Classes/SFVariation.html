@@ -165,7 +165,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Splitforce iOS Variation class. Provides variation data and interface
+						<p>Splitforce iOS Variation class. Provides variation data and interface<br/>
 to report on goals caused by this variation.</p>
 					</div>
 					
@@ -185,7 +185,7 @@ to report on goals caused by this variation.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/variationData">&nbsp;&nbsp;variationData</a></code>
-		<span class="tooltip"><p>The variationData property contains a dictionary of configuration information
+		<span class="tooltip"><p>The variationData property contains a dictionary of configuration information<br/>
 which are to be used to configure the application.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -231,7 +231,7 @@ which are to be used to configure the application.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/goalResultNamed:">&ndash;&nbsp;goalResultNamed:</a></code>
-		<span class="tooltip"><p>When a discrete named goal has been met, call this method on the SFVariation object
+		<span class="tooltip"><p>When a discrete named goal has been met, call this method on the SFVariation object<br/>
 to record that goal in the backend.</p></span>
 	</span>
 	
@@ -239,8 +239,8 @@ to record that goal in the backend.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/timedResultNamed:">&ndash;&nbsp;timedResultNamed:</a></code>
-		<span class="tooltip"><p>To track the length of time since the variation was applied, use the timedResultNamed:
-method.  This automatically tracks the length of time (in seconds) since the variation
+		<span class="tooltip"><p>To track the length of time since the variation was applied, use the timedResultNamed:<br/>
+method.  This automatically tracks the length of time (in seconds) since the variation<br/>
 was applied.</p></span>
 	</span>
 	
@@ -248,7 +248,7 @@ was applied.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/timedResultNamed:withTime:">&ndash;&nbsp;timedResultNamed:withTime:</a></code>
-		<span class="tooltip"><p>To track arbitrary lengths of time, use the timedResultNamed:withTime: method.
+		<span class="tooltip"><p>To track arbitrary lengths of time, use the timedResultNamed:withTime: method.<br/>
 Your code is repsonsible for making sure the time interval is meaningful for tracking.</p></span>
 	</span>
 	
@@ -256,7 +256,7 @@ Your code is repsonsible for making sure the time interval is meaningful for tra
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/countedResultNamed:count:">&ndash;&nbsp;countedResultNamed:count:</a></code>
-		<span class="tooltip"><p>To track a counted goal use the countedResultNamed:count: method.  This is useful
+		<span class="tooltip"><p>To track a counted goal use the countedResultNamed:count: method.  This is useful<br/>
 for counting the number of actions that happen as a result of a particular variation. (<b class="deprecated">Deprecated:</b><span class="deprecated"> use method quantifiedResultNamed:quantity instead</span>)</p></span>
 	</span>
 	
@@ -264,7 +264,7 @@ for counting the number of actions that happen as a result of a particular varia
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/quantifiedResultNamed:quantity:">&ndash;&nbsp;quantifiedResultNamed:quantity:</a></code>
-		<span class="tooltip"><p>To track a quantified goal use the <a href="#//api/name/countedResultNamed:count:">countedResultNamed:count:</a> method.  This is useful
+		<span class="tooltip"><p>To track a quantified goal use the <a href="#//api/name/countedResultNamed:count:">countedResultNamed:count:</a> method.  This is useful<br/>
 for floating point quantities that happen as a result of a particular variation.</p></span>
 	</span>
 	
@@ -272,9 +272,9 @@ for floating point quantities that happen as a result of a particular variation.
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/variationEnded">&ndash;&nbsp;variationEnded</a></code>
-		<span class="tooltip"><p>When no more variation goals are required, call variationEnded.  This will cause the variation
-to dissociate itself from its bound object and in most cases will cause the Variation to be
-dealloced.  If you retain the variation and continue to send goals, the behaviour is undefined.
+		<span class="tooltip"><p>When no more variation goals are required, call variationEnded.  This will cause the variation<br/>
+to dissociate itself from its bound object and in most cases will cause the Variation to be<br/>
+dealloced.  If you retain the variation and continue to send goals, the behaviour is undefined.<br/>
 In later releases this will likely lead to an Exception being raised.</p></span>
 	</span>
 	
@@ -290,13 +290,13 @@ In later releases this will likely lead to an Exception being raised.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/bindVariationToObject:">&ndash;&nbsp;bindVariationToObject:</a></code>
-		<span class="tooltip"><p>In order to easily retrieve the SFVariation that led to a particular goal, you can bind the object
-to an arbitrary object.  The arbitrary object will retain the SFVariation object and thus the SFVariation
-may be dealloced when the arbitrary object is dealloced.  The arbitrary object&rsquo;s retain count is unaffected
-by this call.
-Typically this would be used to bind the SFVariation to the object which has been varied by the data.
-So for example, the variation could be bound to a UIButton.  When the UIButton is the pressed by the user
-the button&rsquo;s target can easily submit the goal with:
+		<span class="tooltip"><p>In order to easily retrieve the SFVariation that led to a particular goal, you can bind the object<br/>
+to an arbitrary object.  The arbitrary object will retain the SFVariation object and thus the SFVariation<br/>
+may be dealloced when the arbitrary object is dealloced.  The arbitrary object&rsquo;s retain count is unaffected<br/>
+by this call.<br/>
+Typically this would be used to bind the SFVariation to the object which has been varied by the data.<br/>
+So for example, the variation could be bound to a UIButton.  When the UIButton is the pressed by the user<br/>
+the button&rsquo;s target can easily submit the goal with:<br/>
         [[SFManager.currentManager variationForObject:sender] goalResultNamed:@&ldquo;buttonPressed&rdquo;]</p></span>
 	</span>
 	
@@ -393,7 +393,7 @@ the button&rsquo;s target can easily submit the goal with:
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The variationData property contains a dictionary of configuration information
+		<p>The variationData property contains a dictionary of configuration information<br/>
 which are to be used to configure the application.</p>
 	</div>		
 	
@@ -440,13 +440,13 @@ which are to be used to configure the application.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>In order to easily retrieve the SFVariation that led to a particular goal, you can bind the object
-to an arbitrary object.  The arbitrary object will retain the SFVariation object and thus the SFVariation
-may be dealloced when the arbitrary object is dealloced.  The arbitrary object&rsquo;s retain count is unaffected
-by this call.
-Typically this would be used to bind the SFVariation to the object which has been varied by the data.
-So for example, the variation could be bound to a UIButton.  When the UIButton is the pressed by the user
-the button&rsquo;s target can easily submit the goal with:
+		<p>In order to easily retrieve the SFVariation that led to a particular goal, you can bind the object<br/>
+to an arbitrary object.  The arbitrary object will retain the SFVariation object and thus the SFVariation<br/>
+may be dealloced when the arbitrary object is dealloced.  The arbitrary object&rsquo;s retain count is unaffected<br/>
+by this call.<br/>
+Typically this would be used to bind the SFVariation to the object which has been varied by the data.<br/>
+So for example, the variation could be bound to a UIButton.  When the UIButton is the pressed by the user<br/>
+the button&rsquo;s target can easily submit the goal with:<br/>
         [[SFManager.currentManager variationForObject:sender] goalResultNamed:@&ldquo;buttonPressed&rdquo;]</p>
 	</div>		
 	
@@ -461,7 +461,7 @@ the button&rsquo;s target can easily submit the goal with:
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>object</em></dt>
-			<dd><p>The object to bind this variation to.  Typically this should be the object which was configured
+			<dd><p>The object to bind this variation to.  Typically this should be the object which was configured<br/>
 by this Variation, or an object which will be called at the goal completion.</p></dd>
 		</dl>
 		
@@ -475,10 +475,10 @@ by this Variation, or an object which will be called at the goal completion.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>You can only bind an SFVariation to a single object.  Multiple calls will replace the previous binding.
-You can only bind a single SFVariation to a particular object.  Muliple calls will replace the previous binding and you may
-lose the ability to track goal completions for that variation if you bind another variation to the same object.  Therefore
-binding to the UIApplicationDelegate is likely to be a bad idea.  Binding to the closest container or controller object that
+		<p>You can only bind an SFVariation to a single object.  Multiple calls will replace the previous binding.<br/>
+You can only bind a single SFVariation to a particular object.  Muliple calls will replace the previous binding and you may<br/>
+lose the ability to track goal completions for that variation if you bind another variation to the same object.  Therefore<br/>
+binding to the UIApplicationDelegate is likely to be a bad idea.  Binding to the closest container or controller object that<br/>
 received the benefit of the variation is likely to be the best way to go.</p>
 	</div>
 	
@@ -503,7 +503,7 @@ received the benefit of the variation is likely to be the best way to go.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>To track a counted goal use the countedResultNamed:count: method.  This is useful
+		<p>To track a counted goal use the countedResultNamed:count: method.  This is useful<br/>
 for counting the number of actions that happen as a result of a particular variation. (<b class="deprecated">Deprecated:</b><span class="deprecated"> use method quantifiedResultNamed:quantity instead</span>)</p>
 	</div>		
 	
@@ -555,7 +555,7 @@ for counting the number of actions that happen as a result of a particular varia
 	
 	
 	<div class="method-subsection brief-description">
-		<p>When a discrete named goal has been met, call this method on the SFVariation object
+		<p>When a discrete named goal has been met, call this method on the SFVariation object<br/>
 to record that goal in the backend.</p>
 	</div>		
 	
@@ -602,7 +602,7 @@ to record that goal in the backend.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>To track a quantified goal use the <a href="#//api/name/countedResultNamed:count:">countedResultNamed:count:</a> method.  This is useful
+		<p>To track a quantified goal use the <a href="#//api/name/countedResultNamed:count:">countedResultNamed:count:</a> method.  This is useful<br/>
 for floating point quantities that happen as a result of a particular variation.</p>
 	</div>		
 	
@@ -654,8 +654,8 @@ for floating point quantities that happen as a result of a particular variation.
 	
 	
 	<div class="method-subsection brief-description">
-		<p>To track the length of time since the variation was applied, use the timedResultNamed:
-method.  This automatically tracks the length of time (in seconds) since the variation
+		<p>To track the length of time since the variation was applied, use the timedResultNamed:<br/>
+method.  This automatically tracks the length of time (in seconds) since the variation<br/>
 was applied.</p>
 	</div>		
 	
@@ -702,7 +702,7 @@ was applied.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>To track arbitrary lengths of time, use the timedResultNamed:withTime: method.
+		<p>To track arbitrary lengths of time, use the timedResultNamed:withTime: method.<br/>
 Your code is repsonsible for making sure the time interval is meaningful for tracking.</p>
 	</div>		
 	
@@ -754,9 +754,9 @@ Your code is repsonsible for making sure the time interval is meaningful for tra
 	
 	
 	<div class="method-subsection brief-description">
-		<p>When no more variation goals are required, call variationEnded.  This will cause the variation
-to dissociate itself from its bound object and in most cases will cause the Variation to be
-dealloced.  If you retain the variation and continue to send goals, the behaviour is undefined.
+		<p>When no more variation goals are required, call variationEnded.  This will cause the variation<br/>
+to dissociate itself from its bound object and in most cases will cause the Variation to be<br/>
+dealloced.  If you retain the variation and continue to send goals, the behaviour is undefined.<br/>
 In later releases this will likely lead to an Exception being raised.</p>
 	</div>		
 	
@@ -799,7 +799,7 @@ In later releases this will likely lead to an Exception being raised.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Splitforce. All rights reserved. (Last updated: 2013-08-07)</span><br />
+						<p><span class="copyright">&copy; 2013 Splitforce. All rights reserved. (Last updated: 2013-08-13)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						

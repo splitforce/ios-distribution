@@ -20,6 +20,15 @@
 				</Node>
 				
 				
+				<Node type="folder">
+					<Name>Categories</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="5"/>
+						
+					</Subnodes>
+				</Node>
+				
 				
 			</Subnodes>
         </Node>
@@ -43,6 +52,10 @@
 			<Path>Classes/SFVariation.html</Path>
 		</Node>
 		
+		<Node id="5">
+			<Name>UIButton(SplitforceCodeless)</Name>
+			<Path>Categories/UIButton+SplitforceCodeless.html</Path>
+		</Node>
 		
 		
 	</Library>
