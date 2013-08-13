@@ -82,7 +82,7 @@
     SFVariation *variation = variationForExperiment[experimentName];
     if (variation == nil) return;
 
-    [variation quantifiedResultNamed:goalName quantity:quantity)];
+    [variation quantifiedResultNamed:goalName quantity:quantity];
 }
 
 - (void) finishExperimentNamed:(NSString *)experimentName
