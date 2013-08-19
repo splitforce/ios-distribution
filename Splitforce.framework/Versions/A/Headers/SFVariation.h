@@ -128,7 +128,9 @@ Get the name of the experiment that created this variation.
  @param object The object to bind this variation to.  Typically this should be the object which was configured
  by this Variation, or an object which will be called at the goal completion.
 
+ @deprecated This is no longer necessary, you can retrieve the same Variation object using [SFManager.currentManager variationForExperimentNamed:] and passing in the experiment name instead.
+
  */
-- (void)bindVariationToObject:(id)object;
+- (void)bindVariationToObject:(id)object __attribute__((deprecated("Don't use this method - when retrieving the Variation at goal tracking time use method variationForExperimentNamed: instead of variationForObject:")));
 
 @end
