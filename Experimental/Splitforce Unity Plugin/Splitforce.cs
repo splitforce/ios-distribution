@@ -122,7 +122,7 @@ public class Splitforce {
 	}
 
 	// Post a quantified goal
-	public static void PostGoalForExperiment (string experimentName, string goalName, float quantity)
+	public static void PostQuantityForExperiment (string experimentName, string goalName, float quantity)
 	{
 		// Call plugin only when running on real device
 		if (Application.platform != RuntimePlatform.OSXEditor)
