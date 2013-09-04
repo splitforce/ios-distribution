@@ -252,7 +252,7 @@ retrieve the correct SFVariation object at a later point.</Abstract>
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/SFManager/variationForObject:</TokenIdentifier>
 			<Abstract type="html">Convenience method to retrieve the correct SFVariation object at a later point, when - [SFVariation bindToObject:]
-has been used.</Abstract>
+has been used. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; Use variationForExperimentNamed: instead&lt;/span&gt;)</Abstract>
 			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
 			<Declaration>- (SFVariation *)variationForObject:(id)object</Declaration>
@@ -264,6 +264,23 @@ has been used.</Abstract>
 			</Parameters>
 			<ReturnValue><Abstract type="html">The SFVariation object which was bound to the object (typically it should be the SFVariation which was used to configure this object)</Abstract></ReturnValue>
 			<Anchor>//api/name/variationForObject:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/variationForExperimentNamed:</TokenIdentifier>
+			<Abstract type="html">Convenience method to retrieve the SFVariation object for the most recent application of an experiment.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>- (SFVariation *)variationForExperimentNamed:(NSString *)experimentName</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>experimentName</Name>
+					<Abstract type="html">A const NSString object matching the experimentName of a previously applied experiment.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The SFVariation object which was bound to the object (typically it should be the SFVariation which was used to configure this object)</Abstract></ReturnValue>
+			<Anchor>//api/name/variationForExperimentNamed:</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		

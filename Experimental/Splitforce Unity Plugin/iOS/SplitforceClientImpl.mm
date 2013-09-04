@@ -27,14 +27,16 @@
 - (void)setApplicationId:(NSString *)applicationId appKey:(NSString *)appKey debugMode:(BOOL)debugMode transientVariations:(BOOL)transientVariations
 {
     [SFManager setSampleRate:1.0];
+    [SFManager setDebugMode:debugMode];
+    [SFManager setTransientVariations:transientVariations];
 	[SFManager managerWithApplicationId:applicationId
                          applicationKey:appKey
                         completionBlock:^(BOOL complete){
                             manager = [SFManager.currentManager retain];
                             setupComplete = complete;
                         }];
-    SFManager.currentManager.debugMode = debugMode;
-    SFManager.currentManager.transientVariations = transientVariations;
+//    SFManager.currentManager.debugMode = debugMode;
+//    SFManager.currentManager.transientVariations = transientVariations;
 }
 
 - (BOOL)isDataAvailable
@@ -82,12 +84,25 @@
     SFVariation *variation = variationForExperiment[experimentName];
     if (variation == nil) return;
 
-    [variation quantifiedResultNamed:goalName quantity:quantity];
+    [variation quantifiedResultNamed:goalName quantity:quantity)];
 }
 
 - (void) finishExperimentNamed:(NSString *)experimentName
 {
     [variationForExperiment removeObjectForKey:experimentName];
+}
+
+- (double) redForColorString:(NSString *)colorString
+{
+    UIColor *color = [SFUtils colorFromHexString:colorString];
+    CGFloat red;
+    CGFloat green;
+    CGFloat blue;
+    CGFloat alpha;
+    
+    [color getRed:&red green:&green blue:&blue alpha:&alpha];
+
+    return red;
 }
 
 @end

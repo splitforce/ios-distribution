@@ -77,6 +77,8 @@
 	
 	<option value="//api/name/experimentNamed:applyVariationBlock:errorBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- experimentNamed:applyVariationBlock:errorBlock:</option>
 	
+	<option value="//api/name/variationForExperimentNamed:">&nbsp;&nbsp;&nbsp;&nbsp;- variationForExperimentNamed:</option>
+	
 	<option value="//api/name/variationForObject:">&nbsp;&nbsp;&nbsp;&nbsp;- variationForObject:</option>
 	
 	
@@ -154,6 +156,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/experimentNamed:applyVariationBlock:applyDefaultBlock:">experimentNamed:applyVariationBlock:applyDefaultBlock:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/experimentNamed:applyVariationBlock:errorBlock:">experimentNamed:applyVariationBlock:errorBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/variationForExperimentNamed:">variationForExperimentNamed:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/variationForObject:">variationForObject:</a></span></li>
 	
@@ -359,7 +363,14 @@ retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> objec
 	<span class="tooltip">
 		<code><a href="#//api/name/variationForObject:">&ndash;&nbsp;variationForObject:</a></code>
 		<span class="tooltip"><p>Convenience method to retrieve the correct SFVariation object at a later point, when - [SFVariation bindToObject:]<br/>
-has been used.</p></span>
+has been used. (<b class="deprecated">Deprecated:</b><span class="deprecated"> Use variationForExperimentNamed: instead</span>)</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/variationForExperimentNamed:">&ndash;&nbsp;variationForExperimentNamed:</a></code>
+		<span class="tooltip"><p>Convenience method to retrieve the <a href="../Classes/SFVariation.html">SFVariation</a> object for the most recent application of an experiment.</p></span>
 	</span>
 	
 	
@@ -1140,6 +1151,62 @@ the semantics of the latter are clearer, so this method has been deprecated in f
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/variationForExperimentNamed:" title="variationForExperimentNamed:"></a>
+	<h3 class="subsubtitle method-title">variationForExperimentNamed:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Convenience method to retrieve the <a href="../Classes/SFVariation.html">SFVariation</a> object for the most recent application of an experiment.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (SFVariation *)variationForExperimentNamed:(NSString *)<em>experimentName</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>experimentName</em></dt>
+			<dd><p>A const NSString object matching the experimentName of a previously applied experiment.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The <a href="../Classes/SFVariation.html">SFVariation</a> object which was bound to the object (typically it should be the <a href="../Classes/SFVariation.html">SFVariation</a> which was used to configure this object)</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Note that calling [variation bindToObject:] within an applyVariationBlock will cause this method to return nil.  If binding to an object call varationForObject: instead.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/variationForObject:" title="variationForObject:"></a>
 	<h3 class="subsubtitle method-title">variationForObject:</h3>
 	
@@ -1147,7 +1214,7 @@ the semantics of the latter are clearer, so this method has been deprecated in f
 	
 	<div class="method-subsection brief-description">
 		<p>Convenience method to retrieve the correct SFVariation object at a later point, when - [SFVariation bindToObject:]<br/>
-has been used.</p>
+has been used. (<b class="deprecated">Deprecated:</b><span class="deprecated"> Use variationForExperimentNamed: instead</span>)</p>
 	</div>		
 	
     
@@ -1204,7 +1271,7 @@ has been used.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Splitforce. All rights reserved. (Last updated: 2013-08-13)</span><br />
+						<p><span class="copyright">&copy; 2013 Splitforce. All rights reserved. (Last updated: 2013-09-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						

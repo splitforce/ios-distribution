@@ -230,11 +230,25 @@ In general - as long as the user has a functioning internet connection the first
  Convenience method to retrieve the correct SFVariation object at a later point, when - [SFVariation bindToObject:]
  has been used.
 
+ @deprecated Use variationForExperimentNamed: instead
+
  @param object An object which has previously had an SFVariation bound to it using [SFVariation bindVariationToObject:] 
  @return The SFVariation object which was bound to the object (typically it should be the SFVariation which was used to configure this object)
 
  */
-- (SFVariation *)variationForObject:(id)object;
+- (SFVariation *)variationForObject:(id)object __attribute__((deprecated("use method variationForExperimentNamed: instead")));
+
+/*!
+ Convenience method to retrieve the SFVariation object for the most recent application of an experiment.
+ 
+ Note that calling [variation bindToObject:] within an applyVariationBlock will cause this method to return nil.  If binding to an object call varationForObject: instead.
+
+ @param experimentName A const NSString object matching the experimentName of a previously applied experiment.
+ @return The SFVariation object which was bound to the object (typically it should be the SFVariation which was used to configure this object)
+
+ */
+- (SFVariation *)variationForExperimentNamed:(NSString *)experimentName;
+
 
 /**---------------------------------------------------------------------------------------
  * @name Deprecated Properties in 0.2.3

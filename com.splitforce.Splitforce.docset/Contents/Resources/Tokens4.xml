@@ -247,7 +247,7 @@ by this call.
 Typically this would be used to bind the SFVariation to the object which has been varied by the data.
 So for example, the variation could be bound to a UIButton.  When the UIButton is the pressed by the user
 the button&apos;s target can easily submit the goal with:
-        [[SFManager.currentManager variationForObject:sender] goalResultNamed:@&quot;buttonPressed&quot;]</Abstract>
+        [[SFManager.currentManager variationForObject:sender] goalResultNamed:@&quot;buttonPressed&quot;] (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; This is no longer necessary, you can retrieve the same Variation object using [SFManager.currentManager variationForExperimentNamed:] and passing in the experiment name instead.&lt;/span&gt;)</Abstract>
 			<DeclaredIn>SFVariation.h</DeclaredIn>			
 			
 			<Declaration>- (void)bindVariationToObject:(id)object</Declaration>
