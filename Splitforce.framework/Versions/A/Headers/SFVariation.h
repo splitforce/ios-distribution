@@ -88,8 +88,8 @@ Get the name of the experiment that created this variation.
 
 
 /*!
- To track a quantified goal use the countedResultNamed:count: method.  This is useful
- for floating point quantities that happen as a result of a particular variation.
+ To track a quantified goal use the quantifiedResultNamed:quantity: method.  This is useful
+ for integer quantities that happen as a result of a particular variation.
 
  @param name The name of the goal to track in the Splitforce results browser.
  @param quantity The number to set for this goal in the Splitforce results browser.

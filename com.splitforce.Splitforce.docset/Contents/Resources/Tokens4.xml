@@ -204,8 +204,8 @@ for counting the number of actions that happen as a result of a particular varia
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/SFVariation/quantifiedResultNamed:quantity:</TokenIdentifier>
-			<Abstract type="html">To track a quantified goal use the countedResultNamed:count: method.  This is useful
-for floating point quantities that happen as a result of a particular variation.</Abstract>
+			<Abstract type="html">To track a quantified goal use the quantifiedResultNamed:quantity: method.  This is useful
+for integer quantities that happen as a result of a particular variation.</Abstract>
 			<DeclaredIn>SFVariation.h</DeclaredIn>			
 			
 			<Declaration>- (void)quantifiedResultNamed:(NSString *)name quantity:(NSInteger)quantity</Declaration>
