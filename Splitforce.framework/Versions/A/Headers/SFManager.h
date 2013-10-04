@@ -24,6 +24,19 @@ typedef void(^SFBooleanBlock)(BOOL success);
 typedef void(^SFErrorBlock)(NSError *error);
 
 /*!
+ An Objective-C Block taking an NSDictionary object representing the Cohort Identifier, with experiment names as keys and variation names as values.
+ */
+typedef void(^SFCohortIdentifierBlock)(NSDictionary *cohortIdentifier);
+
+/*!
+ An Objective-C Block taking an NSDictionary object representing the Cohort Identifier, with experiment names as keys and variation names as values.
+ The block should return nil, or a modified cohortIdentifier block which allows you to control the cohort programatically.  This should not be done
+ on live experiments, but is useful when testing your code paths as you can control which paths will be executed using this method.
+ */
+typedef NSDictionary *(^SFWillUseCohortIdentifierBlock)(NSDictionary *cohortIdentifier);
+
+
+/*!
  Splitforce iOS top-level class. Provides synchronisation with Splitforce backend
  and configuration of settings.
  */
@@ -137,10 +150,13 @@ In general - as long as the user has a functioning internet connection the first
  that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
  the value after the manager has been established will have no effect.
 
- The default value is 0.1 meaning 10% of your users will be tested.  Minimum value is 0.0, maximum
+ The default value is 1.0 meaning 100% of your users will be tested.  Minimum value is 0.0, maximum
  value is 1.0.  Setting other values will raise an exception.
+ 
+ @deprecated Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.
+ 
  */
-+ (void)setSampleRate:(double)sampleRate;
++ (void)setSampleRate:(double)sampleRate __attribute__((deprecated("Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.")));
 
 /*!
  Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
@@ -169,6 +185,33 @@ In general - as long as the user has a functioning internet connection the first
  */
 
 + (void)setPersistDefaultCohort:(BOOL)persistDefaultCohort;
+
+/*!
+ The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+ Set this block before instantiating the SFManager.  This block will then be called on the main thread
+ when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
+ party or bespoke Analytics services for example.
+ 
+ Note that this block will not be called if Transient Variations is set.
+ 
+ Also note that the default cohort is represented as an empty dictionary.
+ */
+
++ (void)setIdentifyCohortBlock:(SFCohortIdentifierBlock)identifyCohortBlock;
+
+/*!
+ The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+ Set this block before instantiating the SFManager.  This block will then be called on the main thread
+ when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
+ party or bespoke Analytics services for example.
+ 
+ Note that this block will not be called if Transient Variations is set.
+ 
+ Also note that the default cohort is represented as an empty dictionary.
+ */
+
++ (void)setWillUseCohortIdentifierBlock:(SFWillUseCohortIdentifierBlock)willUseCohortIdentifierBlock;
+
 
 
 /**---------------------------------------------------------------------------------------

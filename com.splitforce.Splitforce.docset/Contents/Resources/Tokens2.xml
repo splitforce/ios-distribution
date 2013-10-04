@@ -140,7 +140,7 @@ the value after the manager has been established will have no effect.</Abstract>
 costs and keeping within your user allowance for your selected splitforce package. N.B.  This setting has
 no effect when transientVariations is set to YES so that you can test all code paths more easily.  Note also
 that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
-the value after the manager has been established will have no effect.</Abstract>
+the value after the manager has been established will have no effect. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.&lt;/span&gt;)</Abstract>
 			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
 			<Declaration>+ (void)setSampleRate:(double)sampleRate</Declaration>
@@ -190,6 +190,36 @@ undefined at the time of application will not be persisted as failures once the 
 			
 			
 			<Anchor>//api/name/setPersistDefaultCohort:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setIdentifyCohortBlock:</TokenIdentifier>
+			<Abstract type="html">The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+Set this block before instantiating the SFManager.  This block will then be called on the main thread
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
+party or bespoke Analytics services for example.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setIdentifyCohortBlock:(SFCohortIdentifierBlock)identifyCohortBlock</Declaration>
+			
+			
+			<Anchor>//api/name/setIdentifyCohortBlock:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setWillUseCohortIdentifierBlock:</TokenIdentifier>
+			<Abstract type="html">The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+Set this block before instantiating the SFManager.  This block will then be called on the main thread
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
+party or bespoke Analytics services for example.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setWillUseCohortIdentifierBlock:(SFWillUseCohortIdentifierBlock)willUseCohortIdentifierBlock</Declaration>
+			
+			
+			<Anchor>//api/name/setWillUseCohortIdentifierBlock:</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		
