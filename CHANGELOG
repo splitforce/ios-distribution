@@ -1,5 +1,19 @@
 Splitforce Library
 
+Version 0.4.2 Revisions
+=======================
+ - Library support for Variant Validation Scripting (VVS), coming soon to Splitforce.com website.
+ - VVS Supported values (set on the global object):
+    - UIIdiom, valid values "pad" or "phone"
+    - frameworkVersion
+    - model
+    - deviceName
+
+Version 0.4.1 Revisions
+=======================
+ - Localisations now fallback to Major-locale matches prior to most-recently used matches.  i.e. if a user first sets their device to Chinese and then to British-English, then we will match US-english localisations before Chinese localisations when there is no en-GB localisation included.
+ - Results on Splitforce.com are split based on the combination of locales picked for each component in a variation.
+
 Version 0.4 Revisions
 =====================
 
