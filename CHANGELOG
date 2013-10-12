@@ -8,6 +8,8 @@ Version 0.4.2 Revisions
     - frameworkVersion
     - model
     - deviceName
+ - Only works on iOS7+
+ - Need to link the JavaScriptCore framework (Set to optional to compile for devices < iOS7.0)
 
 Version 0.4.1 Revisions
 =======================
