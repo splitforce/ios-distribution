@@ -7,8 +7,8 @@ Version 0.4.3 Revisions
 
 Version 0.4.2 Revisions
 =======================
- - Library support for Variant Validation Scripting (VVS), coming soon to Splitforce.com website.
- - VVS Supported values (set on the global object):
+ - Library support for Custom Variant Targetting Scripting (CVT), coming soon to Splitforce.com website.
+ - CVT Supported values (set on the global object):
     - UIIdiom, valid values "pad" or "phone"
     - frameworkVersion
     - model

@@ -58,6 +58,8 @@
 	
 	<option value="//api/name/managerWithApplicationId:applicationKey:completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;+ managerWithApplicationId:applicationKey:completionBlock:</option>
 	
+	<option value="//api/name/setCVTGlobalObjectValues:">&nbsp;&nbsp;&nbsp;&nbsp;+ setCVTGlobalObjectValues:</option>
+	
 	<option value="//api/name/setDebugMode:">&nbsp;&nbsp;&nbsp;&nbsp;+ setDebugMode:</option>
 	
 	<option value="//api/name/setIdentifyCohortBlock:">&nbsp;&nbsp;&nbsp;&nbsp;+ setIdentifyCohortBlock:</option>
@@ -140,6 +142,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managerWithApplicationId:applicationKey:">managerWithApplicationId:applicationKey:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managerWithApplicationId:applicationKey:completionBlock:">managerWithApplicationId:applicationKey:completionBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCVTGlobalObjectValues:">setCVTGlobalObjectValues:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDebugMode:">setDebugMode:</a></span></li>
 	
@@ -344,6 +348,15 @@ party or bespoke Analytics services for example.</p></span>
 Set this block before instantiating the SFManager.  This block will then be called on the main thread<br/>
 when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third<br/>
 party or bespoke Analytics services for example.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setCVTGlobalObjectValues:">+&nbsp;setCVTGlobalObjectValues:</a></code>
+		<span class="tooltip"><p>Custom Validation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.<br/>
+Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the<br/>
+JS Global Object as variables set their corresponding values.</p></span>
 	</span>
 	
 	
@@ -802,6 +815,44 @@ there will be no issues.  You may decide that running your application without a
 undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure<br/>
 that the initial connection has been made before proceeding further into your aplication.</p>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setCVTGlobalObjectValues:" title="setCVTGlobalObjectValues:"></a>
+	<h3 class="subsubtitle method-title">setCVTGlobalObjectValues:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Custom Validation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.<br/>
+Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the<br/>
+JS Global Object as variables set their corresponding values.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setCVTGlobalObjectValues:(NSDictionary *)<em>globalObjectValues</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
 	
 	
 	
