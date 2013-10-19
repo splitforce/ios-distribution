@@ -1,0 +1,37 @@
+Splitforce Library
+
+Version 0.4.3 Revisions
+=======================
+ - Library support for configuring experiment coverage  on website. (Coming soon)
+ - Improvement in handling default blocks, tracking results now collected even if the device is offline.
+
+Version 0.4.2 Revisions
+=======================
+ - Library support for Variant Validation Scripting (VVS), coming soon to Splitforce.com website.
+ - VVS Supported values (set on the global object):
+    - UIIdiom, valid values "pad" or "phone"
+    - frameworkVersion
+    - model
+    - deviceName
+ - Only works on iOS7+
+ - Need to link the JavaScriptCore framework to use this (Set to optional to compile for devices < iOS7.0)
+
+Version 0.4.1 Revisions
+=======================
+ - Localisations now fallback to Major-locale matches prior to most-recently used matches.  i.e. if a user first sets their device to Chinese and then to British-English, then we will match US-english localisations before Chinese localisations when there is no en-GB localisation included.
+ - Results on Splitforce.com are split based on the combination of locales picked for each component in a variation. (coming soon)
+
+Version 0.4 Revisions
+=====================
+
+ - Cohort Identification
+  - Callback to indicate to user code which cohort this user is in.  Can be used to hook in third party & bespoke analytics platforms.
+  - Callback to allow user code to modify the cohort - this is useful for testing by enabling the developer to specify which exact
+    variations to execute each time.
+ - Variation Choice is now done at Initialisation time (previously this was done on demand)
+ - Default SFVariations are created if the experiment used the default block.  The reserved variation name __sf_default is used for defaults.
+ - Sample Rate is deprecated - use the splitforce.com website to configure experiment coverage.
+ - Introduced CHANGELOG file to present changes to the framework.
+ - Added support for rolling out a winner (and rollback)
+
+ 

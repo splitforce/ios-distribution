@@ -60,6 +60,8 @@
 	
 	<option value="//api/name/setDebugMode:">&nbsp;&nbsp;&nbsp;&nbsp;+ setDebugMode:</option>
 	
+	<option value="//api/name/setIdentifyCohortBlock:">&nbsp;&nbsp;&nbsp;&nbsp;+ setIdentifyCohortBlock:</option>
+	
 	<option value="//api/name/setPersistDefaultCohort:">&nbsp;&nbsp;&nbsp;&nbsp;+ setPersistDefaultCohort:</option>
 	
 	<option value="//api/name/setSampleRate:">&nbsp;&nbsp;&nbsp;&nbsp;+ setSampleRate:</option>
@@ -67,6 +69,8 @@
 	<option value="//api/name/setTimeoutInterval:">&nbsp;&nbsp;&nbsp;&nbsp;+ setTimeoutInterval:</option>
 	
 	<option value="//api/name/setTransientVariations:">&nbsp;&nbsp;&nbsp;&nbsp;+ setTransientVariations:</option>
+	
+	<option value="//api/name/setWillUseCohortIdentifierBlock:">&nbsp;&nbsp;&nbsp;&nbsp;+ setWillUseCohortIdentifierBlock:</option>
 	
 	
 	
@@ -139,6 +143,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDebugMode:">setDebugMode:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setIdentifyCohortBlock:">setIdentifyCohortBlock:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setPersistDefaultCohort:">setPersistDefaultCohort:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setSampleRate:">setSampleRate:</a></span></li>
@@ -146,6 +152,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setTimeoutInterval:">setTimeoutInterval:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setTransientVariations:">setTransientVariations:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setWillUseCohortIdentifierBlock:">setWillUseCohortIdentifierBlock:</a></span></li>
 	
 </ul></li>
 
@@ -287,7 +295,7 @@ the value after the manager has been established will have no effect.</p></span>
 costs and keeping within your user allowance for your selected splitforce package. N.B.  This setting has<br/>
 no effect when <a href="#//api/name/transientVariations">transientVariations</a> is set to YES so that you can test all code paths more easily.  Note also<br/>
 that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing<br/>
-the value after the manager has been established will have no effect.</p></span>
+the value after the manager has been established will have no effect. (<b class="deprecated">Deprecated:</b><span class="deprecated"> Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.</span>)</p></span>
 	</span>
 	
 	
@@ -316,6 +324,26 @@ we persist the state that these users are in the default cohort, and therefore w
 Set this to NO to have the variation data applied on future runs after the data is available.<br/>
 Note that this only applies to the offline failures, experiments that fail due to the experiment being<br/>
 undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setIdentifyCohortBlock:">+&nbsp;setIdentifyCohortBlock:</a></code>
+		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.<br/>
+Set this block before instantiating the SFManager.  This block will then be called on the main thread<br/>
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third<br/>
+party or bespoke Analytics services for example.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setWillUseCohortIdentifierBlock:">+&nbsp;setWillUseCohortIdentifierBlock:</a></code>
+		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.<br/>
+Set this block before instantiating the SFManager.  This block will then be called on the main thread<br/>
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third<br/>
+party or bespoke Analytics services for example.</p></span>
 	</span>
 	
 	
@@ -826,6 +854,52 @@ that the initial connection has been made before proceeding further into your ap
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/setIdentifyCohortBlock:" title="setIdentifyCohortBlock:"></a>
+	<h3 class="subsubtitle method-title">setIdentifyCohortBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.<br/>
+Set this block before instantiating the SFManager.  This block will then be called on the main thread<br/>
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third<br/>
+party or bespoke Analytics services for example.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setIdentifyCohortBlock:(SFCohortIdentifierBlock)<em>identifyCohortBlock</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Note that this block will not be called if Transient Variations is set.</p>
+
+<p>Also note that the default cohort is represented as an empty dictionary.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/setPersistDefaultCohort:" title="setPersistDefaultCohort:"></a>
 	<h3 class="subsubtitle method-title">setPersistDefaultCohort:</h3>
 	
@@ -883,7 +957,7 @@ always see either new data if available, or default data if the connection is of
 costs and keeping within your user allowance for your selected splitforce package. N.B.  This setting has<br/>
 no effect when <a href="#//api/name/transientVariations">transientVariations</a> is set to YES so that you can test all code paths more easily.  Note also<br/>
 that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing<br/>
-the value after the manager has been established will have no effect.</p>
+the value after the manager has been established will have no effect. (<b class="deprecated">Deprecated:</b><span class="deprecated"> Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.</span>)</p>
 	</div>		
 	
     
@@ -900,7 +974,7 @@ the value after the manager has been established will have no effect.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The default value is 0.1 meaning 10% of your users will be tested.  Minimum value is 0.0, maximum<br/>
+		<p>The default value is 1.0 meaning 100% of your users will be tested.  Minimum value is 0.0, maximum<br/>
 value is 1.0.  Setting other values will raise an exception.</p>
 	</div>
 	
@@ -990,6 +1064,52 @@ debugging your variations and ensuring all of your codepaths are tested.</p>
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setWillUseCohortIdentifierBlock:" title="setWillUseCohortIdentifierBlock:"></a>
+	<h3 class="subsubtitle method-title">setWillUseCohortIdentifierBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.<br/>
+Set this block before instantiating the SFManager.  This block will then be called on the main thread<br/>
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third<br/>
+party or bespoke Analytics services for example.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setWillUseCohortIdentifierBlock:(SFWillUseCohortIdentifierBlock)<em>willUseCohortIdentifierBlock</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Note that this block will not be called if Transient Variations is set.</p>
+
+<p>Also note that the default cohort is represented as an empty dictionary.</p>
+	</div>
 	
 	
 	
@@ -1271,7 +1391,7 @@ has been used. (<b class="deprecated">Deprecated:</b><span class="deprecated"> U
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Splitforce. All rights reserved. (Last updated: 2013-09-10)</span><br />
+						<p><span class="copyright">&copy; 2013 Splitforce. All rights reserved. (Last updated: 2013-10-19)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						
