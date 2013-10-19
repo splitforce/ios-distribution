@@ -2,7 +2,7 @@ Splitforce Library
 
 Version 0.4.3 Revisions
 =======================
- - Library support for experiment coverage configuration to be set on website. (Coming soon)
+ - Library support for configuring experiment coverage  on website. (Coming soon)
 
 Version 0.4.2 Revisions
 =======================
@@ -18,7 +18,7 @@ Version 0.4.2 Revisions
 Version 0.4.1 Revisions
 =======================
  - Localisations now fallback to Major-locale matches prior to most-recently used matches.  i.e. if a user first sets their device to Chinese and then to British-English, then we will match US-english localisations before Chinese localisations when there is no en-GB localisation included.
- - Results on Splitforce.com are split based on the combination of locales picked for each component in a variation.
+ - Results on Splitforce.com are split based on the combination of locales picked for each component in a variation. (coming soon)
 
 Version 0.4 Revisions
 =====================
