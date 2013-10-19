@@ -1,5 +1,9 @@
 Splitforce Library
 
+Version 0.4.3 Revisions
+=======================
+ - Library support for experiment coverage configuration to be set on website. (Coming soon)
+
 Version 0.4.2 Revisions
 =======================
  - Library support for Variant Validation Scripting (VVS), coming soon to Splitforce.com website.
@@ -9,7 +13,7 @@ Version 0.4.2 Revisions
     - model
     - deviceName
  - Only works on iOS7+
- - Need to link the JavaScriptCore framework (Set to optional to compile for devices < iOS7.0)
+ - Need to link the JavaScriptCore framework to use this (Set to optional to compile for devices < iOS7.0)
 
 Version 0.4.1 Revisions
 =======================
