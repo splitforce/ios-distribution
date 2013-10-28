@@ -54,9 +54,13 @@
 	
 	<option value="//api/name/currentManager">&nbsp;&nbsp;&nbsp;&nbsp;+ currentManager</option>
 	
+	<option value="//api/name/frameworkVersion">&nbsp;&nbsp;&nbsp;&nbsp;+ frameworkVersion</option>
+	
 	<option value="//api/name/managerWithApplicationId:applicationKey:">&nbsp;&nbsp;&nbsp;&nbsp;+ managerWithApplicationId:applicationKey:</option>
 	
 	<option value="//api/name/managerWithApplicationId:applicationKey:completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;+ managerWithApplicationId:applicationKey:completionBlock:</option>
+	
+	<option value="//api/name/setCVTGlobalObjectValues:">&nbsp;&nbsp;&nbsp;&nbsp;+ setCVTGlobalObjectValues:</option>
 	
 	<option value="//api/name/setDebugMode:">&nbsp;&nbsp;&nbsp;&nbsp;+ setDebugMode:</option>
 	
@@ -137,9 +141,13 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentManager">currentManager</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/frameworkVersion">frameworkVersion</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managerWithApplicationId:applicationKey:">managerWithApplicationId:applicationKey:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managerWithApplicationId:applicationKey:completionBlock:">managerWithApplicationId:applicationKey:completionBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCVTGlobalObjectValues:">setCVTGlobalObjectValues:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDebugMode:">setDebugMode:</a></span></li>
 	
@@ -347,6 +355,15 @@ party or bespoke Analytics services for example.</p></span>
 	</span>
 	
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setCVTGlobalObjectValues:">+&nbsp;setCVTGlobalObjectValues:</a></code>
+		<span class="tooltip"><p>Custom Validation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.<br/>
+Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the<br/>
+JS Global Object as variables set their corresponding values.</p></span>
+	</span>
+	
+	
 </li>
 						</ul>
 						
@@ -437,6 +454,13 @@ implementation.  This only applies to the offline failures, experiments that fai
 undefined at the time of application will not be persisted as failures once the experiment is added to the dataset. (<b class="deprecated">Deprecated:</b><span class="deprecated"> set Class Parameters before instantiating the SFManager instead of these properties</span>)</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/frameworkVersion">+&nbsp;frameworkVersion</a></code>
+		<span class="tooltip"><p>Get the framework version</p></span>
+	</span>
+	
 	
 </li>
 						</ul>
@@ -662,6 +686,42 @@ Doing so will raise an Exception.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/frameworkVersion" title="frameworkVersion"></a>
+	<h3 class="subsubtitle method-title">frameworkVersion</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Get the framework version</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)frameworkVersion</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/managerWithApplicationId:applicationKey:" title="managerWithApplicationId:applicationKey:"></a>
 	<h3 class="subsubtitle method-title">managerWithApplicationId:applicationKey:</h3>
 	
@@ -802,6 +862,44 @@ there will be no issues.  You may decide that running your application without a
 undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure<br/>
 that the initial connection has been made before proceeding further into your aplication.</p>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setCVTGlobalObjectValues:" title="setCVTGlobalObjectValues:"></a>
+	<h3 class="subsubtitle method-title">setCVTGlobalObjectValues:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Custom Validation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.<br/>
+Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the<br/>
+JS Global Object as variables set their corresponding values.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setCVTGlobalObjectValues:(NSDictionary *)<em>globalObjectValues</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -1391,7 +1489,7 @@ has been used. (<b class="deprecated">Deprecated:</b><span class="deprecated"> U
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Splitforce. All rights reserved. (Last updated: 2013-10-19)</span><br />
+						<p><span class="copyright">&copy; 2013 Splitforce. All rights reserved. (Last updated: 2013-10-28)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						

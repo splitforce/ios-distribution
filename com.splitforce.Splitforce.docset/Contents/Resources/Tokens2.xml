@@ -224,6 +224,20 @@ party or bespoke Analytics services for example.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setCVTGlobalObjectValues:</TokenIdentifier>
+			<Abstract type="html">Custom Validation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.
+Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the
+JS Global Object as variables set their corresponding values.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setCVTGlobalObjectValues:(NSDictionary *)globalObjectValues</Declaration>
+			
+			
+			<Anchor>//api/name/setCVTGlobalObjectValues:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/SFManager/experimentNamed:applyVariationBlock:errorBlock:</TokenIdentifier>
 			<Abstract type="html">Get the data for an experiement and execute the variationBlock on the selected variation.
 The SFVariation object provided to the applyVariationBlock will contain the raw data
@@ -440,6 +454,18 @@ undefined at the time of application will not be persisted as failures once the 
 			
 			
 			<Anchor>//api/name/persistFailedExperiments</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/frameworkVersion</TokenIdentifier>
+			<Abstract type="html">Get the framework version</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)frameworkVersion</Declaration>
+			
+			
+			<Anchor>//api/name/frameworkVersion</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		

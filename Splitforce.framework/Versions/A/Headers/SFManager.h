@@ -212,7 +212,12 @@ In general - as long as the user has a functioning internet connection the first
 
 + (void)setWillUseCohortIdentifierBlock:(SFWillUseCohortIdentifierBlock)willUseCohortIdentifierBlock;
 
-
+/*!
+Custom Validation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.
+ Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the
+ JS Global Object as variables set their corresponding values.
+ */
++ (void)setCVTGlobalObjectValues:(NSDictionary *)globalObjectValues;
 
 /**---------------------------------------------------------------------------------------
  * @name Running Experiments
@@ -332,5 +337,10 @@ In general - as long as the user has a functioning internet connection the first
  */
 @property (nonatomic) BOOL persistFailedExperiments __attribute__((deprecated("use class properties prior to instantiation instead")));
 
+
+/*!
+ Get the framework version
+ */
++ (NSString *)frameworkVersion;
 
 @end
