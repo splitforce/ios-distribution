@@ -135,24 +135,10 @@ the value after the manager has been established will have no effect.</Abstract>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setSampleRate:</TokenIdentifier>
-			<Abstract type="html">Sample rate applies experiments to a small proportion of your user base.  This is useful for managing your
-costs and keeping within your user allowance for your selected splitforce package. N.B.  This setting has
-no effect when transientVariations is set to YES so that you can test all code paths more easily.  Note also
-that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
-the value after the manager has been established will have no effect. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.&lt;/span&gt;)</Abstract>
-			<DeclaredIn>SFManager.h</DeclaredIn>			
-			
-			<Declaration>+ (void)setSampleRate:(double)sampleRate</Declaration>
-			
-			
-			<Anchor>//api/name/setSampleRate:</Anchor>
-            <NodeRef refid="2"/>
-		</Token>
-		
-		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setDebugMode:</TokenIdentifier>
-			<Abstract type="html">Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.</Abstract>
+			<Abstract type="html">Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
+Debug mode also enables &apos;Shake to Variation&apos; which allows you to force particular variations to be used from the UI within the app.
+Simply shake the device to get a menu of Experiments and Variations.</Abstract>
 			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
 			<Declaration>+ (void)setDebugMode:(BOOL)debugMode</Declaration>
@@ -163,16 +149,41 @@ the value after the manager has been established will have no effect. (&lt;b cla
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setTransientVariations:</TokenIdentifier>
-			<Abstract type="html">By default, users are grouped into a cohort which will always see the same variation for an experiment.
-Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
-debugging your variations and ensuring all of your codepaths are tested.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/setShakeToVariationDidChangeVariationBlock:</TokenIdentifier>
+			<Abstract type="html">When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.
+If so then you can do that within this block.</Abstract>
 			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (void)setTransientVariations:(BOOL)transientVariations</Declaration>
+			<Declaration>@property (nonatomic, copy) SFVoidBlock shakeToVariationDidChangeVariationBlock</Declaration>
 			
 			
-			<Anchor>//api/name/setTransientVariations:</Anchor>
+			<Anchor>//api/name/shakeToVariationDidChangeVariationBlock</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/shakeToVariationDidChangeVariationBlock</TokenIdentifier>
+			<Abstract type="html">When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.
+If so then you can do that within this block.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) SFVoidBlock shakeToVariationDidChangeVariationBlock</Declaration>
+			
+			
+			<Anchor>//api/name/shakeToVariationDidChangeVariationBlock</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SFManager/shakeToVariationDidChangeVariationBlock</TokenIdentifier>
+			<Abstract type="html">When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.
+If so then you can do that within this block.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) SFVoidBlock shakeToVariationDidChangeVariationBlock</Declaration>
+			
+			
+			<Anchor>//api/name/shakeToVariationDidChangeVariationBlock</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		
@@ -225,7 +236,7 @@ party or bespoke Analytics services for example.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setCVTGlobalObjectValues:</TokenIdentifier>
-			<Abstract type="html">Custom Validation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.
+			<Abstract type="html">Custom Variation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.
 Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the
 JS Global Object as variables set their corresponding values.</Abstract>
 			<DeclaredIn>SFManager.h</DeclaredIn>			
@@ -325,6 +336,72 @@ has been used. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;s
 			</Parameters>
 			<ReturnValue><Abstract type="html">The SFVariation object which was bound to the object (typically it should be the SFVariation which was used to configure this object)</Abstract></ReturnValue>
 			<Anchor>//api/name/variationForExperimentNamed:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/frameworkVersion</TokenIdentifier>
+			<Abstract type="html">Get the framework version</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)frameworkVersion</Declaration>
+			
+			
+			<Anchor>//api/name/frameworkVersion</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/variationNamesForExperiment:</TokenIdentifier>
+			<Abstract type="html">Get the list of known variation names for a particular experiment</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)variationNamesForExperiment:(NSString *)experimentName</Declaration>
+			
+			
+			<Anchor>//api/name/variationNamesForExperiment:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/allExperimentNames</TokenIdentifier>
+			<Abstract type="html">Get the list of known experiment names</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)allExperimentNames</Declaration>
+			
+			
+			<Anchor>//api/name/allExperimentNames</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setTransientVariations:</TokenIdentifier>
+			<Abstract type="html">By default, users are grouped into a cohort which will always see the same variation for an experiment.
+Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
+debugging your variations and ensuring all of your codepaths are tested. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; transientVariations are deprecated from 0.4.5 onwards.  Use Debug mode instead, as this includes &apos;shake to variation&apos;.  Alternatively use Cohort modification.&lt;/span&gt;)</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setTransientVariations:(BOOL)transientVariations</Declaration>
+			
+			
+			<Anchor>//api/name/setTransientVariations:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setSampleRate:</TokenIdentifier>
+			<Abstract type="html">Sample rate applies experiments to a small proportion of your user base.  This is useful for managing your
+costs and keeping within your user allowance for your selected splitforce package. N.B.  This setting has
+no effect when transientVariations is set to YES so that you can test all code paths more easily.  Note also
+that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
+the value after the manager has been established will have no effect. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.&lt;/span&gt;)</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setSampleRate:(double)sampleRate</Declaration>
+			
+			
+			<Anchor>//api/name/setSampleRate:</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		
@@ -454,18 +531,6 @@ undefined at the time of application will not be persisted as failures once the 
 			
 			
 			<Anchor>//api/name/persistFailedExperiments</Anchor>
-            <NodeRef refid="2"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/SFManager/frameworkVersion</TokenIdentifier>
-			<Abstract type="html">Get the framework version</Abstract>
-			<DeclaredIn>SFManager.h</DeclaredIn>			
-			
-			<Declaration>+ (NSString *)frameworkVersion</Declaration>
-			
-			
-			<Anchor>//api/name/frameworkVersion</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		

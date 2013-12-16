@@ -19,6 +19,12 @@ typedef void(^SFExperimentVariationBlock)(SFVariation *variation);
 typedef void(^SFBooleanBlock)(BOOL success);
 
 /*!
+ An Objective-C Block with no parameters
+ */
+typedef void(^SFVoidBlock)(void);
+
+
+/*!
  An Objective-C Block taking an NSError object as a singular parameter which may provide further details on why an error has occured.
  */
 typedef void(^SFErrorBlock)(NSError *error);
@@ -144,33 +150,17 @@ In general - as long as the user has a functioning internet connection the first
 + (void)setTimeoutInterval:(NSTimeInterval)timeoutInterval;
 
 /*!
- Sample rate applies experiments to a small proportion of your user base.  This is useful for managing your
- costs and keeping within your user allowance for your selected splitforce package. N.B.  This setting has
- no effect when transientVariations is set to YES so that you can test all code paths more easily.  Note also
- that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
- the value after the manager has been established will have no effect.
-
- The default value is 1.0 meaning 100% of your users will be tested.  Minimum value is 0.0, maximum
- value is 1.0.  Setting other values will raise an exception.
- 
- @deprecated Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.
- 
- */
-+ (void)setSampleRate:(double)sampleRate __attribute__((deprecated("Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.")));
-
-/*!
  Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
+ Debug mode also enables 'Shake to Variation' which allows you to force particular variations to be used from the UI within the app.
+ Simply shake the device to get a menu of Experiments and Variations.
  */
 + (void)setDebugMode:(BOOL)debugMode;
 
-
 /*!
- By default, users are grouped into a cohort which will always see the same variation for an experiment.
- Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
- debugging your variations and ensuring all of your codepaths are tested.
+ When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.
+ If so then you can do that within this block.
  */
-
-+ (void)setTransientVariations:(BOOL)transientVariations;
+@property (nonatomic, copy) SFVoidBlock shakeToVariationDidChangeVariationBlock;
 
 /*!
  By default, if an experiment is applied when there is no splitforce data available, then the default block
@@ -208,12 +198,14 @@ In general - as long as the user has a functioning internet connection the first
  Note that this block will not be called if Transient Variations is set.
  
  Also note that the default cohort is represented as an empty dictionary.
+
+ When running in Debug mode, your cohort modification block will be called before any Shake to Variation choice is applied.  That is, Shake to Variation takes precedence over cohort modifications made in this block.
  */
 
 + (void)setWillUseCohortIdentifierBlock:(SFWillUseCohortIdentifierBlock)willUseCohortIdentifierBlock;
 
 /*!
-Custom Validation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.
+Custom Variation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.
  Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the
  JS Global Object as variables set their corresponding values.
  */
@@ -297,11 +289,58 @@ Custom Validation Targetting allows you to use short Javascript scripts to block
  */
 - (SFVariation *)variationForExperimentNamed:(NSString *)experimentName;
 
-
 /**---------------------------------------------------------------------------------------
- * @name Deprecated Properties in 0.2.3
+ * @name Introspection Utilities
  *  ---------------------------------------------------------------------------------------
  */
+
+/*!
+ Get the framework version
+ */
++ (NSString *)frameworkVersion;
+
+/*!
+ Get the list of known variation names for a particular experiment
+ */
+- (NSArray *)variationNamesForExperiment:(NSString *)experimentName;
+
+/*!
+ Get the list of known experiment names
+ */
+- (NSArray *)allExperimentNames;
+
+
+/**---------------------------------------------------------------------------------------
+ * @name Deprecated Properties & Methods
+ *  ---------------------------------------------------------------------------------------
+ */
+
+/*!
+ By default, users are grouped into a cohort which will always see the same variation for an experiment.
+ Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
+ debugging your variations and ensuring all of your codepaths are tested.
+ 
+ @deprecated transientVariations are deprecated from 0.4.5 onwards.  Use Debug mode instead, as this includes 'shake to variation'.  Alternatively use Cohort modification.
+
+ */
+
++ (void)setTransientVariations:(BOOL)transientVariations;
+
+/*!
+ Sample rate applies experiments to a small proportion of your user base.  This is useful for managing your
+ costs and keeping within your user allowance for your selected splitforce package. N.B.  This setting has
+ no effect when transientVariations is set to YES so that you can test all code paths more easily.  Note also
+ that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
+ the value after the manager has been established will have no effect.
+
+ The default value is 1.0 meaning 100% of your users will be tested.  Minimum value is 0.0, maximum
+ value is 1.0.  Setting other values will raise an exception.
+
+ @deprecated Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.
+
+ */
++ (void)setSampleRate:(double)sampleRate __attribute__((deprecated("Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.")));
+
 
 /*!
  Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
@@ -336,11 +375,5 @@ Custom Validation Targetting allows you to use short Javascript scripts to block
  @deprecated set Class Parameters before instantiating the SFManager instead of these properties
  */
 @property (nonatomic) BOOL persistFailedExperiments __attribute__((deprecated("use class properties prior to instantiation instead")));
-
-
-/*!
- Get the framework version
- */
-+ (NSString *)frameworkVersion;
 
 @end
