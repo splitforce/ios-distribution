@@ -1,5 +1,16 @@
 Splitforce Library
 
+Version 0.4.5 Revisions
+=======================
+ - New feature - "Shake to Variation", enabled by Debug mode.  Lets you choose any variation for any experiment just by shaking the device - great for debugging your variation code!  Set the shakeToVariationDidChangeVariationBlock on the SFManager.currentManager object after you have instantiated the manager to rerun any experiments with the new data.  Codeless Buttons get redraws automagically.
+ - Introduced Introspection Utilities to allow clients to inspect the valid variation names, and set of experiement names in the manifest
+ - Removed CoreData dependency, resolved build issues on iOS7.0 targets, 64-bit support
+ 
+Version 0.4.4 Revisions
+=======================
+ - If you set an invalid variation name within willUseCohortIdentifier block, then SFManager will use the default cohort for that experiment.
+ - +[SFManager frameworkVersion] returns the framework version
+
 Version 0.4.3 Revisions
 =======================
  - Library support for configuring experiment coverage  on website. (Coming soon)
