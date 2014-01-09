@@ -324,7 +324,7 @@ Custom Variation Targetting allows you to use short Javascript scripts to block/
 
  */
 
-+ (void)setTransientVariations:(BOOL)transientVariations;
++ (void)setTransientVariations:(BOOL)transientVariations __attribute__((deprecated("transientVariations are deprecated from 0.4.5 onwards. Use Debug mode instead, as this includes 'shake to variation'.  Alternatively use Cohort modification.")));
 
 /*!
  Sample rate applies experiments to a small proportion of your user base.  This is useful for managing your
