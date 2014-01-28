@@ -1,8 +1,10 @@
 Splitforce Library
 
-Version 0.4.5 Revisions
+
+Version 0.4.6 Revisions
 =======================
  - Fix for a conflict between Shake to Variation and non-Storyboard applications.
+ - Bug fix that allowed Shake to Variation outside of Debug mode
 
 Version 0.4.5 Revisions
 =======================
