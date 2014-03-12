@@ -1,5 +1,10 @@
 Splitforce Library
 
+Version 0.4.7 Revisions
+=======================
+ - Performance improvements
+ - Fix shake to variation bug that prevented it from working more than once
+ - 
 
 Version 0.4.6b Revisions
 =======================
