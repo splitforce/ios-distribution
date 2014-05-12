@@ -1,170 +1,331 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/AriseAB.html">
+	<File path="Classes/SFManager.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/AriseAB</TokenIdentifier>
-			<Abstract type="html">Splitforce Arise Compatibility Layer.  These methods all replace AriseAB method calls with Splitforce equivalents.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/SFManager</TokenIdentifier>
+			<Abstract type="html">Splitforce iOS top-level class. Provides synchronisation with Splitforce backend
+and configuration of settings.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>
 			
 			<NodeRef refid="1"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AriseAB/setupWithKey:rpcURL:</TokenIdentifier>
-			<Abstract type="html">Calling this method raises an exception.  You should replace this call with the correct [SFManager managerWith...] call,
-making sure to paste the correct AppId and AppKey from the Splitforce backend.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/setUpdateFrequency:</TokenIdentifier>
+			<Abstract type="html">The frequency of sending data to the Splitforce backend.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (AriseAB *)setupWithKey:(NSString *)appKey rpcURL:(NSString *)rpcURL</Declaration>
+			<Declaration>@property (nonatomic) NSTimeInterval updateFrequency</Declaration>
 			
 			
-			<Anchor>//api/name/setupWithKey:rpcURL:</Anchor>
+			<Anchor>//api/name/updateFrequency</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AriseAB/testWithName:data:</TokenIdentifier>
-			<Abstract type="html">AriseAB Data Driven Test.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/updateFrequency</TokenIdentifier>
+			<Abstract type="html">The frequency of sending data to the Splitforce backend.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (void)testWithName:(NSString *)name data:(void ( ^ ) ( NSDictionary *testData ))dataCallbackBlock</Declaration>
+			<Declaration>@property (nonatomic) NSTimeInterval updateFrequency</Declaration>
 			
 			
-			<Anchor>//api/name/testWithName:data:</Anchor>
+			<Anchor>//api/name/updateFrequency</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AriseAB/testWithName:A:B:</TokenIdentifier>
-			<Abstract type="html">AriseAB Simple Test with two code paths.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instp/SFManager/updateFrequency</TokenIdentifier>
+			<Abstract type="html">The frequency of sending data to the Splitforce backend.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (void)testWithName:(NSString *)name A:(void ( ^ ) ( void ))blockA B:(void ( ^ ) ( void ))blockB</Declaration>
+			<Declaration>@property (nonatomic) NSTimeInterval updateFrequency</Declaration>
 			
 			
-			<Anchor>//api/name/testWithName:A:B:</Anchor>
+			<Anchor>//api/name/updateFrequency</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AriseAB/testWithName:A:B:C:</TokenIdentifier>
-			<Abstract type="html">AriseAB Simple Test with three code paths.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/currentManager</TokenIdentifier>
+			<Abstract type="html">For convenience, this class exposes a current manager instance.
+This will be set to the first manager that is instantiated in managerWithApplicationId:applicationKey:
+or managerWithApplicationId:applicationKey:completionBlock
+It is a programming error to retrieve this manager before the first manager has been instantiated.
+Doing so will raise an Exception.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (void)testWithName:(NSString *)name A:(void ( ^ ) ( void ))blockA B:(void ( ^ ) ( void ))blockB C:(void ( ^ ) ( void ))blockC</Declaration>
+			<Declaration>+ (SFManager *)currentManager</Declaration>
 			
-			
-			<Anchor>//api/name/testWithName:A:B:C:</Anchor>
+			<ReturnValue><Abstract type="html">The current SFManager</Abstract></ReturnValue>
+			<Anchor>//api/name/currentManager</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AriseAB/testWithName:A:B:C:D:</TokenIdentifier>
-			<Abstract type="html">AriseAB Simple Test with four code paths.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/managerWithApplicationId:applicationKey:</TokenIdentifier>
+			<Abstract type="html">Connect to the Splitforce backend.
+This method will start a connection to the Splitforce backend.  The method returns immediately
+while the connection happens in the background.  To get a callback when the manager is completely
+ready, use the managerWithApplicationId:applicationKey:completionBlock method instead.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (void)testWithName:(NSString *)name A:(void ( ^ ) ( void ))blockA B:(void ( ^ ) ( void ))blockB C:(void ( ^ ) ( void ))blockC D:(void ( ^ ) ( void ))blockD</Declaration>
-			
-			
-			<Anchor>//api/name/testWithName:A:B:C:D:</Anchor>
+			<Declaration>+ (SFManager *)managerWithApplicationId:(NSString *)applicationId applicationKey:(NSString *)applicationKey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>applicationId</Name>
+					<Abstract type="html">The Application Id provided by the Splitforce Web server.</Abstract>
+				</Parameter><Parameter>
+					<Name>applicationKey</Name>
+					<Abstract type="html">The Application Key provided by the Splitforce Web server.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An SFManager object connected to the specified applicationId.</Abstract></ReturnValue>
+			<Anchor>//api/name/managerWithApplicationId:applicationKey:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AriseAB/testWithName:A:B:C:D:E:</TokenIdentifier>
-			<Abstract type="html">AriseAB Simple Test with five code paths.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/managerWithApplicationId:applicationKey:completionBlock:</TokenIdentifier>
+			<Abstract type="html">Asynchronously connect to the Splitforce backend.
+This method will call the completionBlock when either the locally cached variation data
+is ready, or an updated version has been retrieved from the backend.  In case of error (e.g. first time
+usage with no network coverage it will call the completionBlock with NO.  Otherwise the completionBlock
+will be called with YES.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (void)testWithName:(NSString *)name A:(void ( ^ ) ( void ))blockA B:(void ( ^ ) ( void ))blockB C:(void ( ^ ) ( void ))blockC D:(void ( ^ ) ( void ))blockD E:(void ( ^ ) ( void ))blockE</Declaration>
+			<Declaration>+ (void)managerWithApplicationId:(NSString *)applicationId applicationKey:(NSString *)applicationKey completionBlock:(SFBooleanBlock)completionBlock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>applicationId</Name>
+					<Abstract type="html">The Application Id provided by the Splitforce Web server.</Abstract>
+				</Parameter><Parameter>
+					<Name>applicationKey</Name>
+					<Abstract type="html">The Application Key provided by the Splitforce Web server.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionBlock</Name>
+					<Abstract type="html">An SFBooleanBlock which will be called when the SFManager has been connected, or failed to connect.</Abstract>
+				</Parameter>
+			</Parameters>
 			
-			
-			<Anchor>//api/name/testWithName:A:B:C:D:E:</Anchor>
+			<Anchor>//api/name/managerWithApplicationId:applicationKey:completionBlock:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AriseAB/testWithName:A:B:C:D:E:F:</TokenIdentifier>
-			<Abstract type="html">AriseAB Simple Test with six code paths.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setTimeoutInterval:</TokenIdentifier>
+			<Abstract type="html">Set the timeout for connecting to the Splitforce backend.  Note that an initial connect requires two round trips, so
+the max time any method would block or the max time for a callback to be called may be twice this value.  Note also
+that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
+the value after the manager has been established will have no effect.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (void)testWithName:(NSString *)name A:(void ( ^ ) ( void ))blockA B:(void ( ^ ) ( void ))blockB C:(void ( ^ ) ( void ))blockC D:(void ( ^ ) ( void ))blockD E:(void ( ^ ) ( void ))blockE F:(void ( ^ ) ( void ))blockF</Declaration>
+			<Declaration>+ (void)setTimeoutInterval:(NSTimeInterval)timeoutInterval</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>timeoutInterval</Name>
+					<Abstract type="html">The length of time in seconds for network timeouts</Abstract>
+				</Parameter>
+			</Parameters>
 			
-			
-			<Anchor>//api/name/testWithName:A:B:C:D:E:F:</Anchor>
+			<Anchor>//api/name/setTimeoutInterval:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AriseAB/testWithName:A:B:C:D:E:F:G:</TokenIdentifier>
-			<Abstract type="html">AriseAB Simple Test with seven code paths.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setDebugMode:</TokenIdentifier>
+			<Abstract type="html">Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
+Debug mode also enables &apos;Shake to Variation&apos; which allows you to force particular variations to be used from the UI within the app.
+Simply shake the device to get a menu of Experiments and Variations.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (void)testWithName:(NSString *)name A:(void ( ^ ) ( void ))blockA B:(void ( ^ ) ( void ))blockB C:(void ( ^ ) ( void ))blockC D:(void ( ^ ) ( void ))blockD E:(void ( ^ ) ( void ))blockE F:(void ( ^ ) ( void ))blockF G:(void ( ^ ) ( void ))blockG</Declaration>
+			<Declaration>+ (void)setDebugMode:(BOOL)debugMode</Declaration>
 			
 			
-			<Anchor>//api/name/testWithName:A:B:C:D:E:F:G:</Anchor>
+			<Anchor>//api/name/setDebugMode:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AriseAB/testWithName:A:B:C:D:E:F:G:H:</TokenIdentifier>
-			<Abstract type="html">AriseAB Simple Test with eight code paths.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/setShakeToVariationDidChangeVariationBlock:</TokenIdentifier>
+			<Abstract type="html">When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.
+If so then you can do that within this block.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (void)testWithName:(NSString *)name A:(void ( ^ ) ( void ))blockA B:(void ( ^ ) ( void ))blockB C:(void ( ^ ) ( void ))blockC D:(void ( ^ ) ( void ))blockD E:(void ( ^ ) ( void ))blockE F:(void ( ^ ) ( void ))blockF G:(void ( ^ ) ( void ))blockG H:(void ( ^ ) ( void ))blockH</Declaration>
+			<Declaration>@property (nonatomic, copy) SFVoidBlock shakeToVariationDidChangeVariationBlock</Declaration>
 			
 			
-			<Anchor>//api/name/testWithName:A:B:C:D:E:F:G:H:</Anchor>
+			<Anchor>//api/name/shakeToVariationDidChangeVariationBlock</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AriseAB/testWithName:A:B:C:D:E:F:G:H:I:</TokenIdentifier>
-			<Abstract type="html">AriseAB Simple Test with nine code paths.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/shakeToVariationDidChangeVariationBlock</TokenIdentifier>
+			<Abstract type="html">When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.
+If so then you can do that within this block.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (void)testWithName:(NSString *)name A:(void ( ^ ) ( void ))blockA B:(void ( ^ ) ( void ))blockB C:(void ( ^ ) ( void ))blockC D:(void ( ^ ) ( void ))blockD E:(void ( ^ ) ( void ))blockE F:(void ( ^ ) ( void ))blockF G:(void ( ^ ) ( void ))blockG H:(void ( ^ ) ( void ))blockH I:(void ( ^ ) ( void ))blockI</Declaration>
+			<Declaration>@property (nonatomic, copy) SFVoidBlock shakeToVariationDidChangeVariationBlock</Declaration>
 			
 			
-			<Anchor>//api/name/testWithName:A:B:C:D:E:F:G:H:I:</Anchor>
+			<Anchor>//api/name/shakeToVariationDidChangeVariationBlock</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AriseAB/testWithName:A:B:C:D:E:F:G:H:I:J:</TokenIdentifier>
-			<Abstract type="html">AriseAB Simple Test with ten code paths.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instp/SFManager/shakeToVariationDidChangeVariationBlock</TokenIdentifier>
+			<Abstract type="html">When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.
+If so then you can do that within this block.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (void)testWithName:(NSString *)name A:(void ( ^ ) ( void ))blockA B:(void ( ^ ) ( void ))blockB C:(void ( ^ ) ( void ))blockC D:(void ( ^ ) ( void ))blockD E:(void ( ^ ) ( void ))blockE F:(void ( ^ ) ( void ))blockF G:(void ( ^ ) ( void ))blockG H:(void ( ^ ) ( void ))blockH I:(void ( ^ ) ( void ))blockI J:(void ( ^ ) ( void ))blockJ</Declaration>
+			<Declaration>@property (nonatomic, copy) SFVoidBlock shakeToVariationDidChangeVariationBlock</Declaration>
 			
 			
-			<Anchor>//api/name/testWithName:A:B:C:D:E:F:G:H:I:J:</Anchor>
+			<Anchor>//api/name/shakeToVariationDidChangeVariationBlock</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AriseAB/goalReached:</TokenIdentifier>
-			<Abstract type="html">AriseAB Goal - the goal name MUST match the name of the test.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setPersistDefaultCohort:</TokenIdentifier>
+			<Abstract type="html">By default, if an experiment is applied when there is no splitforce data available, then the default block
+is called, and users will see the default implementation.  To ensure users always get the same implementation,
+we persist the state that these users are in the default cohort, and therefore will not have experiments applied.
+Set this to NO to have the variation data applied on future runs after the data is available.
+Note that this only applies to the offline failures, experiments that fail due to the experiment being
+undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (void)goalReached:(NSString *)name</Declaration>
+			<Declaration>+ (void)setPersistDefaultCohort:(BOOL)persistDefaultCohort</Declaration>
 			
 			
-			<Anchor>//api/name/goalReached:</Anchor>
+			<Anchor>//api/name/setPersistDefaultCohort:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AriseAB/colorFromHex:</TokenIdentifier>
-			<Abstract type="html">AriseAB handy utility to convert RGB Hex string into a UIColor object.</Abstract>
-			<DeclaredIn>AriseAB.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setIdentifyCohortBlock:</TokenIdentifier>
+			<Abstract type="html">The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+Set this block before instantiating the SFManager.  This block will then be called on the main thread
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
+party or bespoke Analytics services for example.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (UIColor *)colorFromHex:(NSString *)hex</Declaration>
+			<Declaration>+ (void)setIdentifyCohortBlock:(SFCohortIdentifierBlock)identifyCohortBlock</Declaration>
 			
 			
-			<Anchor>//api/name/colorFromHex:</Anchor>
+			<Anchor>//api/name/setIdentifyCohortBlock:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setWillUseCohortIdentifierBlock:</TokenIdentifier>
+			<Abstract type="html">The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+Set this block before instantiating the SFManager.  This block will then be called on the main thread
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
+party or bespoke Analytics services for example.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setWillUseCohortIdentifierBlock:(SFWillUseCohortIdentifierBlock)willUseCohortIdentifierBlock</Declaration>
+			
+			
+			<Anchor>//api/name/setWillUseCohortIdentifierBlock:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/setCVTGlobalObjectValues:</TokenIdentifier>
+			<Abstract type="html">Custom Variation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.
+Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the
+JS Global Object as variables set their corresponding values.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setCVTGlobalObjectValues:(NSDictionary *)globalObjectValues</Declaration>
+			
+			
+			<Anchor>//api/name/setCVTGlobalObjectValues:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/experimentNamed:applyVariationBlock:applyDefaultBlock:</TokenIdentifier>
+			<Abstract type="html">Get the data for an experiement and apply the variationBlock on the selected variation.
+The SFVariation object provided to the applyVariationBlock will contain the raw data
+in the variationData property.  The SFVariation object shall be used when goal conditions
+are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
+is provided as a convenience an can be used in conjunction with - [SFManager variationForObject:] to
+retrieve the correct SFVariation object at a later point.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)experimentNamed:(NSString *)experimentName applyVariationBlock:(SFExperimentVariationBlock)variationBlock applyDefaultBlock:(SFErrorBlock)defaultBlock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>experimentName</Name>
+					<Abstract type="html">The name of an experiment defined on the Splitforce Web Server.</Abstract>
+				</Parameter><Parameter>
+					<Name>variationBlock</Name>
+					<Abstract type="html">An SFExperimentVariationBlock which will be called when there is valid data for this experiement</Abstract>
+				</Parameter><Parameter>
+					<Name>defaultBlock</Name>
+					<Abstract type="html">An SFErrorBlock which will be called if there is no valid data for this experiement.  The NSError parameter will indicate the reason for no data.  You should configure a default version of your variation in this block.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/experimentNamed:applyVariationBlock:applyDefaultBlock:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/variationForExperimentNamed:</TokenIdentifier>
+			<Abstract type="html">Convenience method to retrieve the SFVariation object for the most recent application of an experiment.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>- (SFVariation *)variationForExperimentNamed:(NSString *)experimentName</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>experimentName</Name>
+					<Abstract type="html">An NSString object matching the experimentName of a previously applied experiment.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The SFVariation object which was most recently created for an application of this experiment</Abstract></ReturnValue>
+			<Anchor>//api/name/variationForExperimentNamed:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/frameworkVersion</TokenIdentifier>
+			<Abstract type="html">Get the framework version</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)frameworkVersion</Declaration>
+			
+			
+			<Anchor>//api/name/frameworkVersion</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/variationNamesForExperiment:</TokenIdentifier>
+			<Abstract type="html">Get the list of known variation names for a particular experiment</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)variationNamesForExperiment:(NSString *)experimentName</Declaration>
+			
+			
+			<Anchor>//api/name/variationNamesForExperiment:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/allExperimentNames</TokenIdentifier>
+			<Abstract type="html">Get the list of known experiment names</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)allExperimentNames</Declaration>
+			
+			
+			<Anchor>//api/name/allExperimentNames</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
