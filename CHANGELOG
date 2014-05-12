@@ -1,9 +1,17 @@
 Splitforce Library
 
-Version 0.4.5 Revisions
+Version 0.4.7 Revisions
+=======================
+ - Performance improvements
+ - Fix shake to variation bug that prevented it from working more than once
+ - 
+
+Version 0.4.6b Revisions
 =======================
  - Fix for a conflict between Shake to Variation and non-Storyboard applications.
-
+ - Bug fix that allowed Shake to Variation outside of Debug mode
+ - Debug mode data is now split from Release data, see website for more details
+ 
 Version 0.4.5 Revisions
 =======================
  - New feature - "Shake to Variation", enabled by Debug mode.  Lets you choose any variation for any experiment just by shaking the device - great for debugging your variation code!  Set the shakeToVariationDidChangeVariationBlock on the SFManager.currentManager object after you have instantiated the manager to rerun any experiments with the new data.  Codeless Buttons get redraws automagically.
