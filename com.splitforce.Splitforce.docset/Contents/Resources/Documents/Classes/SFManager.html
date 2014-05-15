@@ -56,7 +56,7 @@
 	
 	<option value="//api/name/managerWithApplicationId:applicationKey:completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;+ managerWithApplicationId:applicationKey:completionBlock:</option>
 	
-	<option value="//api/name/setCVTGlobalObjectValues:">&nbsp;&nbsp;&nbsp;&nbsp;+ setCVTGlobalObjectValues:</option>
+	<option value="//api/name/setCustomTargetingKey:withBlock:">&nbsp;&nbsp;&nbsp;&nbsp;+ setCustomTargetingKey:withBlock:</option>
 	
 	<option value="//api/name/setDebugMode:">&nbsp;&nbsp;&nbsp;&nbsp;+ setDebugMode:</option>
 	
@@ -135,7 +135,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managerWithApplicationId:applicationKey:completionBlock:">managerWithApplicationId:applicationKey:completionBlock:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCVTGlobalObjectValues:">setCVTGlobalObjectValues:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCustomTargetingKey:withBlock:">setCustomTargetingKey:withBlock:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDebugMode:">setDebugMode:</a></span></li>
 	
@@ -300,12 +300,7 @@ If so then you can do that within this block.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setPersistDefaultCohort:">+&nbsp;setPersistDefaultCohort:</a></code>
-		<span class="tooltip"><p>By default, if an experiment is applied when there is no splitforce data available, then the default block
-is called, and users will see the default implementation.  To ensure users always get the same implementation,
-we persist the state that these users are in the default cohort, and therefore will not have experiments applied.
-Set this to NO to have the variation data applied on future runs after the data is available.
-Note that this only applies to the offline failures, experiments that fail due to the experiment being
-undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.</p></span>
+		<span class="tooltip"><p>By default, experiments are revalidated on-demand, so if the user has been placed in the default cohort due to lack of connectivity, then they will join the correct cohort soon after the data becomes available.  If you would prefer to ensure users always get the same implementation, then set this parameter to YES and we will persist the state that these users are in the default cohort, and therefore will not have experiments applied.</p></span>
 	</span>
 	
 	
@@ -331,10 +326,14 @@ party or bespoke Analytics services for example.</p></span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/setCVTGlobalObjectValues:">+&nbsp;setCVTGlobalObjectValues:</a></code>
-		<span class="tooltip"><p>Custom Variation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.
-Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the
-JS Global Object as variables set their corresponding values.</p></span>
+		<code><a href="#//api/name/setCustomTargetingKey:withBlock:">+&nbsp;setCustomTargetingKey:withBlock:</a></code>
+		<span class="tooltip"><p>When you define custom Segmentation/Targetting Conditions on the website, this allows you to target
+variations based on runtime data.  To pass your custom data into the targeting engine, call setCustomTargetingKey:withBlock: before intialising the splitforce library.
+The splitforce library will then execute valueBlock when required, and pass the return value into the targeting engine.
+For example, to return the user&rsquo;s gender from a global user object:
+    [SFManager setCustomTargetingKey:@&ldquo;gender&rdquo; withBlock:^{
+        return [UserManager.currentUser gender];
+    }];</p></span>
 	</span>
 	
 	
@@ -734,20 +733,24 @@ that the initial connection has been made before proceeding further into your ap
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/setCVTGlobalObjectValues:" title="setCVTGlobalObjectValues:"></a>
-	<h3 class="subsubtitle method-title">setCVTGlobalObjectValues:</h3>
+	<a name="//api/name/setCustomTargetingKey:withBlock:" title="setCustomTargetingKey:withBlock:"></a>
+	<h3 class="subsubtitle method-title">setCustomTargetingKey:withBlock:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Custom Variation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.
-Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the
-JS Global Object as variables set their corresponding values.</p>
+		<p>When you define custom Segmentation/Targetting Conditions on the website, this allows you to target
+variations based on runtime data.  To pass your custom data into the targeting engine, call setCustomTargetingKey:withBlock: before intialising the splitforce library.
+The splitforce library will then execute valueBlock when required, and pass the return value into the targeting engine.
+For example, to return the user&rsquo;s gender from a global user object:
+    [SFManager setCustomTargetingKey:@&ldquo;gender&rdquo; withBlock:^{
+        return [UserManager.currentUser gender];
+    }];</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)setCVTGlobalObjectValues:(NSDictionary *)<em>globalObjectValues</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)setCustomTargetingKey:(NSString *)<em>key</em> withBlock:(SFTargetingValueBlock)<em>valueBlock</em></code></div>
 
     
 	
@@ -862,12 +865,7 @@ party or bespoke Analytics services for example.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>By default, if an experiment is applied when there is no splitforce data available, then the default block
-is called, and users will see the default implementation.  To ensure users always get the same implementation,
-we persist the state that these users are in the default cohort, and therefore will not have experiments applied.
-Set this to NO to have the variation data applied on future runs after the data is available.
-Note that this only applies to the offline failures, experiments that fail due to the experiment being
-undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.</p>
+		<p>By default, experiments are revalidated on-demand, so if the user has been placed in the default cohort due to lack of connectivity, then they will join the correct cohort soon after the data becomes available.  If you would prefer to ensure users always get the same implementation, then set this parameter to YES and we will persist the state that these users are in the default cohort, and therefore will not have experiments applied.</p>
 	</div>		
 	
     
@@ -881,12 +879,6 @@ undefined at the time of application will not be persisted as failures once the 
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Note that this parameter is subordinate to transientVariations.  If transientVariations is set then the user will
-always see either new data if available, or default data if the connection is offline.</p>
-	</div>
 	
 	
 	
@@ -1210,7 +1202,7 @@ if there is no connection to the splitforce servers, and no cached content avail
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Splitforce. All rights reserved. (Last updated: 2014-05-12)</span><br />
+						<p><span class="copyright">&copy; 2014 Splitforce. All rights reserved. (Last updated: 2014-05-15)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						

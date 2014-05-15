@@ -41,6 +41,7 @@ typedef void(^SFCohortIdentifierBlock)(NSDictionary *cohortIdentifier);
  */
 typedef NSDictionary *(^SFWillUseCohortIdentifierBlock)(NSDictionary *cohortIdentifier);
 
+typedef id(^SFTargetingValueBlock)(void);
 
 /*!
  Splitforce iOS top-level class. Provides synchronisation with Splitforce backend
@@ -163,15 +164,7 @@ In general - as long as the user has a functioning internet connection the first
 @property (nonatomic, copy) SFVoidBlock shakeToVariationDidChangeVariationBlock;
 
 /*!
- By default, if an experiment is applied when there is no splitforce data available, then the default block
- is called, and users will see the default implementation.  To ensure users always get the same implementation,
- we persist the state that these users are in the default cohort, and therefore will not have experiments applied.
- Set this to NO to have the variation data applied on future runs after the data is available.
- Note that this only applies to the offline failures, experiments that fail due to the experiment being
- undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.
-
- Note that this parameter is subordinate to transientVariations.  If transientVariations is set then the user will
- always see either new data if available, or default data if the connection is offline.
+ By default, experiments are revalidated on-demand, so if the user has been placed in the default cohort due to lack of connectivity, then they will join the correct cohort soon after the data becomes available.  If you would prefer to ensure users always get the same implementation, then set this parameter to YES and we will persist the state that these users are in the default cohort, and therefore will not have experiments applied.
  */
 
 + (void)setPersistDefaultCohort:(BOOL)persistDefaultCohort;
@@ -205,11 +198,15 @@ In general - as long as the user has a functioning internet connection the first
 + (void)setWillUseCohortIdentifierBlock:(SFWillUseCohortIdentifierBlock)willUseCohortIdentifierBlock;
 
 /*!
-Custom Variation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.
- Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the
- JS Global Object as variables set their corresponding values.
+ When you define custom Segmentation/Targetting Conditions on the website, this allows you to target
+ variations based on runtime data.  To pass your custom data into the targeting engine, call setCustomTargetingKey:withBlock: before intialising the splitforce library.
+ The splitforce library will then execute valueBlock when required, and pass the return value into the targeting engine.
+ For example, to return the user's gender from a global user object:
+    [SFManager setCustomTargetingKey:@"gender" withBlock:^{
+        return [UserManager.currentUser gender];
+    }];
  */
-+ (void)setCVTGlobalObjectValues:(NSDictionary *)globalObjectValues;
++ (void)setCustomTargetingKey:(NSString *)key withBlock:(SFTargetingValueBlock)valueBlock;
 
 /**---------------------------------------------------------------------------------------
  * @name Running Experiments
