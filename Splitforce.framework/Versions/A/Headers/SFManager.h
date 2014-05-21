@@ -175,8 +175,6 @@ In general - as long as the user has a functioning internet connection the first
  when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
  party or bespoke Analytics services for example.
  
- Note that this block will not be called if Transient Variations is set.
- 
  Also note that the default cohort is represented as an empty dictionary.
  */
 
@@ -187,9 +185,7 @@ In general - as long as the user has a functioning internet connection the first
  Set this block before instantiating the SFManager.  This block will then be called on the main thread
  when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
  party or bespoke Analytics services for example.
- 
- Note that this block will not be called if Transient Variations is set.
- 
+  
  Also note that the default cohort is represented as an empty dictionary.
 
  When running in Debug mode, your cohort modification block will be called before any Shake to Variation choice is applied.  That is, Shake to Variation takes precedence over cohort modifications made in this block.

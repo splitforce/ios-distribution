@@ -219,7 +219,9 @@ party or bespoke Analytics services for example.</Abstract>
 			<Abstract type="html">The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
 Set this block before instantiating the SFManager.  This block will then be called on the main thread
 when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
-party or bespoke Analytics services for example.</Abstract>
+party or bespoke Analytics services for example.
+  
+Also note that the default cohort is represented as an empty dictionary.</Abstract>
 			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
 			<Declaration>+ (void)setWillUseCohortIdentifierBlock:(SFWillUseCohortIdentifierBlock)willUseCohortIdentifierBlock</Declaration>
