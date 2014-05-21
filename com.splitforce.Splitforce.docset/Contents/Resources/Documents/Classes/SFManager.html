@@ -307,7 +307,7 @@ If so then you can do that within this block.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setIdentifyCohortBlock:">+&nbsp;setIdentifyCohortBlock:</a></code>
-		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
 Set this block before instantiating the SFManager.  This block will then be called on the main thread
 when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
 party or bespoke Analytics services for example.</p></span>
@@ -317,7 +317,7 @@ party or bespoke Analytics services for example.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setWillUseCohortIdentifierBlock:">+&nbsp;setWillUseCohortIdentifierBlock:</a></code>
-		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
 Set this block before instantiating the SFManager.  This block will then be called on the main thread
 when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
 party or bespoke Analytics services for example.</p>
@@ -329,7 +329,7 @@ party or bespoke Analytics services for example.</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setCustomTargetingKey:withBlock:">+&nbsp;setCustomTargetingKey:withBlock:</a></code>
-		<span class="tooltip"><p>When you define custom Segmentation/Targetting Conditions on the website, this allows you to target
+		<span class="tooltip"><p>When you define custom Segmentation/Targeting Conditions on the website, this allows you to target
 variations based on runtime data.  To pass your custom data into the targeting engine, call setCustomTargetingKey:withBlock: before intialising the splitforce library.
 The splitforce library will then execute valueBlock when required, and pass the return value into the targeting engine.
 For example, to return the user&rsquo;s gender from a global user object:
@@ -350,7 +350,7 @@ For example, to return the user&rsquo;s gender from a global user object:
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/experimentNamed:applyVariationBlock:applyDefaultBlock:">&ndash;&nbsp;experimentNamed:applyVariationBlock:applyDefaultBlock:</a></code>
-		<span class="tooltip"><p>Get the data for an experiement and apply the variationBlock on the selected variation.
+		<span class="tooltip"><p>Get the data for an experiment and apply the variationBlock on the selected variation.
 The SFVariation object provided to the applyVariationBlock will contain the raw data
 in the variationData property.  The SFVariation object shall be used when goal conditions
 are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
@@ -741,7 +741,7 @@ that the initial connection has been made before proceeding further into your ap
 	
 	
 	<div class="method-subsection brief-description">
-		<p>When you define custom Segmentation/Targetting Conditions on the website, this allows you to target
+		<p>When you define custom Segmentation/Targeting Conditions on the website, this allows you to target
 variations based on runtime data.  To pass your custom data into the targeting engine, call setCustomTargetingKey:withBlock: before intialising the splitforce library.
 The splitforce library will then execute valueBlock when required, and pass the return value into the targeting engine.
 For example, to return the user&rsquo;s gender from a global user object:
@@ -821,7 +821,7 @@ Simply shake the device to get a menu of Experiments and Variations.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
 Set this block before instantiating the SFManager.  This block will then be called on the main thread
 when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
 party or bespoke Analytics services for example.</p>
@@ -950,7 +950,7 @@ the value after the manager has been established will have no effect.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
 Set this block before instantiating the SFManager.  This block will then be called on the main thread
 when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
 party or bespoke Analytics services for example.</p>
@@ -1040,7 +1040,7 @@ party or bespoke Analytics services for example.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Get the data for an experiement and apply the variationBlock on the selected variation.
+		<p>Get the data for an experiment and apply the variationBlock on the selected variation.
 The SFVariation object provided to the applyVariationBlock will contain the raw data
 in the variationData property.  The SFVariation object shall be used when goal conditions
 are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
@@ -1064,12 +1064,12 @@ retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> objec
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>variationBlock</em></dt>
-			<dd><p>An SFExperimentVariationBlock which will be called when there is valid data for this experiement</p></dd>
+			<dd><p>An SFExperimentVariationBlock which will be called when there is valid data for this experiment</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>defaultBlock</em></dt>
-			<dd><p>An SFErrorBlock which will be called if there is no valid data for this experiement.  The NSError parameter will indicate the reason for no data.  You should configure a default version of your variation in this block.</p></dd>
+			<dd><p>An SFErrorBlock which will be called if there is no valid data for this experiment.  The NSError parameter will indicate the reason for no data.  You should configure a default version of your variation in this block.</p></dd>
 		</dl>
 		
 	</div>

@@ -1,5 +1,12 @@
 Splitforce Library
 
+Version 1.0.0 Revisions
+=======================
+ - All 0.9.0 revisions
+ - Shiny new website to set up Segmentation and visualise results
+ - Automatic migration of persisted data when updating from earlier library versions
+ - Slimmed down library to ensure minimal overhead on your apps
+
 Version 0.9.0 Revisions
 =======================
  - Preparation for 1.0 Release
@@ -27,7 +34,7 @@ Version 0.4.6b Revisions
 Version 0.4.5 Revisions
 =======================
  - New feature - "Shake to Variation", enabled by Debug mode.  Lets you choose any variation for any experiment just by shaking the device - great for debugging your variation code!  Set the shakeToVariationDidChangeVariationBlock on the SFManager.currentManager object after you have instantiated the manager to rerun any experiments with the new data.  Codeless Buttons get redraws automagically.
- - Introduced Introspection Utilities to allow clients to inspect the valid variation names, and set of experiement names in the manifest
+ - Introduced Introspection Utilities to allow clients to inspect the valid variation names, and set of experiment names in the manifest
  - Removed CoreData dependency, resolved build issues on iOS7.0 targets, 64-bit support
  
 Version 0.4.4 Revisions
@@ -42,7 +49,7 @@ Version 0.4.3 Revisions
 
 Version 0.4.2 Revisions
 =======================
- - Library support for Custom Variant Targetting Scripting (CVT), coming soon to Splitforce.com website.
+ - Library support for Custom Variation Targetting Scripting (CVT), coming soon to Splitforce.com website.
  - CVT Supported values (set on the global object):
     - UIIdiom, valid values "pad" or "phone"
     - frameworkVersion

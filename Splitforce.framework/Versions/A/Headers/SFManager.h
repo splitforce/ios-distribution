@@ -2,7 +2,7 @@
  @header    SFManager.h
  @abstract  Splitforce Manager iOS SDK Header
  @version   1.0
- @copyright Copyright 2013 Ikura Group Limited. All rights reserved.
+ @copyright Copyright 2014 Splitforce Inc. All rights reserved.
  */
 
 #import <Foundation/Foundation.h>
@@ -41,6 +41,9 @@ typedef void(^SFCohortIdentifierBlock)(NSDictionary *cohortIdentifier);
  */
 typedef NSDictionary *(^SFWillUseCohortIdentifierBlock)(NSDictionary *cohortIdentifier);
 
+/*!
+ An Objective-C Block that returns an Object to pass into the custom segmentation framework.  Be careful of causing unnecessary retains with this, you should probably prefer to reference only __weak pointers to your objects in this.  These blocks should be added before library initialisation, otherwise they'll likely be ignored as initialisation starts the segmentation process in a parallel thread.
+ */
 typedef id(^SFTargetingValueBlock)(void);
 
 /*!
@@ -170,7 +173,7 @@ In general - as long as the user has a functioning internet connection the first
 + (void)setPersistDefaultCohort:(BOOL)persistDefaultCohort;
 
 /*!
- The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+ The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
  Set this block before instantiating the SFManager.  This block will then be called on the main thread
  when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
  party or bespoke Analytics services for example.
@@ -181,7 +184,7 @@ In general - as long as the user has a functioning internet connection the first
 + (void)setIdentifyCohortBlock:(SFCohortIdentifierBlock)identifyCohortBlock;
 
 /*!
- The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+ The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
  Set this block before instantiating the SFManager.  This block will then be called on the main thread
  when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
  party or bespoke Analytics services for example.
@@ -194,7 +197,7 @@ In general - as long as the user has a functioning internet connection the first
 + (void)setWillUseCohortIdentifierBlock:(SFWillUseCohortIdentifierBlock)willUseCohortIdentifierBlock;
 
 /*!
- When you define custom Segmentation/Targetting Conditions on the website, this allows you to target
+ When you define custom Segmentation/Targeting Conditions on the website, this allows you to target
  variations based on runtime data.  To pass your custom data into the targeting engine, call setCustomTargetingKey:withBlock: before intialising the splitforce library.
  The splitforce library will then execute valueBlock when required, and pass the return value into the targeting engine.
  For example, to return the user's gender from a global user object:
@@ -210,7 +213,7 @@ In general - as long as the user has a functioning internet connection the first
  */
 
 /*!
- Get the data for an experiement and apply the variationBlock on the selected variation.
+ Get the data for an experiment and apply the variationBlock on the selected variation.
  The SFVariation object provided to the applyVariationBlock will contain the raw data
  in the variationData property.  The SFVariation object shall be used when goal conditions
  are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
@@ -221,8 +224,8 @@ In general - as long as the user has a functioning internet connection the first
  if there is no connection to the splitforce servers, and no cached content available for your users.
 
  @param experimentName The name of an experiment defined on the Splitforce Web Server.
- @param variationBlock An SFExperimentVariationBlock which will be called when there is valid data for this experiement
- @param defaultBlock An SFErrorBlock which will be called if there is no valid data for this experiement.  The NSError parameter will indicate the reason for no data.  You should configure a default version of your variation in this block.
+ @param variationBlock An SFExperimentVariationBlock which will be called when there is valid data for this experiment
+ @param defaultBlock An SFErrorBlock which will be called if there is no valid data for this experiment.  The NSError parameter will indicate the reason for no data.  You should configure a default version of your variation in this block.
 
  */
 - (void)experimentNamed:(NSString *)experimentName
