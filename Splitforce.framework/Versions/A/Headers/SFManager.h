@@ -2,7 +2,7 @@
  @header    SFManager.h
  @abstract  Splitforce Manager iOS SDK Header
  @version   1.0
- @copyright Copyright 2013 Ikura Group Limited. All rights reserved.
+ @copyright Copyright 2014 Splitforce Inc. All rights reserved.
  */
 
 #import <Foundation/Foundation.h>
@@ -41,6 +41,10 @@ typedef void(^SFCohortIdentifierBlock)(NSDictionary *cohortIdentifier);
  */
 typedef NSDictionary *(^SFWillUseCohortIdentifierBlock)(NSDictionary *cohortIdentifier);
 
+/*!
+ An Objective-C Block that returns an Object to pass into the custom segmentation framework.  Be careful of causing unnecessary retains with this, you should probably prefer to reference only __weak pointers to your objects in this.  These blocks should be added before library initialisation, otherwise they'll likely be ignored as initialisation starts the segmentation process in a parallel thread.
+ */
+typedef id(^SFTargetingValueBlock)(void);
 
 /*!
  Splitforce iOS top-level class. Provides synchronisation with Splitforce backend
@@ -87,7 +91,7 @@ typedef NSDictionary *(^SFWillUseCohortIdentifierBlock)(NSDictionary *cohortIden
  managedWithApplicationId:applicationKey:completionBlock method instead.
  
  Secondly, if an experiment is applied when the manager has failed to connect, this user will join the "default" cohort and see the
- error block variation.  See the property persistFailedExperiments for details on the behaviour in this case.
+ error block variation.  See the property persistDefaultCohort for details on the behaviour in this case.
  
  Finally, if there is cached data, then that is used even if the connection fails to get new data.
  
@@ -116,7 +120,7 @@ In general - as long as the user has a functioning internet connection the first
  before applying experiments will resolve this issue.
  
  Secondly, if an experiment is applied when the manager has failed to connect, this user will join the "default" cohort and see the
- error block variation.  See the property persistFailedExperiments for details on the behaviour in this case.
+ error block variation.  See the property persistDefaultCohort for details on the behaviour in this case.
  
  Finally, if there is cached data, then that is used even if the connection fails to get new data.
  
@@ -163,26 +167,16 @@ In general - as long as the user has a functioning internet connection the first
 @property (nonatomic, copy) SFVoidBlock shakeToVariationDidChangeVariationBlock;
 
 /*!
- By default, if an experiment is applied when there is no splitforce data available, then the default block
- is called, and users will see the default implementation.  To ensure users always get the same implementation,
- we persist the state that these users are in the default cohort, and therefore will not have experiments applied.
- Set this to NO to have the variation data applied on future runs after the data is available.
- Note that this only applies to the offline failures, experiments that fail due to the experiment being
- undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.
-
- Note that this parameter is subordinate to transientVariations.  If transientVariations is set then the user will
- always see either new data if available, or default data if the connection is offline.
+ By default, experiments are revalidated on-demand, so if the user has been placed in the default cohort due to lack of connectivity, then they will join the correct cohort soon after the data becomes available.  If you would prefer to ensure users always get the same implementation, then set this parameter to YES and we will persist the state that these users are in the default cohort, and therefore will not have experiments applied.
  */
 
 + (void)setPersistDefaultCohort:(BOOL)persistDefaultCohort;
 
 /*!
- The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+ The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
  Set this block before instantiating the SFManager.  This block will then be called on the main thread
  when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
  party or bespoke Analytics services for example.
- 
- Note that this block will not be called if Transient Variations is set.
  
  Also note that the default cohort is represented as an empty dictionary.
  */
@@ -190,13 +184,11 @@ In general - as long as the user has a functioning internet connection the first
 + (void)setIdentifyCohortBlock:(SFCohortIdentifierBlock)identifyCohortBlock;
 
 /*!
- The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.
+ The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
  Set this block before instantiating the SFManager.  This block will then be called on the main thread
  when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
  party or bespoke Analytics services for example.
- 
- Note that this block will not be called if Transient Variations is set.
- 
+  
  Also note that the default cohort is represented as an empty dictionary.
 
  When running in Debug mode, your cohort modification block will be called before any Shake to Variation choice is applied.  That is, Shake to Variation takes precedence over cohort modifications made in this block.
@@ -205,11 +197,15 @@ In general - as long as the user has a functioning internet connection the first
 + (void)setWillUseCohortIdentifierBlock:(SFWillUseCohortIdentifierBlock)willUseCohortIdentifierBlock;
 
 /*!
-Custom Variation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.
- Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the
- JS Global Object as variables set their corresponding values.
+ When you define custom Segmentation/Targeting Conditions on the website, this allows you to target
+ variations based on runtime data.  To pass your custom data into the targeting engine, call setCustomTargetingKey:withBlock: before intialising the splitforce library.
+ The splitforce library will then execute valueBlock when required, and pass the return value into the targeting engine.
+ For example, to return the user's gender from a global user object:
+    [SFManager setCustomTargetingKey:@"gender" withBlock:^{
+        return [UserManager.currentUser gender];
+    }];
  */
-+ (void)setCVTGlobalObjectValues:(NSDictionary *)globalObjectValues;
++ (void)setCustomTargetingKey:(NSString *)key withBlock:(SFTargetingValueBlock)valueBlock;
 
 /**---------------------------------------------------------------------------------------
  * @name Running Experiments
@@ -217,32 +213,7 @@ Custom Variation Targetting allows you to use short Javascript scripts to block/
  */
 
 /*!
- Get the data for an experiement and execute the variationBlock on the selected variation.
- The SFVariation object provided to the applyVariationBlock will contain the raw data
- in the variationData property.  The SFVariation object shall be used when goal conditions
- are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
- is provided as a convenience an can be used in conjunction with - [SFManager variationForObject:] to 
- retrieve the correct SFVariation object at a later point.
- 
- The error block should be used to configure default settings for your user.  The error block can be called
- if there is no connection to the splitforce servers, and no cached content available for your users.
- 
- This method is functionally identical to experimentNamed:applyVariationBlock:applyDefaultBlock - however
- the semantics of the latter are clearer, so this method has been deprecated in favour of the latter method.
-
- @deprecated use method experimentNamed:applyVariationBlock:applyDefaultBlock instead
-
- @param experimentName The name of an experiment defined on the Splitforce Web Server.
- @param applyVariationBlock An SFExperimentVariationBlock which will be called when there is valid data for this experiement
- @param errorBlock An SFErrorBlock which will be called if there is no valid data for this experiement
-
- */
-- (void)experimentNamed:(NSString *)experimentName
-    applyVariationBlock:(SFExperimentVariationBlock)applyVariationBlock
-             errorBlock:(SFErrorBlock)errorBlock __attribute__((deprecated("use method experimentNamed:applyVariationBlock:applyDefaultBlock instead")));
-
-/*!
- Get the data for an experiement and execute the variationBlock on the selected variation.
+ Get the data for an experiment and apply the variationBlock on the selected variation.
  The SFVariation object provided to the applyVariationBlock will contain the raw data
  in the variationData property.  The SFVariation object shall be used when goal conditions
  are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
@@ -253,8 +224,8 @@ Custom Variation Targetting allows you to use short Javascript scripts to block/
  if there is no connection to the splitforce servers, and no cached content available for your users.
 
  @param experimentName The name of an experiment defined on the Splitforce Web Server.
- @param variationBlock An SFExperimentVariationBlock which will be called when there is valid data for this experiement
- @param defaultBlock An SFErrorBlock which will be called if there is no valid data for this experiement.  The NSError parameter will indicate the reason for no data.  You should configure a default version of your variation in this block.
+ @param variationBlock An SFExperimentVariationBlock which will be called when there is valid data for this experiment
+ @param defaultBlock An SFErrorBlock which will be called if there is no valid data for this experiment.  The NSError parameter will indicate the reason for no data.  You should configure a default version of your variation in this block.
 
  */
 - (void)experimentNamed:(NSString *)experimentName
@@ -262,29 +233,15 @@ Custom Variation Targetting allows you to use short Javascript scripts to block/
       applyDefaultBlock:(SFErrorBlock)defaultBlock;
 
 /**---------------------------------------------------------------------------------------
- * @name Retrieving a variation later (for goal submission)
+ * @name Retrieving a variation for goal submission
  *  ---------------------------------------------------------------------------------------
  */
 
 /*!
- Convenience method to retrieve the correct SFVariation object at a later point, when - [SFVariation bindToObject:]
- has been used.
-
- @deprecated Use variationForExperimentNamed: instead
-
- @param object An object which has previously had an SFVariation bound to it using [SFVariation bindVariationToObject:] 
- @return The SFVariation object which was bound to the object (typically it should be the SFVariation which was used to configure this object)
-
- */
-- (SFVariation *)variationForObject:(id)object __attribute__((deprecated("use method variationForExperimentNamed: instead")));
-
-/*!
  Convenience method to retrieve the SFVariation object for the most recent application of an experiment.
  
- Note that calling [variation bindToObject:] within an applyVariationBlock will cause this method to return nil.  If binding to an object call varationForObject: instead.
-
- @param experimentName A const NSString object matching the experimentName of a previously applied experiment.
- @return The SFVariation object which was bound to the object (typically it should be the SFVariation which was used to configure this object)
+ @param experimentName An NSString object matching the experimentName of a previously applied experiment.
+ @return The SFVariation object which was most recently created for an application of this experiment
 
  */
 - (SFVariation *)variationForExperimentNamed:(NSString *)experimentName;
@@ -308,72 +265,5 @@ Custom Variation Targetting allows you to use short Javascript scripts to block/
  Get the list of known experiment names
  */
 - (NSArray *)allExperimentNames;
-
-
-/**---------------------------------------------------------------------------------------
- * @name Deprecated Properties & Methods
- *  ---------------------------------------------------------------------------------------
- */
-
-/*!
- By default, users are grouped into a cohort which will always see the same variation for an experiment.
- Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
- debugging your variations and ensuring all of your codepaths are tested.
- 
- @deprecated transientVariations are deprecated from 0.4.5 onwards.  Use Debug mode instead, as this includes 'shake to variation'.  Alternatively use Cohort modification.
-
- */
-
-+ (void)setTransientVariations:(BOOL)transientVariations __attribute__((deprecated("transientVariations are deprecated from 0.4.5 onwards. Use Debug mode instead, as this includes 'shake to variation'.  Alternatively use Cohort modification.")));
-
-/*!
- Sample rate applies experiments to a small proportion of your user base.  This is useful for managing your
- costs and keeping within your user allowance for your selected splitforce package. N.B.  This setting has
- no effect when transientVariations is set to YES so that you can test all code paths more easily.  Note also
- that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
- the value after the manager has been established will have no effect.
-
- The default value is 1.0 meaning 100% of your users will be tested.  Minimum value is 0.0, maximum
- value is 1.0.  Setting other values will raise an exception.
-
- @deprecated Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.
-
- */
-+ (void)setSampleRate:(double)sampleRate __attribute__((deprecated("Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.")));
-
-
-/*!
- Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
-
- @deprecated set Class Parameters before instantiating the SFManager instead of these properties
- */
-
-@property (nonatomic) BOOL debugMode  __attribute__((deprecated("use class properties prior to instantiation instead")));
-
-
-/*!
- By default, users are grouped into a cohort which will always see the same variation for an experiment.
- Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for
- debugging your variations and ensuring all of your codepaths are tested.
-
- @deprecated set Class Parameters before instantiating the SFManager instead of these properties
- */
-@property (nonatomic) BOOL transientVariations __attribute__((deprecated("use class properties prior to instantiation instead")));
-
-
-/*!
- By default, if an experiment is applied when there is no splitforce data available, then the error block
- is called, and users will see an 'unvaried' experiment - a.k.a the default implementation.  In future runs
- this will be replaced with the varied data once it is available.  Alternatively to ensure users always get
- the same implementation, se persistFailedExperiments to YES and users will continue to see the default
- implementation.  This only applies to the offline failures, experiments that fail due to the experiment being
- undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.
-
- Note that this parameter is subordinate to transientVariations.  If transientVariations is set then the user will
- always see either new data if available, or default data if the connection is offline.
- 
- @deprecated set Class Parameters before instantiating the SFManager instead of these properties
- */
-@property (nonatomic) BOOL persistFailedExperiments __attribute__((deprecated("use class properties prior to instantiation instead")));
 
 @end

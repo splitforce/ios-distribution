@@ -2,7 +2,7 @@
  @header    SFUtils.h
  @abstract  Splitforce iOS SDK Utilities Header
  @version   1.0
- @copyright Copyright 2013 Ikura Group Limited. All rights reserved.
+ @copyright Copyright 2014 Splitforce Inc. All rights reserved.
  */
 
 #import <UIKit/UIKit.h>

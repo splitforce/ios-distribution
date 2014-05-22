@@ -39,13 +39,7 @@
 	
 	<option value="properties">Properties</option>
 	
-	<option value="//api/name/debugMode">&nbsp;&nbsp;&nbsp;&nbsp;debugMode</option>
-	
-	<option value="//api/name/persistFailedExperiments">&nbsp;&nbsp;&nbsp;&nbsp;persistFailedExperiments</option>
-	
 	<option value="//api/name/shakeToVariationDidChangeVariationBlock">&nbsp;&nbsp;&nbsp;&nbsp;shakeToVariationDidChangeVariationBlock</option>
-	
-	<option value="//api/name/transientVariations">&nbsp;&nbsp;&nbsp;&nbsp;transientVariations</option>
 	
 	<option value="//api/name/updateFrequency">&nbsp;&nbsp;&nbsp;&nbsp;updateFrequency</option>
 	
@@ -62,7 +56,7 @@
 	
 	<option value="//api/name/managerWithApplicationId:applicationKey:completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;+ managerWithApplicationId:applicationKey:completionBlock:</option>
 	
-	<option value="//api/name/setCVTGlobalObjectValues:">&nbsp;&nbsp;&nbsp;&nbsp;+ setCVTGlobalObjectValues:</option>
+	<option value="//api/name/setCustomTargetingKey:withBlock:">&nbsp;&nbsp;&nbsp;&nbsp;+ setCustomTargetingKey:withBlock:</option>
 	
 	<option value="//api/name/setDebugMode:">&nbsp;&nbsp;&nbsp;&nbsp;+ setDebugMode:</option>
 	
@@ -70,11 +64,7 @@
 	
 	<option value="//api/name/setPersistDefaultCohort:">&nbsp;&nbsp;&nbsp;&nbsp;+ setPersistDefaultCohort:</option>
 	
-	<option value="//api/name/setSampleRate:">&nbsp;&nbsp;&nbsp;&nbsp;+ setSampleRate:</option>
-	
 	<option value="//api/name/setTimeoutInterval:">&nbsp;&nbsp;&nbsp;&nbsp;+ setTimeoutInterval:</option>
-	
-	<option value="//api/name/setTransientVariations:">&nbsp;&nbsp;&nbsp;&nbsp;+ setTransientVariations:</option>
 	
 	<option value="//api/name/setWillUseCohortIdentifierBlock:">&nbsp;&nbsp;&nbsp;&nbsp;+ setWillUseCohortIdentifierBlock:</option>
 	
@@ -87,11 +77,7 @@
 	
 	<option value="//api/name/experimentNamed:applyVariationBlock:applyDefaultBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- experimentNamed:applyVariationBlock:applyDefaultBlock:</option>
 	
-	<option value="//api/name/experimentNamed:applyVariationBlock:errorBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- experimentNamed:applyVariationBlock:errorBlock:</option>
-	
 	<option value="//api/name/variationForExperimentNamed:">&nbsp;&nbsp;&nbsp;&nbsp;- variationForExperimentNamed:</option>
-	
-	<option value="//api/name/variationForObject:">&nbsp;&nbsp;&nbsp;&nbsp;- variationForObject:</option>
 	
 	<option value="//api/name/variationNamesForExperiment:">&nbsp;&nbsp;&nbsp;&nbsp;- variationNamesForExperiment:</option>
 	
@@ -119,11 +105,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Running Experiments">Running Experiments</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Retrieving a variation later (for goal submission)">Retrieving a variation later (for goal submission)</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Retrieving a variation for goal submission">Retrieving a variation for goal submission</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Introspection Utilities">Introspection Utilities</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Deprecated Properties &amp; Methods">Deprecated Properties &amp; Methods</a></span></li>
 	
 </ul></li>
 
@@ -133,13 +117,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/debugMode">debugMode</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/persistFailedExperiments">persistFailedExperiments</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shakeToVariationDidChangeVariationBlock">shakeToVariationDidChangeVariationBlock</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/transientVariations">transientVariations</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateFrequency">updateFrequency</a></span></li>
 	
@@ -157,7 +135,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managerWithApplicationId:applicationKey:completionBlock:">managerWithApplicationId:applicationKey:completionBlock:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCVTGlobalObjectValues:">setCVTGlobalObjectValues:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCustomTargetingKey:withBlock:">setCustomTargetingKey:withBlock:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDebugMode:">setDebugMode:</a></span></li>
 	
@@ -165,11 +143,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setPersistDefaultCohort:">setPersistDefaultCohort:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setSampleRate:">setSampleRate:</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setTimeoutInterval:">setTimeoutInterval:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setTransientVariations:">setTransientVariations:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setWillUseCohortIdentifierBlock:">setWillUseCohortIdentifierBlock:</a></span></li>
 	
@@ -183,11 +157,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/experimentNamed:applyVariationBlock:applyDefaultBlock:">experimentNamed:applyVariationBlock:applyDefaultBlock:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/experimentNamed:applyVariationBlock:errorBlock:">experimentNamed:applyVariationBlock:errorBlock:</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/variationForExperimentNamed:">variationForExperimentNamed:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/variationForObject:">variationForObject:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/variationNamesForExperiment:">variationNamesForExperiment:</a></span></li>
 	
@@ -228,7 +198,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Splitforce iOS top-level class. Provides synchronisation with Splitforce backend<br/>
+						<p>Splitforce iOS top-level class. Provides synchronisation with Splitforce backend
 and configuration of settings.</p>
 					</div>
 					
@@ -263,10 +233,10 @@ and configuration of settings.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/currentManager">+&nbsp;currentManager</a></code>
-		<span class="tooltip"><p>For convenience, this class exposes a current manager instance.<br/>
-This will be set to the first manager that is instantiated in <a href="#//api/name/managerWithApplicationId:applicationKey:">managerWithApplicationId:applicationKey:</a><br/>
-or managerWithApplicationId:applicationKey:completionBlock<br/>
-It is a programming error to retrieve this manager before the first manager has been instantiated.<br/>
+		<span class="tooltip"><p>For convenience, this class exposes a current manager instance.
+This will be set to the first manager that is instantiated in <a href="#//api/name/managerWithApplicationId:applicationKey:">managerWithApplicationId:applicationKey:</a>
+or managerWithApplicationId:applicationKey:completionBlock
+It is a programming error to retrieve this manager before the first manager has been instantiated.
 Doing so will raise an Exception.</p></span>
 	</span>
 	
@@ -274,9 +244,9 @@ Doing so will raise an Exception.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/managerWithApplicationId:applicationKey:">+&nbsp;managerWithApplicationId:applicationKey:</a></code>
-		<span class="tooltip"><p>Connect to the Splitforce backend.<br/>
-This method will start a connection to the Splitforce backend.  The method returns immediately<br/>
-while the connection happens in the background.  To get a callback when the manager is completely<br/>
+		<span class="tooltip"><p>Connect to the Splitforce backend.
+This method will start a connection to the Splitforce backend.  The method returns immediately
+while the connection happens in the background.  To get a callback when the manager is completely
 ready, use the managerWithApplicationId:applicationKey:completionBlock method instead.</p></span>
 	</span>
 	
@@ -284,10 +254,10 @@ ready, use the managerWithApplicationId:applicationKey:completionBlock method in
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/managerWithApplicationId:applicationKey:completionBlock:">+&nbsp;managerWithApplicationId:applicationKey:completionBlock:</a></code>
-		<span class="tooltip"><p>Asynchronously connect to the Splitforce backend.<br/>
-This method will call the completionBlock when either the locally cached variation data<br/>
-is ready, or an updated version has been retrieved from the backend.  In case of error (e.g. first time<br/>
-usage with no network coverage it will call the completionBlock with NO.  Otherwise the completionBlock<br/>
+		<span class="tooltip"><p>Asynchronously connect to the Splitforce backend.
+This method will call the completionBlock when either the locally cached variation data
+is ready, or an updated version has been retrieved from the backend.  In case of error (e.g. first time
+usage with no network coverage it will call the completionBlock with NO.  Otherwise the completionBlock
 will be called with YES.</p></span>
 	</span>
 	
@@ -303,9 +273,9 @@ will be called with YES.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setTimeoutInterval:">+&nbsp;setTimeoutInterval:</a></code>
-		<span class="tooltip"><p>Set the timeout for connecting to the Splitforce backend.  Note that an initial connect requires two round trips, so<br/>
-the max time any method would block or the max time for a callback to be called may be twice this value.  Note also<br/>
-that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing<br/>
+		<span class="tooltip"><p>Set the timeout for connecting to the Splitforce backend.  Note that an initial connect requires two round trips, so
+the max time any method would block or the max time for a callback to be called may be twice this value.  Note also
+that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
 the value after the manager has been established will have no effect.</p></span>
 	</span>
 	
@@ -313,8 +283,8 @@ the value after the manager has been established will have no effect.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setDebugMode:">+&nbsp;setDebugMode:</a></code>
-		<span class="tooltip"><p>Switching on <a href="#//api/name/debugMode">debugMode</a> will provide more detailed logs on the console and should be switched on for all DEBUG builds.<br/>
-Debug mode also enables &lsquo;Shake to Variation&rsquo; which allows you to force particular variations to be used from the UI within the app.<br/>
+		<span class="tooltip"><p>Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
+Debug mode also enables &lsquo;Shake to Variation&rsquo; which allows you to force particular variations to be used from the UI within the app.
 Simply shake the device to get a menu of Experiments and Variations.</p></span>
 	</span>
 	
@@ -322,7 +292,7 @@ Simply shake the device to get a menu of Experiments and Variations.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/shakeToVariationDidChangeVariationBlock">&nbsp;&nbsp;shakeToVariationDidChangeVariationBlock</a></code>
-		<span class="tooltip"><p>When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.<br/>
+		<span class="tooltip"><p>When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.
 If so then you can do that within this block.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -330,21 +300,16 @@ If so then you can do that within this block.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setPersistDefaultCohort:">+&nbsp;setPersistDefaultCohort:</a></code>
-		<span class="tooltip"><p>By default, if an experiment is applied when there is no splitforce data available, then the default block<br/>
-is called, and users will see the default implementation.  To ensure users always get the same implementation,<br/>
-we persist the state that these users are in the default cohort, and therefore will not have experiments applied.<br/>
-Set this to NO to have the variation data applied on future runs after the data is available.<br/>
-Note that this only applies to the offline failures, experiments that fail due to the experiment being<br/>
-undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.</p></span>
+		<span class="tooltip"><p>By default, experiments are revalidated on-demand, so if the user has been placed in the default cohort due to lack of connectivity, then they will join the correct cohort soon after the data becomes available.  If you would prefer to ensure users always get the same implementation, then set this parameter to YES and we will persist the state that these users are in the default cohort, and therefore will not have experiments applied.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setIdentifyCohortBlock:">+&nbsp;setIdentifyCohortBlock:</a></code>
-		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.<br/>
-Set this block before instantiating the SFManager.  This block will then be called on the main thread<br/>
-when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third<br/>
+		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
+Set this block before instantiating the SFManager.  This block will then be called on the main thread
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
 party or bespoke Analytics services for example.</p></span>
 	</span>
 	
@@ -352,19 +317,25 @@ party or bespoke Analytics services for example.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setWillUseCohortIdentifierBlock:">+&nbsp;setWillUseCohortIdentifierBlock:</a></code>
-		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.<br/>
-Set this block before instantiating the SFManager.  This block will then be called on the main thread<br/>
-when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third<br/>
-party or bespoke Analytics services for example.</p></span>
+		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
+Set this block before instantiating the SFManager.  This block will then be called on the main thread
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
+party or bespoke Analytics services for example.</p>
+
+<p>Also note that the default cohort is represented as an empty dictionary.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/setCVTGlobalObjectValues:">+&nbsp;setCVTGlobalObjectValues:</a></code>
-		<span class="tooltip"><p>Custom Variation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.<br/>
-Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the<br/>
-JS Global Object as variables set their corresponding values.</p></span>
+		<code><a href="#//api/name/setCustomTargetingKey:withBlock:">+&nbsp;setCustomTargetingKey:withBlock:</a></code>
+		<span class="tooltip"><p>When you define custom Segmentation/Targeting Conditions on the website, this allows you to target
+variations based on runtime data.  To pass your custom data into the targeting engine, call setCustomTargetingKey:withBlock: before intialising the splitforce library.
+The splitforce library will then execute valueBlock when required, and pass the return value into the targeting engine.
+For example, to return the user&rsquo;s gender from a global user object:
+    [SFManager setCustomTargetingKey:@&ldquo;gender&rdquo; withBlock:^{
+        return [UserManager.currentUser gender];
+    }];</p></span>
 	</span>
 	
 	
@@ -378,24 +349,12 @@ JS Global Object as variables set their corresponding values.</p></span>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/experimentNamed:applyVariationBlock:errorBlock:">&ndash;&nbsp;experimentNamed:applyVariationBlock:errorBlock:</a></code>
-		<span class="tooltip"><p>Get the data for an experiement and execute the variationBlock on the selected variation.<br/>
-The SFVariation object provided to the applyVariationBlock will contain the raw data<br/>
-in the variationData property.  The SFVariation object shall be used when goal conditions<br/>
-are met in order to accurately track the variation and result.  The - <a href="../Classes/SFVariation.html#//api/name/bindVariationToObject:">[SFVariation bindVariationToObject:]</a> method<br/>
-is provided as a convenience an can be used in conjunction with - <a href="#//api/name/variationForObject:">[SFManager variationForObject:]</a> to<br/>
-retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> object at a later point. (<b class="deprecated">Deprecated:</b><span class="deprecated"> use method experimentNamed:applyVariationBlock:applyDefaultBlock instead</span>)</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
 		<code><a href="#//api/name/experimentNamed:applyVariationBlock:applyDefaultBlock:">&ndash;&nbsp;experimentNamed:applyVariationBlock:applyDefaultBlock:</a></code>
-		<span class="tooltip"><p>Get the data for an experiement and execute the variationBlock on the selected variation.<br/>
-The SFVariation object provided to the applyVariationBlock will contain the raw data<br/>
-in the variationData property.  The SFVariation object shall be used when goal conditions<br/>
-are met in order to accurately track the variation and result.  The - <a href="../Classes/SFVariation.html#//api/name/bindVariationToObject:">[SFVariation bindVariationToObject:]</a> method<br/>
-is provided as a convenience an can be used in conjunction with - <a href="#//api/name/variationForObject:">[SFManager variationForObject:]</a> to<br/>
+		<span class="tooltip"><p>Get the data for an experiment and apply the variationBlock on the selected variation.
+The SFVariation object provided to the applyVariationBlock will contain the raw data
+in the variationData property.  The SFVariation object shall be used when goal conditions
+are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
+is provided as a convenience an can be used in conjunction with - [SFManager variationForObject:] to
 retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> object at a later point.</p></span>
 	</span>
 	
@@ -404,19 +363,11 @@ retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> objec
 						</ul>
 						
 						
-						<a title="Retrieving a variation later (for goal submission)" name="task_Retrieving a variation later (for goal submission)"></a>
-						<h3 class="subsubtitle task-title">Retrieving a variation later (for goal submission)</h3>
+						<a title="Retrieving a variation for goal submission" name="task_Retrieving a variation for goal submission"></a>
+						<h3 class="subsubtitle task-title">Retrieving a variation for goal submission</h3>
 
 						<ul class="task-list">
 							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/variationForObject:">&ndash;&nbsp;variationForObject:</a></code>
-		<span class="tooltip"><p>Convenience method to retrieve the correct SFVariation object at a later point, when - [SFVariation bindToObject:]<br/>
-has been used. (<b class="deprecated">Deprecated:</b><span class="deprecated"> Use variationForExperimentNamed: instead</span>)</p></span>
-	</span>
-	
-	
-</li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/variationForExperimentNamed:">&ndash;&nbsp;variationForExperimentNamed:</a></code>
 		<span class="tooltip"><p>Convenience method to retrieve the <a href="../Classes/SFVariation.html">SFVariation</a> object for the most recent application of an experiment.</p></span>
@@ -455,62 +406,6 @@ has been used. (<b class="deprecated">Deprecated:</b><span class="deprecated"> U
 </li>
 						</ul>
 						
-						
-						<a title="Deprecated Properties &amp; Methods" name="task_Deprecated Properties &amp; Methods"></a>
-						<h3 class="subsubtitle task-title">Deprecated Properties &amp; Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/setTransientVariations:">+&nbsp;setTransientVariations:</a></code>
-		<span class="tooltip"><p>By default, users are grouped into a cohort which will always see the same variation for an experiment.<br/>
-Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for<br/>
-debugging your variations and ensuring all of your codepaths are tested. (<b class="deprecated">Deprecated:</b><span class="deprecated"> transientVariations are deprecated from 0.4.5 onwards.  Use Debug mode instead, as this includes &lsquo;shake to variation&rsquo;.  Alternatively use Cohort modification.</span>)</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/setSampleRate:">+&nbsp;setSampleRate:</a></code>
-		<span class="tooltip"><p>Sample rate applies experiments to a small proportion of your user base.  This is useful for managing your<br/>
-costs and keeping within your user allowance for your selected splitforce package. N.B.  This setting has<br/>
-no effect when <a href="#//api/name/transientVariations">transientVariations</a> is set to YES so that you can test all code paths more easily.  Note also<br/>
-that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing<br/>
-the value after the manager has been established will have no effect. (<b class="deprecated">Deprecated:</b><span class="deprecated"> Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.</span>)</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/debugMode">&nbsp;&nbsp;debugMode</a></code>
-		<span class="tooltip"><p>Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds. (<b class="deprecated">Deprecated:</b><span class="deprecated"> set Class Parameters before instantiating the SFManager instead of these properties</span>)</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/transientVariations">&nbsp;&nbsp;transientVariations</a></code>
-		<span class="tooltip"><p>By default, users are grouped into a cohort which will always see the same variation for an experiment.<br/>
-Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for<br/>
-debugging your variations and ensuring all of your codepaths are tested. (<b class="deprecated">Deprecated:</b><span class="deprecated"> set Class Parameters before instantiating the SFManager instead of these properties</span>)</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/persistFailedExperiments">&nbsp;&nbsp;persistFailedExperiments</a></code>
-		<span class="tooltip"><p>By default, if an experiment is applied when there is no splitforce data available, then the error block<br/>
-is called, and users will see an &lsquo;unvaried&rsquo; experiment - a.k.a the default implementation.  In future runs<br/>
-this will be replaced with the varied data once it is available.  Alternatively to ensure users always get<br/>
-the same implementation, se persistFailedExperiments to YES and users will continue to see the default<br/>
-implementation.  This only applies to the offline failures, experiments that fail due to the experiment being<br/>
-undefined at the time of application will not be persisted as failures once the experiment is added to the dataset. (<b class="deprecated">Deprecated:</b><span class="deprecated"> set Class Parameters before instantiating the SFManager instead of these properties</span>)</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li>
-						</ul>
-						
 					</div>
 					
 					
@@ -522,140 +417,19 @@ undefined at the time of application will not be persisted as failures once the 
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/debugMode" title="debugMode"></a>
-	<h3 class="subsubtitle method-title">debugMode</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds. (<b class="deprecated">Deprecated:</b><span class="deprecated"> set Class Parameters before instantiating the SFManager instead of these properties</span>)</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL debugMode</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SFManager.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/persistFailedExperiments" title="persistFailedExperiments"></a>
-	<h3 class="subsubtitle method-title">persistFailedExperiments</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>By default, if an experiment is applied when there is no splitforce data available, then the error block<br/>
-is called, and users will see an &lsquo;unvaried&rsquo; experiment - a.k.a the default implementation.  In future runs<br/>
-this will be replaced with the varied data once it is available.  Alternatively to ensure users always get<br/>
-the same implementation, se persistFailedExperiments to YES and users will continue to see the default<br/>
-implementation.  This only applies to the offline failures, experiments that fail due to the experiment being<br/>
-undefined at the time of application will not be persisted as failures once the experiment is added to the dataset. (<b class="deprecated">Deprecated:</b><span class="deprecated"> set Class Parameters before instantiating the SFManager instead of these properties</span>)</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL persistFailedExperiments</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Note that this parameter is subordinate to <a href="#//api/name/transientVariations">transientVariations</a>.  If <a href="#//api/name/transientVariations">transientVariations</a> is set then the user will<br/>
-always see either new data if available, or default data if the connection is offline.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SFManager.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/shakeToVariationDidChangeVariationBlock" title="shakeToVariationDidChangeVariationBlock"></a>
 	<h3 class="subsubtitle method-title">shakeToVariationDidChangeVariationBlock</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.<br/>
+		<p>When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.
 If so then you can do that within this block.</p>
 	</div>		
 	
     
 
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) SFVoidBlock shakeToVariationDidChangeVariationBlock</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SFManager.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/transientVariations" title="transientVariations"></a>
-	<h3 class="subsubtitle method-title">transientVariations</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>By default, users are grouped into a cohort which will always see the same variation for an experiment.<br/>
-Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for<br/>
-debugging your variations and ensuring all of your codepaths are tested. (<b class="deprecated">Deprecated:</b><span class="deprecated"> set Class Parameters before instantiating the SFManager instead of these properties</span>)</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL transientVariations</code></div>
 
     
 	
@@ -730,10 +504,10 @@ debugging your variations and ensuring all of your codepaths are tested. (<b cla
 	
 	
 	<div class="method-subsection brief-description">
-		<p>For convenience, this class exposes a current manager instance.<br/>
-This will be set to the first manager that is instantiated in <a href="#//api/name/managerWithApplicationId:applicationKey:">managerWithApplicationId:applicationKey:</a><br/>
-or managerWithApplicationId:applicationKey:completionBlock<br/>
-It is a programming error to retrieve this manager before the first manager has been instantiated.<br/>
+		<p>For convenience, this class exposes a current manager instance.
+This will be set to the first manager that is instantiated in <a href="#//api/name/managerWithApplicationId:applicationKey:">managerWithApplicationId:applicationKey:</a>
+or managerWithApplicationId:applicationKey:completionBlock
+It is a programming error to retrieve this manager before the first manager has been instantiated.
 Doing so will raise an Exception.</p>
 	</div>		
 	
@@ -811,9 +585,9 @@ Doing so will raise an Exception.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Connect to the Splitforce backend.<br/>
-This method will start a connection to the Splitforce backend.  The method returns immediately<br/>
-while the connection happens in the background.  To get a callback when the manager is completely<br/>
+		<p>Connect to the Splitforce backend.
+This method will start a connection to the Splitforce backend.  The method returns immediately
+while the connection happens in the background.  To get a callback when the manager is completely
 ready, use the managerWithApplicationId:applicationKey:completionBlock method instead.</p>
 	</div>		
 	
@@ -851,19 +625,19 @@ ready, use the managerWithApplicationId:applicationKey:completionBlock method in
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>There are a number of different issues to be aware of when setting up the Splitfore connection.<br/>
-Firstly, if you apply an experiment before the connection is established, then the experimentNamed:applyVariationBlock:errorBlock<br/>
-method will block until the manager is ready (or has failed) - to prevent blocking the main thread, initialize the manager with the<br/>
+		<p>There are a number of different issues to be aware of when setting up the Splitfore connection.
+Firstly, if you apply an experiment before the connection is established, then the experimentNamed:applyVariationBlock:errorBlock
+method will block until the manager is ready (or has failed) - to prevent blocking the main thread, initialize the manager with the
 managedWithApplicationId:applicationKey:completionBlock method instead.</p>
 
-<p>Secondly, if an experiment is applied when the manager has failed to connect, this user will join the &ldquo;default&rdquo; cohort and see the<br/>
-error block variation.  See the property <a href="#//api/name/persistFailedExperiments">persistFailedExperiments</a> for details on the behaviour in this case.</p>
+<p>Secondly, if an experiment is applied when the manager has failed to connect, this user will join the &ldquo;default&rdquo; cohort and see the
+error block variation.  See the property persistDefaultCohort for details on the behaviour in this case.</p>
 
 <p>Finally, if there is cached data, then that is used even if the connection fails to get new data.</p>
 
-<p>In general - as long as the user has a functioning internet connection the first time they run the application, then<br/>
-there will be no issues.  You may decide that running your application without an active splitforce connection is<br/>
-undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure<br/>
+<p>In general - as long as the user has a functioning internet connection the first time they run the application, then
+there will be no issues.  You may decide that running your application without an active splitforce connection is
+undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure
 that the initial connection has been made before proceeding further into your aplication.</p>
 	</div>
 	
@@ -888,10 +662,10 @@ that the initial connection has been made before proceeding further into your ap
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Asynchronously connect to the Splitforce backend.<br/>
-This method will call the completionBlock when either the locally cached variation data<br/>
-is ready, or an updated version has been retrieved from the backend.  In case of error (e.g. first time<br/>
-usage with no network coverage it will call the completionBlock with NO.  Otherwise the completionBlock<br/>
+		<p>Asynchronously connect to the Splitforce backend.
+This method will call the completionBlock when either the locally cached variation data
+is ready, or an updated version has been retrieved from the backend.  In case of error (e.g. first time
+usage with no network coverage it will call the completionBlock with NO.  Otherwise the completionBlock
 will be called with YES.</p>
 	</div>		
 	
@@ -929,20 +703,20 @@ will be called with YES.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>There are a number of different issues to be aware of when setting up the Splitfore connection.<br/>
-Firstly, if you apply an experiment before the connection is established, then the experimentNamed:applyVariationBlock:errorBlock<br/>
-method will queue variation blocks until the manager is ready (or has failed) - this can lead to the user interface being updated<br/>
-in front of the user if the data completes loading after the experiment has been applied.  Waiting for the completionBlock to be called<br/>
+		<p>There are a number of different issues to be aware of when setting up the Splitfore connection.
+Firstly, if you apply an experiment before the connection is established, then the experimentNamed:applyVariationBlock:errorBlock
+method will queue variation blocks until the manager is ready (or has failed) - this can lead to the user interface being updated
+in front of the user if the data completes loading after the experiment has been applied.  Waiting for the completionBlock to be called
 before applying experiments will resolve this issue.</p>
 
-<p>Secondly, if an experiment is applied when the manager has failed to connect, this user will join the &ldquo;default&rdquo; cohort and see the<br/>
-error block variation.  See the property <a href="#//api/name/persistFailedExperiments">persistFailedExperiments</a> for details on the behaviour in this case.</p>
+<p>Secondly, if an experiment is applied when the manager has failed to connect, this user will join the &ldquo;default&rdquo; cohort and see the
+error block variation.  See the property persistDefaultCohort for details on the behaviour in this case.</p>
 
 <p>Finally, if there is cached data, then that is used even if the connection fails to get new data.</p>
 
-<p>In general - as long as the user has a functioning internet connection the first time they run the application, then<br/>
-there will be no issues.  You may decide that running your application without an active splitforce connection is<br/>
-undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure<br/>
+<p>In general - as long as the user has a functioning internet connection the first time they run the application, then
+there will be no issues.  You may decide that running your application without an active splitforce connection is
+undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure
 that the initial connection has been made before proceeding further into your aplication.</p>
 	</div>
 	
@@ -961,20 +735,24 @@ that the initial connection has been made before proceeding further into your ap
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/setCVTGlobalObjectValues:" title="setCVTGlobalObjectValues:"></a>
-	<h3 class="subsubtitle method-title">setCVTGlobalObjectValues:</h3>
+	<a name="//api/name/setCustomTargetingKey:withBlock:" title="setCustomTargetingKey:withBlock:"></a>
+	<h3 class="subsubtitle method-title">setCustomTargetingKey:withBlock:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Custom Variation Targetting allows you to use short Javascript scripts to block/allow particular Variations for different groups of users.<br/>
-Pass in data to your CVT scripts using setCVTGlobalObjectValues (prior to initialising SFManager).  The keys will be passed to the<br/>
-JS Global Object as variables set their corresponding values.</p>
+		<p>When you define custom Segmentation/Targeting Conditions on the website, this allows you to target
+variations based on runtime data.  To pass your custom data into the targeting engine, call setCustomTargetingKey:withBlock: before intialising the splitforce library.
+The splitforce library will then execute valueBlock when required, and pass the return value into the targeting engine.
+For example, to return the user&rsquo;s gender from a global user object:
+    [SFManager setCustomTargetingKey:@&ldquo;gender&rdquo; withBlock:^{
+        return [UserManager.currentUser gender];
+    }];</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)setCVTGlobalObjectValues:(NSDictionary *)<em>globalObjectValues</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)setCustomTargetingKey:(NSString *)<em>key</em> withBlock:(SFTargetingValueBlock)<em>valueBlock</em></code></div>
 
     
 	
@@ -1005,8 +783,8 @@ JS Global Object as variables set their corresponding values.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Switching on <a href="#//api/name/debugMode">debugMode</a> will provide more detailed logs on the console and should be switched on for all DEBUG builds.<br/>
-Debug mode also enables &lsquo;Shake to Variation&rsquo; which allows you to force particular variations to be used from the UI within the app.<br/>
+		<p>Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
+Debug mode also enables &lsquo;Shake to Variation&rsquo; which allows you to force particular variations to be used from the UI within the app.
 Simply shake the device to get a menu of Experiments and Variations.</p>
 	</div>		
 	
@@ -1043,9 +821,9 @@ Simply shake the device to get a menu of Experiments and Variations.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.<br/>
-Set this block before instantiating the SFManager.  This block will then be called on the main thread<br/>
-when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third<br/>
+		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
+Set this block before instantiating the SFManager.  This block will then be called on the main thread
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
 party or bespoke Analytics services for example.</p>
 	</div>		
 	
@@ -1063,9 +841,7 @@ party or bespoke Analytics services for example.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Note that this block will not be called if Transient Variations is set.</p>
-
-<p>Also note that the default cohort is represented as an empty dictionary.</p>
+		<p>Also note that the default cohort is represented as an empty dictionary.</p>
 	</div>
 	
 	
@@ -1089,12 +865,7 @@ party or bespoke Analytics services for example.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>By default, if an experiment is applied when there is no splitforce data available, then the default block<br/>
-is called, and users will see the default implementation.  To ensure users always get the same implementation,<br/>
-we persist the state that these users are in the default cohort, and therefore will not have experiments applied.<br/>
-Set this to NO to have the variation data applied on future runs after the data is available.<br/>
-Note that this only applies to the offline failures, experiments that fail due to the experiment being<br/>
-undefined at the time of application will not be persisted as failures once the experiment is added to the dataset.</p>
+		<p>By default, experiments are revalidated on-demand, so if the user has been placed in the default cohort due to lack of connectivity, then they will join the correct cohort soon after the data becomes available.  If you would prefer to ensure users always get the same implementation, then set this parameter to YES and we will persist the state that these users are in the default cohort, and therefore will not have experiments applied.</p>
 	</div>		
 	
     
@@ -1108,58 +879,6 @@ undefined at the time of application will not be persisted as failures once the 
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Note that this parameter is subordinate to <a href="#//api/name/transientVariations">transientVariations</a>.  If <a href="#//api/name/transientVariations">transientVariations</a> is set then the user will<br/>
-always see either new data if available, or default data if the connection is offline.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SFManager.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/setSampleRate:" title="setSampleRate:"></a>
-	<h3 class="subsubtitle method-title">setSampleRate:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Sample rate applies experiments to a small proportion of your user base.  This is useful for managing your<br/>
-costs and keeping within your user allowance for your selected splitforce package. N.B.  This setting has<br/>
-no effect when <a href="#//api/name/transientVariations">transientVariations</a> is set to YES so that you can test all code paths more easily.  Note also<br/>
-that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing<br/>
-the value after the manager has been established will have no effect. (<b class="deprecated">Deprecated:</b><span class="deprecated"> Sample Rate is deprecated from Version 0.4.  Use the Splitforce.com website to configure Experiment Coverage.</span>)</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (void)setSampleRate:(double)<em>sampleRate</em></code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The default value is 1.0 meaning 100% of your users will be tested.  Minimum value is 0.0, maximum<br/>
-value is 1.0.  Setting other values will raise an exception.</p>
-	</div>
 	
 	
 	
@@ -1182,9 +901,9 @@ value is 1.0.  Setting other values will raise an exception.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Set the timeout for connecting to the Splitforce backend.  Note that an initial connect requires two round trips, so<br/>
-the max time any method would block or the max time for a callback to be called may be twice this value.  Note also<br/>
-that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing<br/>
+		<p>Set the timeout for connecting to the Splitforce backend.  Note that an initial connect requires two round trips, so
+the max time any method would block or the max time for a callback to be called may be twice this value.  Note also
+that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
 the value after the manager has been established will have no effect.</p>
 	</div>		
 	
@@ -1225,54 +944,18 @@ the value after the manager has been established will have no effect.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/setTransientVariations:" title="setTransientVariations:"></a>
-	<h3 class="subsubtitle method-title">setTransientVariations:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>By default, users are grouped into a cohort which will always see the same variation for an experiment.<br/>
-Switch on transitenVariations to have the users see all of the variations in their relative frequencies.  This is useful for<br/>
-debugging your variations and ensuring all of your codepaths are tested. (<b class="deprecated">Deprecated:</b><span class="deprecated"> transientVariations are deprecated from 0.4.5 onwards.  Use Debug mode instead, as this includes &lsquo;shake to variation&rsquo;.  Alternatively use Cohort modification.</span>)</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (void)setTransientVariations:(BOOL)<em>transientVariations</em></code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SFManager.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/setWillUseCohortIdentifierBlock:" title="setWillUseCohortIdentifierBlock:"></a>
 	<h3 class="subsubtitle method-title">setWillUseCohortIdentifierBlock:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variant Names for values.<br/>
-Set this block before instantiating the SFManager.  This block will then be called on the main thread<br/>
-when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third<br/>
+		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
+Set this block before instantiating the SFManager.  This block will then be called on the main thread
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
 party or bespoke Analytics services for example.</p>
+
+<p>Also note that the default cohort is represented as an empty dictionary.</p>
 	</div>		
 	
     
@@ -1289,11 +972,7 @@ party or bespoke Analytics services for example.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Note that this block will not be called if Transient Variations is set.</p>
-
-<p>Also note that the default cohort is represented as an empty dictionary.</p>
-
-<p>When running in Debug mode, your cohort modification block will be called before any Shake to Variation choice is applied.  That is, Shake to Variation takes precedence over cohort modifications made in this block.</p>
+		<p>When running in Debug mode, your cohort modification block will be called before any Shake to Variation choice is applied.  That is, Shake to Variation takes precedence over cohort modifications made in this block.</p>
 	</div>
 	
 	
@@ -1361,11 +1040,11 @@ party or bespoke Analytics services for example.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Get the data for an experiement and execute the variationBlock on the selected variation.<br/>
-The SFVariation object provided to the applyVariationBlock will contain the raw data<br/>
-in the variationData property.  The SFVariation object shall be used when goal conditions<br/>
-are met in order to accurately track the variation and result.  The - <a href="../Classes/SFVariation.html#//api/name/bindVariationToObject:">[SFVariation bindVariationToObject:]</a> method<br/>
-is provided as a convenience an can be used in conjunction with - <a href="#//api/name/variationForObject:">[SFManager variationForObject:]</a> to<br/>
+		<p>Get the data for an experiment and apply the variationBlock on the selected variation.
+The SFVariation object provided to the applyVariationBlock will contain the raw data
+in the variationData property.  The SFVariation object shall be used when goal conditions
+are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
+is provided as a convenience an can be used in conjunction with - [SFManager variationForObject:] to
 retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> object at a later point.</p>
 	</div>		
 	
@@ -1385,12 +1064,12 @@ retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> objec
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>variationBlock</em></dt>
-			<dd><p>An SFExperimentVariationBlock which will be called when there is valid data for this experiement</p></dd>
+			<dd><p>An SFExperimentVariationBlock which will be called when there is valid data for this experiment</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>defaultBlock</em></dt>
-			<dd><p>An SFErrorBlock which will be called if there is no valid data for this experiement.  The NSError parameter will indicate the reason for no data.  You should configure a default version of your variation in this block.</p></dd>
+			<dd><p>An SFErrorBlock which will be called if there is no valid data for this experiment.  The NSError parameter will indicate the reason for no data.  You should configure a default version of your variation in this block.</p></dd>
 		</dl>
 		
 	</div>
@@ -1403,78 +1082,8 @@ retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> objec
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The default block should be used to configure default settings for your user.  The default block can be called<br/>
+		<p>The default block should be used to configure default settings for your user.  The default block can be called
 if there is no connection to the splitforce servers, and no cached content available for your users.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SFManager.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/experimentNamed:applyVariationBlock:errorBlock:" title="experimentNamed:applyVariationBlock:errorBlock:"></a>
-	<h3 class="subsubtitle method-title">experimentNamed:applyVariationBlock:errorBlock:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Get the data for an experiement and execute the variationBlock on the selected variation.<br/>
-The SFVariation object provided to the applyVariationBlock will contain the raw data<br/>
-in the variationData property.  The SFVariation object shall be used when goal conditions<br/>
-are met in order to accurately track the variation and result.  The - <a href="../Classes/SFVariation.html#//api/name/bindVariationToObject:">[SFVariation bindVariationToObject:]</a> method<br/>
-is provided as a convenience an can be used in conjunction with - <a href="#//api/name/variationForObject:">[SFManager variationForObject:]</a> to<br/>
-retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> object at a later point. (<b class="deprecated">Deprecated:</b><span class="deprecated"> use method experimentNamed:applyVariationBlock:applyDefaultBlock instead</span>)</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)experimentNamed:(NSString *)<em>experimentName</em> applyVariationBlock:(SFExperimentVariationBlock)<em>applyVariationBlock</em> errorBlock:(SFErrorBlock)<em>errorBlock</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>experimentName</em></dt>
-			<dd><p>The name of an experiment defined on the Splitforce Web Server.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>applyVariationBlock</em></dt>
-			<dd><p>An SFExperimentVariationBlock which will be called when there is valid data for this experiement</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>errorBlock</em></dt>
-			<dd><p>An SFErrorBlock which will be called if there is no valid data for this experiement</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The error block should be used to configure default settings for your user.  The error block can be called<br/>
-if there is no connection to the splitforce servers, and no cached content available for your users.</p>
-
-<p>This method is functionally identical to experimentNamed:applyVariationBlock:applyDefaultBlock - however<br/>
-the semantics of the latter are clearer, so this method has been deprecated in favour of the latter method.</p>
 	</div>
 	
 	
@@ -1512,7 +1121,7 @@ the semantics of the latter are clearer, so this method has been deprecated in f
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>experimentName</em></dt>
-			<dd><p>A const NSString object matching the experimentName of a previously applied experiment.</p></dd>
+			<dd><p>An NSString object matching the experimentName of a previously applied experiment.</p></dd>
 		</dl>
 		
 	</div>
@@ -1521,64 +1130,7 @@ the semantics of the latter are clearer, so this method has been deprecated in f
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>The <a href="../Classes/SFVariation.html">SFVariation</a> object which was bound to the object (typically it should be the <a href="../Classes/SFVariation.html">SFVariation</a> which was used to configure this object)</p>
-	</div>
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Note that calling [variation bindToObject:] within an applyVariationBlock will cause this method to return nil.  If binding to an object call varationForObject: instead.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SFManager.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/variationForObject:" title="variationForObject:"></a>
-	<h3 class="subsubtitle method-title">variationForObject:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Convenience method to retrieve the correct SFVariation object at a later point, when - [SFVariation bindToObject:]<br/>
-has been used. (<b class="deprecated">Deprecated:</b><span class="deprecated"> Use variationForExperimentNamed: instead</span>)</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (SFVariation *)variationForObject:(id)<em>object</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>object</em></dt>
-			<dd><p>An object which has previously had an SFVariation bound to it using <a href="../Classes/SFVariation.html#//api/name/bindVariationToObject:">[SFVariation bindVariationToObject:]</a></p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>The <a href="../Classes/SFVariation.html">SFVariation</a> object which was bound to the object (typically it should be the <a href="../Classes/SFVariation.html">SFVariation</a> which was used to configure this object)</p>
+		<p>The <a href="../Classes/SFVariation.html">SFVariation</a> object which was most recently created for an application of this experiment</p>
 	</div>
 	
 	
@@ -1648,7 +1200,7 @@ has been used. (<b class="deprecated">Deprecated:</b><span class="deprecated"> U
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Splitforce. All rights reserved. (Last updated: 2014-03-12)</span><br />
+						<p><span class="copyright">&copy; 2014 Splitforce. All rights reserved. (Last updated: 2014-05-22)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						
