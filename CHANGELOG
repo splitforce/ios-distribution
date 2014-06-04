@@ -1,5 +1,9 @@
 Splitforce Library
 
+Version 1.0.1 Revisions
+=======================
+ - Compliance with LLVM Module format to enable toll-free briding in Swift
+
 Version 1.0.0 Revisions
 =======================
  - All 0.9.0 revisions
