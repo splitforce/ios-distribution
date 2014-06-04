@@ -1,0 +1,6 @@
+framework module Splitforce {
+  umbrella header "SFKit.h"
+
+  export *
+  module * { export * }
+}
