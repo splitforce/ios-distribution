@@ -59,5 +59,6 @@ typedef uint_least32_t char32_t;
 
 @interface SFManager ()
 - (void)playExperimentName:(NSString *)experimentName apply:(void (^)(SFVariation *))apply;
+- (void)playDefaultForExperimentName:(NSString *)experimentName apply:(void (^)(void))apply;
 @end
 
