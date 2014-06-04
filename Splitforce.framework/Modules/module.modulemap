@@ -4,3 +4,7 @@ framework module Splitforce {
   export *
   module * { export * }
 }
+
+module Splitforce.Swift {
+    header "Splitforce-Swift.h"
+}
