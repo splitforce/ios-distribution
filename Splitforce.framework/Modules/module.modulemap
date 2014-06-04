@@ -1,5 +1,5 @@
 framework module Splitforce {
-  umbrella header "SFKit.h"
+  umbrella header "Splitforce.h"
 
   export *
   module * { export * }
