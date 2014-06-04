@@ -155,7 +155,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Splitforce iOS Variation class. Provides variation data and interface
+						<p>Splitforce iOS Variation class. Provides variation data and interface<br/>
 to report on goals caused by this variation.</p>
 					</div>
 					
@@ -175,7 +175,7 @@ to report on goals caused by this variation.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/variationData">&nbsp;&nbsp;variationData</a></code>
-		<span class="tooltip"><p>The variationData property contains a dictionary of configuration information
+		<span class="tooltip"><p>The variationData property contains a dictionary of configuration information<br/>
 which are to be used to configure the application.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -221,7 +221,7 @@ which are to be used to configure the application.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/goalResultNamed:">&ndash;&nbsp;goalResultNamed:</a></code>
-		<span class="tooltip"><p>When a discrete named goal has been met, call this method on the SFVariation object
+		<span class="tooltip"><p>When a discrete named goal has been met, call this method on the SFVariation object<br/>
 to record that goal in the backend.</p></span>
 	</span>
 	
@@ -229,8 +229,8 @@ to record that goal in the backend.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/timedResultNamed:">&ndash;&nbsp;timedResultNamed:</a></code>
-		<span class="tooltip"><p>To track the length of time since the variation was applied, use the timedResultNamed:
-method.  This automatically tracks the length of time (in seconds) since the variation
+		<span class="tooltip"><p>To track the length of time since the variation was applied, use the timedResultNamed:<br/>
+method.  This automatically tracks the length of time (in seconds) since the variation<br/>
 was applied.</p></span>
 	</span>
 	
@@ -238,7 +238,7 @@ was applied.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/timedResultNamed:withTime:">&ndash;&nbsp;timedResultNamed:withTime:</a></code>
-		<span class="tooltip"><p>To track arbitrary lengths of time, use the timedResultNamed:withTime: method.
+		<span class="tooltip"><p>To track arbitrary lengths of time, use the timedResultNamed:withTime: method.<br/>
 Your code is repsonsible for making sure the time interval is meaningful for tracking.</p></span>
 	</span>
 	
@@ -246,7 +246,7 @@ Your code is repsonsible for making sure the time interval is meaningful for tra
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/quantifiedResultNamed:quantity:">&ndash;&nbsp;quantifiedResultNamed:quantity:</a></code>
-		<span class="tooltip"><p>To track a quantified goal use the quantifiedResultNamed:quantity: method.  This is useful
+		<span class="tooltip"><p>To track a quantified goal use the quantifiedResultNamed:quantity: method.  This is useful<br/>
 for integer quantities that happen as a result of a particular variation.</p></span>
 	</span>
 	
@@ -254,9 +254,9 @@ for integer quantities that happen as a result of a particular variation.</p></s
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/variationEnded">&ndash;&nbsp;variationEnded</a></code>
-		<span class="tooltip"><p>When no more variation goals are required, call variationEnded.  This will cause the variation
-to dissociate itself from its bound object and in most cases will cause the Variation to be
-dealloced.  If you retain the variation and continue to send goals, the behaviour is undefined.
+		<span class="tooltip"><p>When no more variation goals are required, call variationEnded.  This will cause the variation<br/>
+to dissociate itself from its bound object and in most cases will cause the Variation to be<br/>
+dealloced.  If you retain the variation and continue to send goals, the behaviour is undefined.<br/>
 In later releases this will likely lead to an Exception being raised.</p></span>
 	</span>
 	
@@ -353,7 +353,7 @@ In later releases this will likely lead to an Exception being raised.</p></span>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The variationData property contains a dictionary of configuration information
+		<p>The variationData property contains a dictionary of configuration information<br/>
 which are to be used to configure the application.</p>
 	</div>		
 	
@@ -400,7 +400,7 @@ which are to be used to configure the application.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>When a discrete named goal has been met, call this method on the SFVariation object
+		<p>When a discrete named goal has been met, call this method on the SFVariation object<br/>
 to record that goal in the backend.</p>
 	</div>		
 	
@@ -447,7 +447,7 @@ to record that goal in the backend.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>To track a quantified goal use the quantifiedResultNamed:quantity: method.  This is useful
+		<p>To track a quantified goal use the quantifiedResultNamed:quantity: method.  This is useful<br/>
 for integer quantities that happen as a result of a particular variation.</p>
 	</div>		
 	
@@ -499,8 +499,8 @@ for integer quantities that happen as a result of a particular variation.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>To track the length of time since the variation was applied, use the timedResultNamed:
-method.  This automatically tracks the length of time (in seconds) since the variation
+		<p>To track the length of time since the variation was applied, use the timedResultNamed:<br/>
+method.  This automatically tracks the length of time (in seconds) since the variation<br/>
 was applied.</p>
 	</div>		
 	
@@ -547,7 +547,7 @@ was applied.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>To track arbitrary lengths of time, use the timedResultNamed:withTime: method.
+		<p>To track arbitrary lengths of time, use the timedResultNamed:withTime: method.<br/>
 Your code is repsonsible for making sure the time interval is meaningful for tracking.</p>
 	</div>		
 	
@@ -599,9 +599,9 @@ Your code is repsonsible for making sure the time interval is meaningful for tra
 	
 	
 	<div class="method-subsection brief-description">
-		<p>When no more variation goals are required, call variationEnded.  This will cause the variation
-to dissociate itself from its bound object and in most cases will cause the Variation to be
-dealloced.  If you retain the variation and continue to send goals, the behaviour is undefined.
+		<p>When no more variation goals are required, call variationEnded.  This will cause the variation<br/>
+to dissociate itself from its bound object and in most cases will cause the Variation to be<br/>
+dealloced.  If you retain the variation and continue to send goals, the behaviour is undefined.<br/>
 In later releases this will likely lead to an Exception being raised.</p>
 	</div>		
 	

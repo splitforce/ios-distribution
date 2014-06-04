@@ -1,6 +1,0 @@
-framework module Splitforce {
-  umbrella header "Splitforce.h"
-
-  export *
-  module * { export * }
-}

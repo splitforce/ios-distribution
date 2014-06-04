@@ -198,7 +198,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Splitforce iOS top-level class. Provides synchronisation with Splitforce backend
+						<p>Splitforce iOS top-level class. Provides synchronisation with Splitforce backend<br/>
 and configuration of settings.</p>
 					</div>
 					
@@ -233,10 +233,10 @@ and configuration of settings.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/currentManager">+&nbsp;currentManager</a></code>
-		<span class="tooltip"><p>For convenience, this class exposes a current manager instance.
-This will be set to the first manager that is instantiated in <a href="#//api/name/managerWithApplicationId:applicationKey:">managerWithApplicationId:applicationKey:</a>
-or managerWithApplicationId:applicationKey:completionBlock
-It is a programming error to retrieve this manager before the first manager has been instantiated.
+		<span class="tooltip"><p>For convenience, this class exposes a current manager instance.<br/>
+This will be set to the first manager that is instantiated in <a href="#//api/name/managerWithApplicationId:applicationKey:">managerWithApplicationId:applicationKey:</a><br/>
+or managerWithApplicationId:applicationKey:completionBlock<br/>
+It is a programming error to retrieve this manager before the first manager has been instantiated.<br/>
 Doing so will raise an Exception.</p></span>
 	</span>
 	
@@ -244,9 +244,9 @@ Doing so will raise an Exception.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/managerWithApplicationId:applicationKey:">+&nbsp;managerWithApplicationId:applicationKey:</a></code>
-		<span class="tooltip"><p>Connect to the Splitforce backend.
-This method will start a connection to the Splitforce backend.  The method returns immediately
-while the connection happens in the background.  To get a callback when the manager is completely
+		<span class="tooltip"><p>Connect to the Splitforce backend.<br/>
+This method will start a connection to the Splitforce backend.  The method returns immediately<br/>
+while the connection happens in the background.  To get a callback when the manager is completely<br/>
 ready, use the managerWithApplicationId:applicationKey:completionBlock method instead.</p></span>
 	</span>
 	
@@ -254,10 +254,10 @@ ready, use the managerWithApplicationId:applicationKey:completionBlock method in
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/managerWithApplicationId:applicationKey:completionBlock:">+&nbsp;managerWithApplicationId:applicationKey:completionBlock:</a></code>
-		<span class="tooltip"><p>Asynchronously connect to the Splitforce backend.
-This method will call the completionBlock when either the locally cached variation data
-is ready, or an updated version has been retrieved from the backend.  In case of error (e.g. first time
-usage with no network coverage it will call the completionBlock with NO.  Otherwise the completionBlock
+		<span class="tooltip"><p>Asynchronously connect to the Splitforce backend.<br/>
+This method will call the completionBlock when either the locally cached variation data<br/>
+is ready, or an updated version has been retrieved from the backend.  In case of error (e.g. first time<br/>
+usage with no network coverage it will call the completionBlock with NO.  Otherwise the completionBlock<br/>
 will be called with YES.</p></span>
 	</span>
 	
@@ -273,9 +273,9 @@ will be called with YES.</p></span>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setTimeoutInterval:">+&nbsp;setTimeoutInterval:</a></code>
-		<span class="tooltip"><p>Set the timeout for connecting to the Splitforce backend.  Note that an initial connect requires two round trips, so
-the max time any method would block or the max time for a callback to be called may be twice this value.  Note also
-that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
+		<span class="tooltip"><p>Set the timeout for connecting to the Splitforce backend.  Note that an initial connect requires two round trips, so<br/>
+the max time any method would block or the max time for a callback to be called may be twice this value.  Note also<br/>
+that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing<br/>
 the value after the manager has been established will have no effect.</p></span>
 	</span>
 	
@@ -283,8 +283,8 @@ the value after the manager has been established will have no effect.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setDebugMode:">+&nbsp;setDebugMode:</a></code>
-		<span class="tooltip"><p>Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
-Debug mode also enables &lsquo;Shake to Variation&rsquo; which allows you to force particular variations to be used from the UI within the app.
+		<span class="tooltip"><p>Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.<br/>
+Debug mode also enables &lsquo;Shake to Variation&rsquo; which allows you to force particular variations to be used from the UI within the app.<br/>
 Simply shake the device to get a menu of Experiments and Variations.</p></span>
 	</span>
 	
@@ -292,7 +292,7 @@ Simply shake the device to get a menu of Experiments and Variations.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/shakeToVariationDidChangeVariationBlock">&nbsp;&nbsp;shakeToVariationDidChangeVariationBlock</a></code>
-		<span class="tooltip"><p>When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.
+		<span class="tooltip"><p>When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.<br/>
 If so then you can do that within this block.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -307,9 +307,9 @@ If so then you can do that within this block.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setIdentifyCohortBlock:">+&nbsp;setIdentifyCohortBlock:</a></code>
-		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
-Set this block before instantiating the SFManager.  This block will then be called on the main thread
-when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
+		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.<br/>
+Set this block before instantiating the SFManager.  This block will then be called on the main thread<br/>
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third<br/>
 party or bespoke Analytics services for example.</p></span>
 	</span>
 	
@@ -317,9 +317,9 @@ party or bespoke Analytics services for example.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setWillUseCohortIdentifierBlock:">+&nbsp;setWillUseCohortIdentifierBlock:</a></code>
-		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
-Set this block before instantiating the SFManager.  This block will then be called on the main thread
-when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
+		<span class="tooltip"><p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.<br/>
+Set this block before instantiating the SFManager.  This block will then be called on the main thread<br/>
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third<br/>
 party or bespoke Analytics services for example.</p>
 
 <p>Also note that the default cohort is represented as an empty dictionary.</p></span>
@@ -329,12 +329,12 @@ party or bespoke Analytics services for example.</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setCustomTargetingKey:withBlock:">+&nbsp;setCustomTargetingKey:withBlock:</a></code>
-		<span class="tooltip"><p>When you define custom Segmentation/Targeting Conditions on the website, this allows you to target
-variations based on runtime data.  To pass your custom data into the targeting engine, call setCustomTargetingKey:withBlock: before intialising the splitforce library.
-The splitforce library will then execute valueBlock when required, and pass the return value into the targeting engine.
-For example, to return the user&rsquo;s gender from a global user object:
-    [SFManager setCustomTargetingKey:@&ldquo;gender&rdquo; withBlock:^{
-        return [UserManager.currentUser gender];
+		<span class="tooltip"><p>When you define custom Segmentation/Targeting Conditions on the website, this allows you to target<br/>
+variations based on runtime data.  To pass your custom data into the targeting engine, call setCustomTargetingKey:withBlock: before intialising the splitforce library.<br/>
+The splitforce library will then execute valueBlock when required, and pass the return value into the targeting engine.<br/>
+For example, to return the user&rsquo;s gender from a global user object:<br/>
+    [SFManager setCustomTargetingKey:@&ldquo;gender&rdquo; withBlock:^{<br/>
+        return [UserManager.currentUser gender];<br/>
     }];</p></span>
 	</span>
 	
@@ -350,11 +350,11 @@ For example, to return the user&rsquo;s gender from a global user object:
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/experimentNamed:applyVariationBlock:applyDefaultBlock:">&ndash;&nbsp;experimentNamed:applyVariationBlock:applyDefaultBlock:</a></code>
-		<span class="tooltip"><p>Get the data for an experiment and apply the variationBlock on the selected variation.
-The SFVariation object provided to the applyVariationBlock will contain the raw data
-in the variationData property.  The SFVariation object shall be used when goal conditions
-are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
-is provided as a convenience an can be used in conjunction with - [SFManager variationForObject:] to
+		<span class="tooltip"><p>Get the data for an experiment and apply the variationBlock on the selected variation.<br/>
+The SFVariation object provided to the applyVariationBlock will contain the raw data<br/>
+in the variationData property.  The SFVariation object shall be used when goal conditions<br/>
+are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method<br/>
+is provided as a convenience an can be used in conjunction with - [SFManager variationForObject:] to<br/>
 retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> object at a later point.</p></span>
 	</span>
 	
@@ -423,7 +423,7 @@ retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> objec
 	
 	
 	<div class="method-subsection brief-description">
-		<p>When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.
+		<p>When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.<br/>
 If so then you can do that within this block.</p>
 	</div>		
 	
@@ -504,10 +504,10 @@ If so then you can do that within this block.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>For convenience, this class exposes a current manager instance.
-This will be set to the first manager that is instantiated in <a href="#//api/name/managerWithApplicationId:applicationKey:">managerWithApplicationId:applicationKey:</a>
-or managerWithApplicationId:applicationKey:completionBlock
-It is a programming error to retrieve this manager before the first manager has been instantiated.
+		<p>For convenience, this class exposes a current manager instance.<br/>
+This will be set to the first manager that is instantiated in <a href="#//api/name/managerWithApplicationId:applicationKey:">managerWithApplicationId:applicationKey:</a><br/>
+or managerWithApplicationId:applicationKey:completionBlock<br/>
+It is a programming error to retrieve this manager before the first manager has been instantiated.<br/>
 Doing so will raise an Exception.</p>
 	</div>		
 	
@@ -585,9 +585,9 @@ Doing so will raise an Exception.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Connect to the Splitforce backend.
-This method will start a connection to the Splitforce backend.  The method returns immediately
-while the connection happens in the background.  To get a callback when the manager is completely
+		<p>Connect to the Splitforce backend.<br/>
+This method will start a connection to the Splitforce backend.  The method returns immediately<br/>
+while the connection happens in the background.  To get a callback when the manager is completely<br/>
 ready, use the managerWithApplicationId:applicationKey:completionBlock method instead.</p>
 	</div>		
 	
@@ -625,19 +625,19 @@ ready, use the managerWithApplicationId:applicationKey:completionBlock method in
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>There are a number of different issues to be aware of when setting up the Splitfore connection.
-Firstly, if you apply an experiment before the connection is established, then the experimentNamed:applyVariationBlock:errorBlock
-method will block until the manager is ready (or has failed) - to prevent blocking the main thread, initialize the manager with the
+		<p>There are a number of different issues to be aware of when setting up the Splitfore connection.<br/>
+Firstly, if you apply an experiment before the connection is established, then the experimentNamed:applyVariationBlock:errorBlock<br/>
+method will block until the manager is ready (or has failed) - to prevent blocking the main thread, initialize the manager with the<br/>
 managedWithApplicationId:applicationKey:completionBlock method instead.</p>
 
-<p>Secondly, if an experiment is applied when the manager has failed to connect, this user will join the &ldquo;default&rdquo; cohort and see the
+<p>Secondly, if an experiment is applied when the manager has failed to connect, this user will join the &ldquo;default&rdquo; cohort and see the<br/>
 error block variation.  See the property persistDefaultCohort for details on the behaviour in this case.</p>
 
 <p>Finally, if there is cached data, then that is used even if the connection fails to get new data.</p>
 
-<p>In general - as long as the user has a functioning internet connection the first time they run the application, then
-there will be no issues.  You may decide that running your application without an active splitforce connection is
-undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure
+<p>In general - as long as the user has a functioning internet connection the first time they run the application, then<br/>
+there will be no issues.  You may decide that running your application without an active splitforce connection is<br/>
+undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure<br/>
 that the initial connection has been made before proceeding further into your aplication.</p>
 	</div>
 	
@@ -662,10 +662,10 @@ that the initial connection has been made before proceeding further into your ap
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Asynchronously connect to the Splitforce backend.
-This method will call the completionBlock when either the locally cached variation data
-is ready, or an updated version has been retrieved from the backend.  In case of error (e.g. first time
-usage with no network coverage it will call the completionBlock with NO.  Otherwise the completionBlock
+		<p>Asynchronously connect to the Splitforce backend.<br/>
+This method will call the completionBlock when either the locally cached variation data<br/>
+is ready, or an updated version has been retrieved from the backend.  In case of error (e.g. first time<br/>
+usage with no network coverage it will call the completionBlock with NO.  Otherwise the completionBlock<br/>
 will be called with YES.</p>
 	</div>		
 	
@@ -703,20 +703,20 @@ will be called with YES.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>There are a number of different issues to be aware of when setting up the Splitfore connection.
-Firstly, if you apply an experiment before the connection is established, then the experimentNamed:applyVariationBlock:errorBlock
-method will queue variation blocks until the manager is ready (or has failed) - this can lead to the user interface being updated
-in front of the user if the data completes loading after the experiment has been applied.  Waiting for the completionBlock to be called
+		<p>There are a number of different issues to be aware of when setting up the Splitfore connection.<br/>
+Firstly, if you apply an experiment before the connection is established, then the experimentNamed:applyVariationBlock:errorBlock<br/>
+method will queue variation blocks until the manager is ready (or has failed) - this can lead to the user interface being updated<br/>
+in front of the user if the data completes loading after the experiment has been applied.  Waiting for the completionBlock to be called<br/>
 before applying experiments will resolve this issue.</p>
 
-<p>Secondly, if an experiment is applied when the manager has failed to connect, this user will join the &ldquo;default&rdquo; cohort and see the
+<p>Secondly, if an experiment is applied when the manager has failed to connect, this user will join the &ldquo;default&rdquo; cohort and see the<br/>
 error block variation.  See the property persistDefaultCohort for details on the behaviour in this case.</p>
 
 <p>Finally, if there is cached data, then that is used even if the connection fails to get new data.</p>
 
-<p>In general - as long as the user has a functioning internet connection the first time they run the application, then
-there will be no issues.  You may decide that running your application without an active splitforce connection is
-undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure
+<p>In general - as long as the user has a functioning internet connection the first time they run the application, then<br/>
+there will be no issues.  You may decide that running your application without an active splitforce connection is<br/>
+undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure<br/>
 that the initial connection has been made before proceeding further into your aplication.</p>
 	</div>
 	
@@ -741,12 +741,12 @@ that the initial connection has been made before proceeding further into your ap
 	
 	
 	<div class="method-subsection brief-description">
-		<p>When you define custom Segmentation/Targeting Conditions on the website, this allows you to target
-variations based on runtime data.  To pass your custom data into the targeting engine, call setCustomTargetingKey:withBlock: before intialising the splitforce library.
-The splitforce library will then execute valueBlock when required, and pass the return value into the targeting engine.
-For example, to return the user&rsquo;s gender from a global user object:
-    [SFManager setCustomTargetingKey:@&ldquo;gender&rdquo; withBlock:^{
-        return [UserManager.currentUser gender];
+		<p>When you define custom Segmentation/Targeting Conditions on the website, this allows you to target<br/>
+variations based on runtime data.  To pass your custom data into the targeting engine, call setCustomTargetingKey:withBlock: before intialising the splitforce library.<br/>
+The splitforce library will then execute valueBlock when required, and pass the return value into the targeting engine.<br/>
+For example, to return the user&rsquo;s gender from a global user object:<br/>
+    [SFManager setCustomTargetingKey:@&ldquo;gender&rdquo; withBlock:^{<br/>
+        return [UserManager.currentUser gender];<br/>
     }];</p>
 	</div>		
 	
@@ -783,8 +783,8 @@ For example, to return the user&rsquo;s gender from a global user object:
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.
-Debug mode also enables &lsquo;Shake to Variation&rsquo; which allows you to force particular variations to be used from the UI within the app.
+		<p>Switching on debugMode will provide more detailed logs on the console and should be switched on for all DEBUG builds.<br/>
+Debug mode also enables &lsquo;Shake to Variation&rsquo; which allows you to force particular variations to be used from the UI within the app.<br/>
 Simply shake the device to get a menu of Experiments and Variations.</p>
 	</div>		
 	
@@ -821,9 +821,9 @@ Simply shake the device to get a menu of Experiments and Variations.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
-Set this block before instantiating the SFManager.  This block will then be called on the main thread
-when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
+		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.<br/>
+Set this block before instantiating the SFManager.  This block will then be called on the main thread<br/>
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third<br/>
 party or bespoke Analytics services for example.</p>
 	</div>		
 	
@@ -901,9 +901,9 @@ party or bespoke Analytics services for example.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Set the timeout for connecting to the Splitforce backend.  Note that an initial connect requires two round trips, so
-the max time any method would block or the max time for a callback to be called may be twice this value.  Note also
-that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
+		<p>Set the timeout for connecting to the Splitforce backend.  Note that an initial connect requires two round trips, so<br/>
+the max time any method would block or the max time for a callback to be called may be twice this value.  Note also<br/>
+that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing<br/>
 the value after the manager has been established will have no effect.</p>
 	</div>		
 	
@@ -950,9 +950,9 @@ the value after the manager has been established will have no effect.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.
-Set this block before instantiating the SFManager.  This block will then be called on the main thread
-when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third
+		<p>The Cohort Identifier is a dictionary with Experiment Names for keys and Variation Names for values.<br/>
+Set this block before instantiating the SFManager.  This block will then be called on the main thread<br/>
+when the cohort has been established.  The Cohort Identifier may be useful for interfacing with third<br/>
 party or bespoke Analytics services for example.</p>
 
 <p>Also note that the default cohort is represented as an empty dictionary.</p>
@@ -1040,11 +1040,11 @@ party or bespoke Analytics services for example.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Get the data for an experiment and apply the variationBlock on the selected variation.
-The SFVariation object provided to the applyVariationBlock will contain the raw data
-in the variationData property.  The SFVariation object shall be used when goal conditions
-are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method
-is provided as a convenience an can be used in conjunction with - [SFManager variationForObject:] to
+		<p>Get the data for an experiment and apply the variationBlock on the selected variation.<br/>
+The SFVariation object provided to the applyVariationBlock will contain the raw data<br/>
+in the variationData property.  The SFVariation object shall be used when goal conditions<br/>
+are met in order to accurately track the variation and result.  The - [SFVariation bindVariationToObject:] method<br/>
+is provided as a convenience an can be used in conjunction with - [SFManager variationForObject:] to<br/>
 retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> object at a later point.</p>
 	</div>		
 	
@@ -1082,7 +1082,7 @@ retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> objec
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The default block should be used to configure default settings for your user.  The default block can be called
+		<p>The default block should be used to configure default settings for your user.  The default block can be called<br/>
 if there is no connection to the splitforce servers, and no cached content available for your users.</p>
 	</div>
 	
