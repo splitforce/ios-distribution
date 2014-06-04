@@ -52,13 +52,18 @@ typedef uint_least32_t char32_t;
 #endif
 
 #if defined(__has_feature) && __has_feature(modules)
+@import UIKit;
 #endif
 
 #import <Splitforce/Splitforce.h>
 
 
 @interface SFManager ()
-- (void)playExperimentName:(NSString *)experimentName apply:(void (^)(SFVariation *))apply;
-- (void)playDefaultForExperimentName:(NSString *)experimentName apply:(void (^)(void))apply;
+- (void)pgExperimentName:(NSString *)experimentName ifDefault:(void (^)(void))ifDefault applyBlock:(void (^)(SFVariation *))applyBlock;
+@end
+
+
+@interface SFVariation ()
+- (void)colorForElementName:(NSString *)element doBlock:(void (^)(UIColor *))doBlock;
 @end
 
