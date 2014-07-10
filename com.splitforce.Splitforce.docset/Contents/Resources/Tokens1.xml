@@ -149,6 +149,19 @@ Simply shake the device to get a menu of Experiments and Variations.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SFManager/disableShakeToVariation</TokenIdentifier>
+			<Abstract type="html">Suppresses the shake-to-variation behaviour in Debug Mode.  You can programatically invoke the Variation-selection Action Sheet
+using -[showVariationSelection]</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>+ (void)disableShakeToVariation</Declaration>
+			
+			
+			<Anchor>//api/name/disableShakeToVariation</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/SFManager/setShakeToVariationDidChangeVariationBlock:</TokenIdentifier>
 			<Abstract type="html">When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.
 If so then you can do that within this block.</Abstract>
@@ -327,6 +340,18 @@ retrieve the correct SFVariation object at a later point.</Abstract>
 			
 			
 			<Anchor>//api/name/allExperimentNames</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SFManager/showVariationSelectionInView:</TokenIdentifier>
+			<Abstract type="html">Programatically invoke the &apos;shake to variation&apos; behaviour.  Only available in Debug Mode.</Abstract>
+			<DeclaredIn>SFManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)showVariationSelectionInView:(UIView *)view</Declaration>
+			
+			
+			<Anchor>//api/name/showVariationSelectionInView:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
