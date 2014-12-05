@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import <Splitforce/SFVariation.h>
 
+@class UIView;
+
 /*!
  An Objective-C Block taking an SFVariation object as a singular parameter to apply a variation.
  */
