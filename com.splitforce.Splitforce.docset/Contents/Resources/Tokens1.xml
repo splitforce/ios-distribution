@@ -96,7 +96,7 @@ usage with no network coverage it will call the completionBlock with NO.  Otherw
 will be called with YES.</Abstract>
 			<DeclaredIn>SFManager.h</DeclaredIn>			
 			
-			<Declaration>+ (void)managerWithApplicationId:(NSString *)applicationId applicationKey:(NSString *)applicationKey completionBlock:(SFBooleanBlock)completionBlock</Declaration>
+			<Declaration>+ (SFManager *)managerWithApplicationId:(NSString *)applicationId applicationKey:(NSString *)applicationKey completionBlock:(SFBooleanBlock)completionBlock</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>applicationId</Name>
@@ -109,7 +109,7 @@ will be called with YES.</Abstract>
 					<Abstract type="html">An SFBooleanBlock which will be called when the SFManager has been connected, or failed to connect.</Abstract>
 				</Parameter>
 			</Parameters>
-			
+			<ReturnValue><Abstract type="html">An SFManager object connected to the specified applicationId.</Abstract></ReturnValue>
 			<Anchor>//api/name/managerWithApplicationId:applicationKey:completionBlock:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
@@ -126,7 +126,7 @@ the value after the manager has been established will have no effect.</Abstract>
 			<Parameters>
 				<Parameter>
 					<Name>timeoutInterval</Name>
-					<Abstract type="html">The length of time in seconds for network timeouts</Abstract>
+					<Abstract type="html">The length of time in seconds for network timeouts.  The default is 15s.</Abstract>
 				</Parameter>
 			</Parameters>
 			
