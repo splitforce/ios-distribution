@@ -50,6 +50,8 @@
 	
 	<option value="//api/name/currentManager">&nbsp;&nbsp;&nbsp;&nbsp;+ currentManager</option>
 	
+	<option value="//api/name/disableShakeToVariation">&nbsp;&nbsp;&nbsp;&nbsp;+ disableShakeToVariation</option>
+	
 	<option value="//api/name/frameworkVersion">&nbsp;&nbsp;&nbsp;&nbsp;+ frameworkVersion</option>
 	
 	<option value="//api/name/managerWithApplicationId:applicationKey:">&nbsp;&nbsp;&nbsp;&nbsp;+ managerWithApplicationId:applicationKey:</option>
@@ -76,6 +78,8 @@
 	<option value="//api/name/allExperimentNames">&nbsp;&nbsp;&nbsp;&nbsp;- allExperimentNames</option>
 	
 	<option value="//api/name/experimentNamed:applyVariationBlock:applyDefaultBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- experimentNamed:applyVariationBlock:applyDefaultBlock:</option>
+	
+	<option value="//api/name/showVariationSelectionInView:">&nbsp;&nbsp;&nbsp;&nbsp;- showVariationSelectionInView:</option>
 	
 	<option value="//api/name/variationForExperimentNamed:">&nbsp;&nbsp;&nbsp;&nbsp;- variationForExperimentNamed:</option>
 	
@@ -129,6 +133,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentManager">currentManager</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/disableShakeToVariation">disableShakeToVariation</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/frameworkVersion">frameworkVersion</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managerWithApplicationId:applicationKey:">managerWithApplicationId:applicationKey:</a></span></li>
@@ -156,6 +162,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/allExperimentNames">allExperimentNames</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/experimentNamed:applyVariationBlock:applyDefaultBlock:">experimentNamed:applyVariationBlock:applyDefaultBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showVariationSelectionInView:">showVariationSelectionInView:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/variationForExperimentNamed:">variationForExperimentNamed:</a></span></li>
 	
@@ -291,6 +299,14 @@ Simply shake the device to get a menu of Experiments and Variations.</p></span>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/disableShakeToVariation">+&nbsp;disableShakeToVariation</a></code>
+		<span class="tooltip"><p>Suppresses the shake-to-variation behaviour in Debug Mode.  You can programatically invoke the Variation-selection Action Sheet<br/>
+using -[showVariationSelection]</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/shakeToVariationDidChangeVariationBlock">&nbsp;&nbsp;shakeToVariationDidChangeVariationBlock</a></code>
 		<span class="tooltip"><p>When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.<br/>
 If so then you can do that within this block.</p></span>
@@ -400,6 +416,13 @@ retrieve the correct <a href="../Classes/SFVariation.html">SFVariation</a> objec
 	<span class="tooltip">
 		<code><a href="#//api/name/allExperimentNames">&ndash;&nbsp;allExperimentNames</a></code>
 		<span class="tooltip"><p>Get the list of known experiment names</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showVariationSelectionInView:">&ndash;&nbsp;showVariationSelectionInView:</a></code>
+		<span class="tooltip"><p>Programatically invoke the &lsquo;shake to variation&rsquo; behaviour.  Only available in Debug Mode.</p></span>
 	</span>
 	
 	
@@ -523,6 +546,43 @@ Doing so will raise an Exception.</p>
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
 		<p>The current SFManager</p>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/disableShakeToVariation" title="disableShakeToVariation"></a>
+	<h3 class="subsubtitle method-title">disableShakeToVariation</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Suppresses the shake-to-variation behaviour in Debug Mode.  You can programatically invoke the Variation-selection Action Sheet<br/>
+using -[showVariationSelection]</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)disableShakeToVariation</code></div>
+
+    
+	
+	
 	
 	
 	
@@ -671,7 +731,7 @@ will be called with YES.</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)managerWithApplicationId:(NSString *)<em>applicationId</em> applicationKey:(NSString *)<em>applicationKey</em> completionBlock:(SFBooleanBlock)<em>completionBlock</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (SFManager *)managerWithApplicationId:(NSString *)<em>applicationId</em> applicationKey:(NSString *)<em>applicationKey</em> completionBlock:(SFBooleanBlock)<em>completionBlock</em></code></div>
 
     
 	
@@ -697,6 +757,11 @@ will be called with YES.</p>
 	
 	
 	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An SFManager object connected to the specified applicationId.</p>
+	</div>
+	
 	
 	
 	
@@ -718,6 +783,9 @@ error block variation.  See the property persistDefaultCohort for details on the
 there will be no issues.  You may decide that running your application without an active splitforce connection is<br/>
 undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure<br/>
 that the initial connection has been made before proceeding further into your aplication.</p>
+
+<p>The method returns the SFManager object that will be returned by SFManager.<a href="#//api/name/currentManager">currentManager</a>.  Note that calling methods on the returned SFManager,<br/>
+or calling methods on SFManager.<a href="#//api/name/currentManager">currentManager</a> is unsupported prior to the completionBlock being called and the behaviour is undefined.</p>
 	</div>
 	
 	
@@ -918,7 +986,7 @@ the value after the manager has been established will have no effect.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>timeoutInterval</em></dt>
-			<dd><p>The length of time in seconds for network timeouts</p></dd>
+			<dd><p>The length of time in seconds for network timeouts.  The default is 15s.</p></dd>
 		</dl>
 		
 	</div>
@@ -1101,6 +1169,42 @@ if there is no connection to the splitforce servers, and no cached content avail
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/showVariationSelectionInView:" title="showVariationSelectionInView:"></a>
+	<h3 class="subsubtitle method-title">showVariationSelectionInView:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Programatically invoke the &lsquo;shake to variation&rsquo; behaviour.  Only available in Debug Mode.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)showVariationSelectionInView:(UIView *)<em>view</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SFManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/variationForExperimentNamed:" title="variationForExperimentNamed:"></a>
 	<h3 class="subsubtitle method-title">variationForExperimentNamed:</h3>
 	
@@ -1200,7 +1304,7 @@ if there is no connection to the splitforce servers, and no cached content avail
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Splitforce. All rights reserved. (Last updated: 2014-06-10)</span><br />
+						<p><span class="copyright">&copy; 2014 Splitforce. All rights reserved. (Last updated: 2014-12-05)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						

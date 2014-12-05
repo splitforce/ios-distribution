@@ -129,14 +129,18 @@ In general - as long as the user has a functioning internet connection the first
  undesirable - in which case the managerWithApplicationId:applicationKey:completionBlock method should be used to ensure
  that the initial connection has been made before proceeding further into your aplication.
 
+ The method returns the SFManager object that will be returned by SFManager.currentManager.  Note that calling methods on the returned SFManager,
+ or calling methods on SFManager.currentManager is unsupported prior to the completionBlock being called and the behaviour is undefined.
+
  @param applicationId The Application Id provided by the Splitforce Web server.
  @param applicationKey The Application Key provided by the Splitforce Web server.
  @param completionBlock An SFBooleanBlock which will be called when the SFManager has been connected, or failed to connect.
+ @return An SFManager object connected to the specified applicationId.
 
  */
-+ (void)managerWithApplicationId:(NSString *)applicationId
-                  applicationKey:(NSString *)applicationKey
-                 completionBlock:(SFBooleanBlock)completionBlock;
++ (SFManager *)managerWithApplicationId:(NSString *)applicationId
+                         applicationKey:(NSString *)applicationKey
+                        completionBlock:(SFBooleanBlock)completionBlock;
 
 /**---------------------------------------------------------------------------------------
  * @name Class Parameters
@@ -149,7 +153,7 @@ In general - as long as the user has a functioning internet connection the first
  that you must set this parameter before initialising the manager connection, hence this is a class method.  Changing
  the value after the manager has been established will have no effect.
  
- @param timeoutInterval The length of time in seconds for network timeouts
+ @param timeoutInterval The length of time in seconds for network timeouts.  The default is 15s.
  */
 + (void)setTimeoutInterval:(NSTimeInterval)timeoutInterval;
 
@@ -159,6 +163,12 @@ In general - as long as the user has a functioning internet connection the first
  Simply shake the device to get a menu of Experiments and Variations.
  */
 + (void)setDebugMode:(BOOL)debugMode;
+
+/*!
+ Suppresses the shake-to-variation behaviour in Debug Mode.  You can programatically invoke the Variation-selection Action Sheet
+ using -[showVariationSelection]
+ */
++ (void)disableShakeToVariation;
 
 /*!
  When using Shake to Variation, you may need to reinitialise singletons or instances that were configured with the data.
@@ -265,5 +275,11 @@ In general - as long as the user has a functioning internet connection the first
  Get the list of known experiment names
  */
 - (NSArray *)allExperimentNames;
+
+/*!
+ Programatically invoke the 'shake to variation' behaviour.  Only available in Debug Mode.
+ */
+- (void)showVariationSelectionInView:(UIView *)view;
+
 
 @end

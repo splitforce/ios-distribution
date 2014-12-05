@@ -1,4 +1,18 @@
-Splitforce Library
+Splitforce Library Changelog
+
+Version 1.1.0 Revisions
+=======================
+ - Method signature for async library set up modified to better comply with Cocoa-conventiosn
+ - Default timeout interval specified in documentation
+ - Suppress deleted Variations from shake-to-variation menu
+
+Version 1.0.3 Revisions
+=======================
+ - Add High-availability support for apps that send large amounts of events
+
+Version 1.0.2 Revisions
+=======================
+ - Add new SFManager methods to supress Shake-to-variation in Debug Mode and programatically invoke the Variation selection ActionSheet.
 
 Version 1.0.1 Revisions
 =======================
